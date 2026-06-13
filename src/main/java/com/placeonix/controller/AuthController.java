@@ -5,6 +5,7 @@ import com.placeonix.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.placeonix.dto.LoginRequest;
+import com.placeonix.dto.AuthResponse;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -19,7 +20,8 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest request) {
+    public AuthResponse login(
+            @RequestBody LoginRequest request) {
 
         return authService.login(request);
     }

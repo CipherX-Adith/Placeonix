@@ -1,13 +1,14 @@
 package com.placeonix.service;
 
+import com.placeonix.dto.AuthResponse;
+import com.placeonix.dto.LoginRequest;
 import com.placeonix.dto.RegisterRequest;
 import com.placeonix.entity.User;
 import com.placeonix.repository.UserRepository;
+import com.placeonix.security.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.placeonix.dto.LoginRequest;
-import java.util.Optional;
 
 @Service
 public class AuthService {
@@ -17,6 +18,9 @@ public class AuthService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtService jwtService;
 
     public String register(RegisterRequest request) {
 
@@ -28,34 +32,33 @@ public class AuthService {
 
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
-
-        // Encrypt password before saving
-        user.setPassword(passwordEncoder.encode(request.getPassword()));
-
+        user.setPassword(
+                passwordEncoder.encode(request.getPassword())
+        );
         user.setRole(request.getRole());
 
         userRepository.save(user);
 
         return "User Registered Successfully";
     }
-    public String login(LoginRequest request) {
 
-        Optional<User> userOptional =
-                userRepository.findByEmail(request.getEmail());
+    public AuthResponse login(LoginRequest request) {
 
-        if (userOptional.isEmpty()) {
-            return "User Not Found";
-        }
+        User user = userRepository
+                .findByEmail(request.getEmail())
+                .orElseThrow(() ->
+                        new RuntimeException("User Not Found"));
 
-        User user = userOptional.get();
-
-        if (passwordEncoder.matches(
+        if (!passwordEncoder.matches(
                 request.getPassword(),
                 user.getPassword())) {
 
-            return "Login Successful";
+            throw new RuntimeException("Invalid Password");
         }
 
-        return "Invalid Password";
+        String token =
+                jwtService.generateToken(user.getEmail());
+
+        return new AuthResponse(token);
     }
 }
