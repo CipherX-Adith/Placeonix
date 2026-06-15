@@ -34,6 +34,42 @@ public class SecurityConfig {
                                 "/api/auth/login"
                         ).permitAll()
 
+                        .requestMatchers(
+                                "/api/auth/**"
+                        ).permitAll()
+
+                        .requestMatchers(
+                                "/api/students/**"
+                        ).hasAnyRole(
+                                "ADMIN",
+                                "TPO",
+                                "STUDENT"
+                        )
+
+                        .requestMatchers(
+                                "/api/companies/**"
+                        ).hasAnyRole(
+                                "ADMIN",
+                                "TPO",
+                                "COMPANY"
+                        )
+
+                        .requestMatchers(
+                                "/api/jobs/**"
+                        ).hasAnyRole(
+                                "ADMIN",
+                                "TPO",
+                                "COMPANY"
+                        )
+
+                        .requestMatchers(
+                                "/api/applications/**"
+                        ).hasAnyRole(
+                                "ADMIN",
+                                "TPO",
+                                "STUDENT"
+                        )
+
                         .anyRequest()
                         .authenticated()
                 )

@@ -33,6 +33,10 @@ public class JwtAuthenticationFilter
 
         String authHeader =
                 request.getHeader("Authorization");
+        System.out.println("REQUEST = " + request.getMethod() +
+                " " + request.getRequestURI());
+
+        System.out.println("AUTH HEADER = " + authHeader);
 
         String token = null;
         String email = null;
