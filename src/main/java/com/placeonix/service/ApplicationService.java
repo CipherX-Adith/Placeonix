@@ -1,11 +1,11 @@
 package com.placeonix.service;
 
 import com.placeonix.entity.Application;
+import com.placeonix.enums.ApplicationStatus;
+import com.placeonix.exception.DuplicateApplicationException;
 import com.placeonix.repository.ApplicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.placeonix.enums.ApplicationStatus;
-import com.placeonix.exception.DuplicateApplicationException;
 
 import java.util.List;
 
@@ -47,12 +47,27 @@ public class ApplicationService {
                                 "Application Not Found"));
     }
 
-    public String deleteApplication(Long id) {
+    public List<Application> getApplicationsByStatus(
+            ApplicationStatus status) {
 
-        applicationRepository.deleteById(id);
-
-        return "Application Deleted Successfully";
+        return applicationRepository
+                .findByStatus(status);
     }
+
+    public List<Application> getApplicationsByStudent(
+            Long studentId) {
+
+        return applicationRepository
+                .findByStudentId(studentId);
+    }
+
+    public List<Application> getApplicationsByCompany(
+            Long companyId) {
+
+        return applicationRepository
+                .findByJobCompanyId(companyId);
+    }
+
     public Application updateStatus(
             Long applicationId,
             ApplicationStatus status) {
@@ -66,5 +81,12 @@ public class ApplicationService {
         application.setStatus(status);
 
         return applicationRepository.save(application);
+    }
+
+    public String deleteApplication(Long id) {
+
+        applicationRepository.deleteById(id);
+
+        return "Application Deleted Successfully";
     }
 }

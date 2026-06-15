@@ -1,10 +1,10 @@
 package com.placeonix.controller;
 
 import com.placeonix.entity.Application;
+import com.placeonix.enums.ApplicationStatus;
 import com.placeonix.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.placeonix.enums.ApplicationStatus;
 
 import java.util.List;
 
@@ -35,12 +35,30 @@ public class ApplicationController {
         return applicationService.getApplicationById(id);
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteApplication(
-            @PathVariable Long id) {
+    @GetMapping("/status/{status}")
+    public List<Application> getApplicationsByStatus(
+            @PathVariable ApplicationStatus status) {
 
-        return applicationService.deleteApplication(id);
+        return applicationService
+                .getApplicationsByStatus(status);
     }
+
+    @GetMapping("/student/{studentId}")
+    public List<Application> getApplicationsByStudent(
+            @PathVariable Long studentId) {
+
+        return applicationService
+                .getApplicationsByStudent(studentId);
+    }
+
+    @GetMapping("/company/{companyId}")
+    public List<Application> getApplicationsByCompany(
+            @PathVariable Long companyId) {
+
+        return applicationService
+                .getApplicationsByCompany(companyId);
+    }
+
     @PutMapping("/{id}/status")
     public Application updateStatus(
             @PathVariable Long id,
@@ -48,5 +66,12 @@ public class ApplicationController {
 
         return applicationService
                 .updateStatus(id, status);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteApplication(
+            @PathVariable Long id) {
+
+        return applicationService.deleteApplication(id);
     }
 }
