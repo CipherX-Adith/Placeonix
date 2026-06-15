@@ -70,6 +70,13 @@ public class SecurityConfig {
                                 "STUDENT"
                         )
 
+                        .requestMatchers(
+                                "/api/reports/**"
+                        ).hasAnyRole(
+                                "ADMIN",
+                                "TPO"
+                        )
+
                         .anyRequest()
                         .authenticated()
                 )
