@@ -4,6 +4,7 @@ import com.placeonix.entity.Application;
 import com.placeonix.repository.ApplicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.placeonix.enums.ApplicationStatus;
 import com.placeonix.exception.DuplicateApplicationException;
 
 import java.util.List;
@@ -51,5 +52,19 @@ public class ApplicationService {
         applicationRepository.deleteById(id);
 
         return "Application Deleted Successfully";
+    }
+    public Application updateStatus(
+            Long applicationId,
+            ApplicationStatus status) {
+
+        Application application =
+                applicationRepository.findById(applicationId)
+                        .orElseThrow(() ->
+                                new RuntimeException(
+                                        "Application Not Found"));
+
+        application.setStatus(status);
+
+        return applicationRepository.save(application);
     }
 }

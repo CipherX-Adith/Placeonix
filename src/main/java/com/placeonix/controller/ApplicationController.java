@@ -4,6 +4,7 @@ import com.placeonix.entity.Application;
 import com.placeonix.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.placeonix.enums.ApplicationStatus;
 
 import java.util.List;
 
@@ -39,5 +40,13 @@ public class ApplicationController {
             @PathVariable Long id) {
 
         return applicationService.deleteApplication(id);
+    }
+    @PutMapping("/{id}/status")
+    public Application updateStatus(
+            @PathVariable Long id,
+            @RequestParam ApplicationStatus status) {
+
+        return applicationService
+                .updateStatus(id, status);
     }
 }
