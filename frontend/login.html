@@ -1204,6 +1204,10 @@
     };
 
     function switchLoginRole(role) {
+      if (role === 'admin') {
+        showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
+        return;
+      }
       activeRole = role;
       const conf = roleConfig[role] || roleConfig.student;
 
@@ -1298,7 +1302,10 @@
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const role = params.get('role');
-      if (role && ['student', 'recruiter', 'admin'].includes(role)) {
+      if (role === 'admin') {
+        showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
+        switchLoginRole('student');
+      } else if (role && ['student', 'recruiter'].includes(role)) {
         switchLoginRole(role);
       } else {
         switchLoginRole('student');

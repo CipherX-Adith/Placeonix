@@ -371,9 +371,30 @@
   </div>
 </div>
 
-<div id="toast-container"></div>
+  <!-- Feature Under Implementation Notice Banner / Modal -->
+  <div style="position:fixed;inset:0;background:rgba(15,23,42,0.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;">
+    <div class="card" style="max-width:480px;width:100%;text-align:center;border-radius:24px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);background:#ffffff;padding:36px 28px;border:1px solid #e2e8f0;">
+      <div style="width:68px;height:68px;border-radius:20px;background:#f5f3ff;color:#7c3aed;font-size:32px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 8px 20px rgba(124,58,237,0.15);">
+        🏛️
+      </div>
+      <h2 style="font-size:22px;font-weight:800;color:#0f172a;margin-bottom:8px;letter-spacing:-0.4px;">Placement Cell is Coming Soon</h2>
+      <p style="font-size:14px;color:#64748b;line-height:1.6;margin-bottom:24px;">
+        The institutional placement coordination, drive broadcasting, and administrative analytics module is currently under active implementation.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="index.html" class="btn btn-primary" style="justify-content:center;height:44px;font-weight:700;text-decoration:none;">
+          ← Back to Homepage
+        </a>
+        <a href="student-dashboard.html" class="btn btn-secondary" style="justify-content:center;height:44px;font-weight:600;text-decoration:none;">
+          🎓 Open Student Portal
+        </a>
+      </div>
+    </div>
+  </div>
 
-<!-- Scripts -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
 <script src="js/config.js"></script>
 <script src="js/api.js"></script>
 <script src="js/auth.js"></script>

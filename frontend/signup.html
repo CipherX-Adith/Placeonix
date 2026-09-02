@@ -1287,7 +1287,10 @@
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const role = params.get('role');
-      if (role && ['student', 'recruiter', 'admin'].includes(role)) {
+      if (role === 'admin') {
+        showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
+        switchSignupRole('student');
+      } else if (role && ['student', 'recruiter'].includes(role)) {
         switchSignupRole(role);
       } else {
         switchSignupRole('student');

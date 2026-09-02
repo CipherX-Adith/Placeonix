@@ -945,13 +945,14 @@
         <button class="lx-card-btn" onclick="openAuthModal('login', 'recruiter')">Enter Recruiter Portal →</button>
       </div>
 
-      <div class="lx-card">
+      <!-- Card 3: Placement Cell -->
+      <div class="lx-card" onclick="showPlacementComingSoon()" style="cursor:pointer;">
         <div>
           <div class="lx-card-icon" style="background:#f5f3ff; color:#7c3aed;">🏛️</div>
           <h3 class="lx-card-title">Placement Cell</h3>
-          <p class="lx-card-desc">Campus placement coordination tools are currently being built.</p>
+          <p class="lx-card-desc">Campus placement coordination and institutional administration module is currently under implementation.</p>
         </div>
-        <button class="lx-card-btn" onclick="showPlacementComingSoon()">Coming soon →</button>
+        <button class="lx-card-btn" onclick="event.stopPropagation(); showPlacementComingSoon()">Coming soon →</button>
       </div>
 
     </div>
@@ -1224,6 +1225,10 @@
     }
 
     function selectModalRole(role) {
+      if (role === 'admin') {
+        showPlacementComingSoon();
+        return;
+      }
       currentAuthRole = role;
       setHeroRole(role);
       document.getElementById('modal-auth-role').value = role;
