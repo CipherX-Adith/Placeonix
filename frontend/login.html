@@ -71,6 +71,7 @@
     /* ── PLACEONIX BRAND LOGO ── */
     .px-brand-logo-link {
       display: inline-block;
+      max-width: 100%;
       text-decoration: none;
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
@@ -83,11 +84,11 @@
     }
     .px-brand-logo-link::after {
       content: '';
-      height: 56px;
-      width: 300px;
-      max-width: 300px;
+      height: 48px;
+      width: 220px;
+      max-width: 100%;
       display: block;
-      background: url('images/placeonix-logo.png') center / contain no-repeat;
+      background: url('images/placeonix-logo-v2.png') center / contain no-repeat;
     }
 
     /* ── MAIN CARD WRAPPER ── */
@@ -746,12 +747,6 @@
             <span class="gateway-card-title">For Recruiters</span>
           </div>
 
-          <div class="gateway-role-card" onclick="openRoleLogin('admin')">
-            <div class="gateway-card-icon icon-admin">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <span class="gateway-card-title">Placement Officer</span>
-          </div>
         </div>
 
         <!-- Divider -->
@@ -949,7 +944,7 @@
             Recruiter
           </button>
           <button type="button" class="role-segment-btn" id="btn-role-admin" onclick="switchLoginRole('admin')">
-            Placement Officer
+            Placement Cell
           </button>
         </div>
 
@@ -1018,13 +1013,7 @@
             <span class="demo-creds-title">⚡ 1-Click Demo:</span>
             <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('rahul.sharma@placeonix.edu', 'student123', 'student')">🎓 Student</button>
             <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('recruiter.google@placeonix.com', 'recruiter123', 'recruiter')">🏢 Recruiter</button>
-            <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('admin@placeonix.edu', 'admin123', 'admin')">🏛️ Placement Officer</button>
-          </div>
-
-          <!-- Single Clean Bottom Switch Prompt -->
-          <div class="auth-bottom-switch">
-            <span>Don't have an account?</span>
-            <a href="signup.html" class="auth-bottom-link" id="bottom-switch-link">Create account</a>
+            <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('admin', 'admin123', 'admin')">🏛️ Admin</button>
           </div>
 
         </form>
@@ -1097,15 +1086,6 @@
       </div>
     </div>
 
-    <a href="admin-dashboard.html" class="admin-quick-badge">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-        <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 8v8M8 12h8"/>
-      </svg>
-      <div>
-        <span style="display:block;font-size:11.5px;font-weight:700;">Administrator Access</span>
-        <span style="display:block;font-size:10px;color:#64748b;">For system administrators &rsaquo;</span>
-      </div>
-    </a>
   </div>
 
   <footer class="page-bottom-copyright">
@@ -1177,12 +1157,20 @@
     }
 
     function openRoleLogin(role) {
+      if (role === 'admin') {
+        showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
+        return;
+      }
       document.getElementById('view-gateway').style.display = 'none';
       document.getElementById('view-role-login').style.display = 'grid';
       switchLoginRole(role);
     }
 
     function switchLoginRole(role) {
+      if (role === 'admin') {
+        showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
+        return;
+      }
       activeRole = role;
       const conf = roleConfig[role] || roleConfig.student;
 
@@ -1226,7 +1214,7 @@
     }
 
     function fillDemoCredentials(email, password, role) {
-      switchLoginRole(role);
+      if (role !== 'admin') switchLoginRole(role);
       document.getElementById('login-email-input').value = email;
       document.getElementById('login-pwd-input').value = password;
       showToast(`Loaded demo credentials for ${role.toUpperCase()}`, 'info');

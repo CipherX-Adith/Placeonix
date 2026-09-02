@@ -327,38 +327,6 @@
       font-weight: 400;
     }
 
-    /* Role Selection Chips */
-    .lx-role-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-    .lx-role-chip {
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      padding: 7px 16px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #334155;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .lx-role-chip:hover {
-      border-color: #0a66c2;
-      color: #0a66c2;
-      background: #f0f7ff;
-    }
-    .lx-role-chip.active {
-      background: #e8f3ff;
-      border-color: #0a66c2;
-      color: #0a66c2;
-    }
-
     /* ── LINKEDIN AUTH STACK IN HERO ── */
     .lx-hero-auth-box {
       display: flex;
@@ -648,7 +616,7 @@
       transform: translateY(-2px);
     }
 
-    /* ── 3-WAY STAKEHOLDER CARDS (STUDENT, RECRUITER, ADMIN) ── */
+    /* ── 3-WAY STAKEHOLDER CARDS ── */
     .lx-cards-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -739,83 +707,6 @@
       color: #ffffff;
     }
 
-    /* ── DEMO INSTANT ACCESS BANNER ── */
-    .lx-demo-banner {
-      background: linear-gradient(135deg, #0a1629 0%, #0f2b5c 100%);
-      border-radius: 24px;
-      padding: 40px 32px;
-      color: #ffffff;
-      margin: 40px auto 72px;
-      max-width: 1200px;
-      box-shadow: 0 20px 40px rgba(10,22,41,0.18);
-    }
-    .lx-demo-head {
-      margin-bottom: 28px;
-      text-align: left;
-    }
-    .lx-demo-head h3 {
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 800;
-      margin: 0 0 6px;
-      color: #ffffff;
-    }
-    .lx-demo-head p {
-      font-size: 14px;
-      color: #93c5fd;
-      margin: 0;
-    }
-    .lx-demo-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-    @media (min-width: 768px) {
-      .lx-demo-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    .lx-demo-tile {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(10px);
-      border-radius: 14px;
-      padding: 18px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .lx-demo-tile:hover {
-      background: rgba(255, 255, 255, 0.16);
-      border-color: #38bdf8;
-      transform: translateY(-2px);
-    }
-    .lx-demo-role-name {
-      font-family: var(--font-display);
-      font-size: 15px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 3px;
-    }
-    .lx-demo-cred {
-      font-size: 12px;
-      color: #cbd5e1;
-      font-family: monospace;
-    }
-    .lx-demo-arrow {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-size: 14px;
-    }
-
     /* ── FOOTER ── */
     .lx-footer {
       background: #f3f2ef;
@@ -880,7 +771,7 @@
   <nav class="lx-nav" id="lx-nav">
     <div class="lx-nav-left">
       <a class="lx-logo" href="/" style="display: inline-flex; align-items: center; text-decoration: none;">
-        <img src="images/placeonix-logo.png" alt="Placeonix – CONNECT • MATCH • GROW" style="height: 60px; width: auto; max-width: 300px; object-fit: contain; display: block;" />
+        <img src="images/placeonix-logo-v2.png" alt="Placeonix – CONNECT • MATCH • GROW" style="height: 62px; width: auto; max-width: 280px; object-fit: contain; display: block;" />
       </a>
     </div>
 
@@ -893,10 +784,6 @@
       <a class="lx-nav-link" href="#portals">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
         <span>Portals</span>
-      </a>
-      <a class="lx-nav-link" href="#demo-access">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"/></svg>
-        <span>Demo Access</span>
       </a>
       <div class="lx-nav-divider"></div>
     </div>
@@ -922,7 +809,6 @@
         <span>💼 <strong>Microsoft &amp; Google</strong> campus recruitment drives active for 2026 batch</span>
         <span>⚡ <strong>Match Engine 2.0:</strong> Live 5-factor compatibility scores enabled for all applicants</span>
         <span>🎯 <strong>Status Update:</strong> 140+ new verified job openings posted this week</span>
-        <span>🏛️ <strong>Placement Cell:</strong> Direct stage tracking from Shortlist to Final Offer Letter</span>
       </div>
     </div>
   </div>
@@ -931,7 +817,6 @@
   <div class="lx-mobile-drawer" id="mobile-menu">
     <a class="lx-mobile-item" href="#explore" onclick="closeMobileMenu()">🔍 Discover Jobs &amp; Matches</a>
     <a class="lx-mobile-item" href="#portals" onclick="closeMobileMenu()">🏛️ Portals (Student, Recruiter, Admin)</a>
-    <a class="lx-mobile-item" href="#demo-access" onclick="closeMobileMenu()">🔑 One-Click Demo Credentials</a>
     <hr style="border:0; border-top:1px solid #f1f5f9; margin:10px 0;" />
     <button class="lx-btn-signin-nav" style="width:100%; justify-content:center;" onclick="closeMobileMenu(); openAuthModal('login', 'student')">🎓 Student Sign In</button>
     <button class="lx-btn-join-nav" style="width:100%; justify-content:center; margin-top:10px;" onclick="closeMobileMenu(); openAuthModal('login', 'recruiter')">🏢 Recruiter Sign In</button>
@@ -946,15 +831,8 @@
           Connect your campus to opportunity.
         </h1>
         <p class="lx-hero-subtitle">
-          Welcome to Placeonix — the digital bridge connecting verified students, top employers, and placement cells from campus to career.
+          Welcome to Placeonix — the digital bridge connecting verified students and top employers from campus to career.
         </p>
-
-        <!-- Fast Role Selector Chips -->
-        <div class="lx-role-chips">
-          <a href="signup.html?role=student" class="lx-role-chip active" id="chip-student" style="text-decoration:none;">🎓 For Students</a>
-          <a href="signup.html?role=recruiter" class="lx-role-chip" id="chip-recruiter" style="text-decoration:none;">🏢 For Recruiters</a>
-          <a href="signup.html?role=admin" class="lx-role-chip" id="chip-admin" style="text-decoration:none;">🏛️ Placement Cell</a>
-        </div>
 
         <!-- Auth Action Stack in Hero -->
         <div class="lx-hero-auth-box">
@@ -1067,52 +945,17 @@
         <button class="lx-card-btn" onclick="openAuthModal('login', 'recruiter')">Enter Recruiter Portal →</button>
       </div>
 
-      <!-- Card 3: Placement Admins -->
       <div class="lx-card">
         <div>
-          <div class="lx-card-icon" style="background:#f5f3ff; color:#7c3aed;">👑</div>
-          <h3 class="lx-card-title">Placement Administrators</h3>
-          <p class="lx-card-desc">Oversee complete campus recruitment drives, analyze department-wise statistics, and broadcast verified opportunities institution-wide.</p>
-          <ul class="lx-card-points">
-            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Real-time Campus Analytics &amp; Reports</li>
-            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Campus-wide Drive Announcement Hub</li>
-            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 1-Click CSV &amp; Audit Data Exports</li>
-          </ul>
+          <div class="lx-card-icon" style="background:#f5f3ff; color:#7c3aed;">🏛️</div>
+          <h3 class="lx-card-title">Placement Cell</h3>
+          <p class="lx-card-desc">Campus placement coordination tools are currently being built.</p>
         </div>
-        <button class="lx-card-btn" onclick="openAuthModal('login', 'admin')">Enter Admin Dashboard →</button>
+        <button class="lx-card-btn" onclick="showPlacementComingSoon()">Coming soon →</button>
       </div>
+
     </div>
 
-    <!-- Quick Demo Logins Banner -->
-    <div class="lx-demo-banner" id="demo-access">
-      <div class="lx-demo-head">
-        <h3>⚡ One-Tap Interactive Demo Access</h3>
-        <p>Choose any role below to pre-populate verified credentials and experience Placeonix instantly.</p>
-      </div>
-      <div class="lx-demo-grid">
-        <div class="lx-demo-tile" onclick="fillDemo('rahul.sharma@placeonix.edu', 'student123', 'student')">
-          <div>
-            <div class="lx-demo-role-name">🎓 Student Portal Demo</div>
-            <div class="lx-demo-cred">rahul.sharma@placeonix.edu</div>
-          </div>
-          <div class="lx-demo-arrow">→</div>
-        </div>
-        <div class="lx-demo-tile" onclick="fillDemo('recruiter.google@placeonix.com', 'recruiter123', 'recruiter')">
-          <div>
-            <div class="lx-demo-role-name">🏢 Google Recruiter Demo</div>
-            <div class="lx-demo-cred">recruiter.google@placeonix.com</div>
-          </div>
-          <div class="lx-demo-arrow">→</div>
-        </div>
-        <div class="lx-demo-tile" onclick="fillDemo('admin@placeonix.edu', 'admin123', 'admin')">
-          <div>
-            <div class="lx-demo-role-name">👑 Placement Officer Demo</div>
-            <div class="lx-demo-cred">admin@placeonix.edu</div>
-          </div>
-          <div class="lx-demo-arrow">→</div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- Modern Footer -->
@@ -1120,7 +963,7 @@
     <div class="lx-footer-inner">
       <div class="lx-footer-brand">
         <a class="lx-logo" href="/" style="display: inline-flex; align-items: center; text-decoration: none;">
-          <img src="images/placeonix-logo.png" alt="Placeonix – CONNECT • MATCH • GROW" style="height: 52px; width: auto; max-width: 270px; object-fit: contain; display: block;" />
+          <img src="images/placeonix-logo-v2.png" alt="Placeonix – CONNECT • MATCH • GROW" style="height: 56px; width: auto; max-width: 250px; object-fit: contain; display: block;" />
         </a>
         <p>The next-generation campus recruitment platform empowering universities, enterprise recruiters, and graduates to build meaningful career journeys.</p>
       </div>
@@ -1135,13 +978,6 @@
         <h5>Portals</h5>
         <a href="javascript:void(0)" onclick="openAuthModal('login', 'student')">Student Portal</a>
         <a href="javascript:void(0)" onclick="openAuthModal('login', 'recruiter')">Recruiter Pipeline</a>
-        <a href="javascript:void(0)" onclick="openAuthModal('login', 'admin')">Placement Officer</a>
-      </div>
-      <div class="lx-footer-col">
-        <h5>Placement Cell</h5>
-        <a href="javascript:void(0)">Support Hub</a>
-        <a href="javascript:void(0)">Campus Policy</a>
-        <a href="javascript:void(0)">Privacy &amp; Terms</a>
       </div>
     </div>
 
@@ -1169,9 +1005,6 @@
           </button>
           <button id="modal-role-recruiter" type="button" class="px-role-tab" onclick="selectModalRole('recruiter')">
             <span>🏢 Recruiter</span>
-          </button>
-          <button id="modal-role-admin" type="button" class="px-role-tab" onclick="selectModalRole('admin')">
-            <span>🏛️ Placement Cell</span>
           </button>
         </div>
 
@@ -1344,6 +1177,10 @@
     let currentAuthRole = 'student';
     let mobileMenuOpen = false;
 
+    function showPlacementComingSoon() {
+      showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
+    }
+
     function setHeroRole(role) {
       currentAuthRole = role;
       ['student', 'recruiter', 'admin'].forEach(r => {
@@ -1371,6 +1208,10 @@
     }
 
     function openAuthModal(mode = 'register', role = 'student') {
+      if (role === 'admin') {
+        showPlacementComingSoon();
+        return;
+      }
       currentAuthMode = mode;
       currentAuthRole = role || 'student';
       document.getElementById('auth-modal').classList.add('open');
