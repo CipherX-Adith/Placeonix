@@ -68,63 +68,26 @@
       transition: background-color 0.3s ease;
     }
 
-    /* ── CRISP VECTOR BRAND LOGO ── */
-    .px-brand-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
+    /* ── PLACEONIX BRAND LOGO ── */
+    .px-brand-logo-link {
+      display: inline-block;
       text-decoration: none;
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
-    .px-brand-logo:hover {
+    .px-brand-logo-link:hover {
       transform: translateY(-1px);
       opacity: 0.95;
     }
-    .px-brand-icon-box {
-      width: 40px;
-      height: 40px;
-      border-radius: 11px;
-      background: linear-gradient(135deg, #0a66c2 0%, #0047b3 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 4px 10px rgba(10, 102, 194, 0.25);
+    .px-brand-logo-svg {
+      display: none;
     }
-    .px-brand-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .px-brand-title {
-      font-family: var(--font-heading);
-      font-size: 23px;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: -0.6px;
-      line-height: 1.05;
-    }
-    .px-brand-title span {
-      color: #0a66c2;
-    }
-    .px-brand-title .accent-x {
-      color: #10b981;
-      font-weight: 900;
-    }
-    body.theme-recruiter .px-brand-title span {
-      color: #059669;
-    }
-    body.theme-admin .px-brand-title span {
-      color: #6d28d9;
-    }
-    .px-brand-tagline {
-      font-family: var(--font-heading);
-      font-size: 8px;
-      font-weight: 800;
-      color: #64748b;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-top: 3px;
+    .px-brand-logo-link::after {
+      content: '';
+      height: 56px;
+      width: 300px;
+      max-width: 300px;
+      display: block;
+      background: url('images/placeonix-logo.png') center / contain no-repeat;
     }
 
     /* ── MAIN CARD WRAPPER ── */
@@ -716,18 +679,48 @@
     <div class="gateway-view-container" id="view-gateway" style="display:none;">
       
       <div class="gateway-left">
-        <!-- Crisp Vector Brand Logo -->
-        <a href="index.html" class="px-brand-logo">
-          <div class="px-brand-icon-box">
-            <svg width="22" height="22" viewBox="0 0 44 44" fill="none">
-              <path d="M13 32V12H23C27.4183 12 31 15.5817 31 20C31 24.4183 27.4183 28 23 28H13" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M25 11L33 11M33 11V19M33 11L22 22" stroke="#10B981" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="px-brand-text">
-            <div class="px-brand-title">Place<span>oni</span><span class="accent-x">x</span></div>
-            <div class="px-brand-tagline">CONNECT • MATCH • GROW</div>
-          </div>
+        <!-- Exact Brand Vector Logo -->
+        <a href="index.html" class="px-brand-logo-link" title="Placeonix – CONNECT • MATCH • GROW">
+          <svg class="px-brand-logo-svg" viewBox="0 0 430 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gwPBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0066FF"/>
+                <stop offset="100%" stop-color="#0052CC"/>
+              </linearGradient>
+              <linearGradient id="gwPNavyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0A192F"/>
+                <stop offset="100%" stop-color="#050E1C"/>
+              </linearGradient>
+              <linearGradient id="gwGreenArrowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#059669"/>
+                <stop offset="100%" stop-color="#10B981"/>
+              </linearGradient>
+              <linearGradient id="gwCyanLegGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0284C7"/>
+                <stop offset="100%" stop-color="#0EA5E9"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(6, 6)">
+              <path d="M12 42C12 58 22 72 34 72H40C38 60 38 50 48 42H24C17 42 12 42 12 42Z" fill="url(#gwPNavyGrad)"/>
+              <path d="M12 14C12 6 18 0 25 0H64C77 0 86 10 86 24C86 38 77 48 64 48H44C30 48 20 58 19 72H12C12 72 12 24 12 14Z" fill="url(#gwPBlueGrad)"/>
+              <path d="M24 50L54 20H46L64 12L68 30L60 22L30 52Z" fill="#FFFFFF"/>
+            </g>
+            <g transform="translate(108, 52)">
+              <text font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="44" fill="#0A1629" letter-spacing="-1.2">Place</text>
+              <text x="122" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="44" fill="#0066FF" letter-spacing="-1.2">oni</text>
+              <path d="M198 -32L210 -15L196 4H208L216 -8L225 4H237L222 -15L231 -28H221L215 -20L208 -32H198Z" fill="url(#gwCyanLegGrad)"/>
+              <path d="M205 4L232 -32H242L211 4Z" fill="url(#gwGreenArrowGrad)"/>
+              <polygon points="228,-36 248,-36 248,-16 241,-21 234,-30" fill="url(#gwGreenArrowGrad)"/>
+              <circle cx="182" cy="-35" r="4.2" fill="url(#gwGreenArrowGrad)"/>
+            </g>
+            <g transform="translate(110, 76)">
+              <text font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="9.5" fill="#64748B" letter-spacing="3.8">CONNECT</text>
+              <circle cx="82" cy="-3.5" r="2.2" fill="#0066FF"/>
+              <text x="96" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="9.5" fill="#64748B" letter-spacing="3.8">MATCH</text>
+              <circle cx="166" cy="-3.5" r="2.2" fill="#10B981"/>
+              <text x="180" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="9.5" fill="#64748B" letter-spacing="3.8">GROW</text>
+            </g>
+          </svg>
         </a>
 
         <h1 class="gateway-hero-title">
@@ -792,50 +785,7 @@
 
       <!-- Right Artwork in Gateway -->
       <div class="gateway-right">
-        <svg viewBox="0 0 400 360" fill="none" style="width:100%;max-width:380px;height:auto;">
-          <path d="M140 60L200 35L260 60V140H140V60Z" fill="#DBEAFE" opacity="0.6"/>
-          <rect x="155" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
-          <rect x="180" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
-          <rect x="205" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
-          <rect x="230" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
-          
-          <g transform="translate(100, 70)">
-            <rect width="110" height="34" rx="8" fill="#FFFFFF" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
-            <circle cx="18" cy="17" r="10" fill="#0A66C2"/>
-            <path d="M14 17L17 20L22 14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
-            <rect x="36" y="11" width="50" height="5" rx="2" fill="#0F172A"/>
-            <rect x="36" y="19" width="30" height="4" rx="2" fill="#94A3B8"/>
-          </g>
-
-          <g transform="translate(90, 180)">
-            <rect width="90" height="50" rx="10" fill="#FFFFFF" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
-            <rect x="15" y="32" width="10" height="18" rx="2" fill="#0A66C2"/>
-            <rect x="30" y="24" width="10" height="26" rx="2" fill="#38BDF8"/>
-            <rect x="45" y="16" width="10" height="34" rx="2" fill="#10B981"/>
-            <rect x="60" y="28" width="10" height="22" rx="2" fill="#6366F1"/>
-          </g>
-
-          <ellipse cx="210" cy="270" rx="90" ry="45" fill="#0A66C2"/>
-          <ellipse cx="210" cy="250" rx="75" ry="40" fill="#2563EB"/>
-
-          <circle cx="210" cy="150" r="18" fill="#FDBA74"/>
-          <path d="M195 140C195 130 225 130 225 140C225 148 220 152 210 152C200 152 195 148 195 140Z" fill="#1E293B"/>
-          <path d="M190 172C190 166 230 166 230 172V220H190V172Z" fill="#0284C7"/>
-          <rect x="180" y="210" width="60" height="30" rx="6" fill="#1E293B"/>
-          
-          <rect x="195" y="195" width="45" height="30" rx="3" fill="#E2E8F0"/>
-          <rect x="198" y="198" width="39" height="24" rx="2" fill="#0F172A"/>
-          <ellipse cx="217" cy="210" rx="3" ry="3" fill="#38BDF8"/>
-          <rect x="185" y="224" width="65" height="4" rx="2" fill="#CBD5E1"/>
-
-          <rect x="110" y="245" width="35" height="45" rx="10" fill="#0F172A"/>
-          <rect x="118" y="260" width="20" height="15" rx="4" fill="#334155"/>
-
-          <ellipse cx="320" cy="290" rx="20" ry="6" fill="#CBD5E1"/>
-          <path d="M312 290L315 260H325L328 290H312Z" fill="#94A3B8"/>
-          <path d="M320 260C310 230 300 240 295 210C315 215 320 240 320 260Z" fill="#10B981"/>
-          <path d="M320 260C330 230 340 240 345 210C325 215 320 240 320 260Z" fill="#059669"/>
-        </svg>
+        <img src="images/hero-illustration-blended.png" alt="Placeonix Platform" style="width:100%;max-width:440px;height:auto;object-fit:contain;filter:drop-shadow(0 15px 30px rgba(10,102,194,0.12));" />
       </div>
 
     </div>
@@ -934,20 +884,54 @@
       <!-- RIGHT COLUMN: ROLE LOGIN FORM -->
       <div class="auth-right-panel">
         
-        <!-- Top Row: Clean Single Brand Logo (Duplicate Join link removed) -->
+        <!-- Top Row: Exact Brand Vector Logo -->
         <div class="auth-panel-top">
-          <a href="index.html" class="px-brand-logo">
-            <div class="px-brand-icon-box">
-              <svg width="22" height="22" viewBox="0 0 44 44" fill="none">
-                <path d="M13 32V12H23C27.4183 12 31 15.5817 31 20C31 24.4183 27.4183 28 23 28H13" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M25 11L33 11M33 11V19M33 11L22 22" stroke="#10B981" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="px-brand-text">
-              <div class="px-brand-title">Place<span>oni</span><span class="accent-x">x</span></div>
-              <div class="px-brand-tagline">CONNECT • MATCH • GROW</div>
-            </div>
+          <a href="index.html" class="px-brand-logo-link" title="Placeonix – CONNECT • MATCH • GROW">
+            <svg class="px-brand-logo-svg" viewBox="0 0 430 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="formPBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0066FF"/>
+                  <stop offset="100%" stop-color="#0052CC"/>
+                </linearGradient>
+                <linearGradient id="formPNavyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#0A192F"/>
+                  <stop offset="100%" stop-color="#050E1C"/>
+                </linearGradient>
+                <linearGradient id="formGreenArrowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#059669"/>
+                  <stop offset="100%" stop-color="#10B981"/>
+                </linearGradient>
+                <linearGradient id="formCyanLegGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0284C7"/>
+                  <stop offset="100%" stop-color="#0EA5E9"/>
+                </linearGradient>
+              </defs>
+              <g transform="translate(6, 6)">
+                <path d="M12 42C12 58 22 72 34 72H40C38 60 38 50 48 42H24C17 42 12 42 12 42Z" fill="url(#formPNavyGrad)"/>
+                <path d="M12 14C12 6 18 0 25 0H64C77 0 86 10 86 24C86 38 77 48 64 48H44C30 48 20 58 19 72H12C12 72 12 24 12 14Z" fill="url(#formPBlueGrad)"/>
+                <path d="M24 50L54 20H46L64 12L68 30L60 22L30 52Z" fill="#FFFFFF"/>
+              </g>
+              <g transform="translate(108, 52)">
+                <text font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="44" fill="#0A1629" letter-spacing="-1.2">Place</text>
+                <text x="122" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="44" fill="#0066FF" letter-spacing="-1.2">oni</text>
+                <path d="M198 -32L210 -15L196 4H208L216 -8L225 4H237L222 -15L231 -28H221L215 -20L208 -32H198Z" fill="url(#formCyanLegGrad)"/>
+                <path d="M205 4L232 -32H242L211 4Z" fill="url(#formGreenArrowGrad)"/>
+                <polygon points="228,-36 248,-36 248,-16 241,-21 234,-30" fill="url(#formGreenArrowGrad)"/>
+                <circle cx="182" cy="-35" r="4.2" fill="url(#formGreenArrowGrad)"/>
+              </g>
+              <g transform="translate(110, 76)">
+                <text font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="9.5" fill="#64748B" letter-spacing="3.8">CONNECT</text>
+                <circle cx="82" cy="-3.5" r="2.2" fill="#0066FF"/>
+                <text x="96" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="9.5" fill="#64748B" letter-spacing="3.8">MATCH</text>
+                <circle cx="166" cy="-3.5" r="2.2" fill="#10B981"/>
+                <text x="180" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="9.5" fill="#64748B" letter-spacing="3.8">GROW</text>
+              </g>
+            </svg>
           </a>
+          <div class="top-action-wrap" style="font-size:13px;color:#64748b;">
+            <span>New here?</span>
+            <a href="signup.html" id="top-switch-link" style="font-weight:700;color:var(--theme-primary);text-decoration:none;margin-left:3px;">Join now</a>
+          </div>
         </div>
 
         <!-- Headings -->
@@ -1226,6 +1210,12 @@
       if (bottomLink) {
         bottomLink.textContent = conf.bottomLinkText;
         bottomLink.href = `signup.html?role=${conf.signupParam}`;
+      }
+
+      const topLink = document.getElementById('top-switch-link');
+      if (topLink) {
+        topLink.textContent = (role === 'student') ? 'Join now' : 'Create account';
+        topLink.href = `signup.html?role=${conf.signupParam}`;
       }
     }
 
