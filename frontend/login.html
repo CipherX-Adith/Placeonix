@@ -70,41 +70,22 @@
 
     /* ── LOGO ── */
     .px-logo-wrap {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
-    .px-logo-icon {
-      width: 38px;
+    .px-logo-wrap:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+    .px-brand-logo-img {
       height: 38px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .px-logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-    .px-logo-title {
-      font-family: var(--font-heading);
-      font-size: 24px;
-      font-weight: 800;
-      color: #0a66c2;
-      letter-spacing: -0.6px;
-      line-height: 1;
-    }
-    .px-logo-title span {
-      color: #059669;
-    }
-    .px-logo-tagline {
-      font-size: 8px;
-      font-weight: 800;
-      color: #64748b;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-top: 3px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+      display: block;
     }
 
     /* ── MAIN CARD WRAPPER ── */
@@ -709,16 +690,8 @@
       
       <div class="gateway-left">
         <!-- Logo -->
-        <a href="index.html" class="px-logo-wrap">
-          <svg class="px-logo-icon" viewBox="0 0 44 44" fill="none">
-            <rect width="44" height="44" rx="11" fill="#0A66C2"/>
-            <path d="M13 32V12H23C27.4183 12 31 15.5817 31 20C31 24.4183 27.4183 28 23 28H13" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M25 11L33 11M33 11V19M33 11L22 22" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <div class="px-logo-text">
-            <span class="px-logo-title">Place<span>onix</span></span>
-            <span class="px-logo-tagline">CONNECT • MATCH • GROW</span>
-          </div>
+        <a href="index.html" class="px-logo-wrap" title="Placeonix – CONNECT • MATCH • GROW">
+          <img src="images/logo.svg" alt="Placeonix – CONNECT • MATCH • GROW" class="px-brand-logo-img" />
         </a>
 
         <h1 class="gateway-hero-title">
@@ -935,16 +908,8 @@
         
         <!-- Top Row: Brand Logo + Switch Link -->
         <div class="auth-panel-top">
-          <a href="index.html" class="px-logo-wrap">
-            <svg class="px-logo-icon" viewBox="0 0 44 44" fill="none">
-              <rect width="44" height="44" rx="11" fill="#0A66C2"/>
-              <path d="M13 32V12H23C27.4183 12 31 15.5817 31 20C31 24.4183 27.4183 28 23 28H13" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M25 11L33 11M33 11V19M33 11L22 22" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="px-logo-text">
-              <span class="px-logo-title">Place<span>onix</span></span>
-              <span class="px-logo-tagline">CONNECT • MATCH • GROW</span>
-            </div>
+          <a href="index.html" class="px-logo-wrap" title="Placeonix – CONNECT • MATCH • GROW">
+            <img src="images/logo.svg" alt="Placeonix – CONNECT • MATCH • GROW" class="px-brand-logo-img" />
           </a>
 
           <div class="top-action-text">
