@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Admin Console – Placeonix</title>
+  <meta name="description" content="Institutional placement administration portal. Monitor recruitment drives, verify partner companies, analyze hiring statistics, and export reports." />
+  <link rel="icon" type="image/png" sizes="128x128" href="images/favicon.png?v=6" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=6" />
+  <link rel="shortcut icon" href="favicon.ico?v=6" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=6" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- ── SIDEBAR ─────────────────────────────────────────────── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="images/favicon.png" alt="Placeonix" style="width: 32px; height: 32px; object-fit: contain; margin-right: 8px; border-radius: 8px;" />
+      <span class="logo-text">Placeonix <span class="text-xs text-muted" style="font-weight:600;margin-left:4px;">Admin</span></span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <span class="nav-group-label">Intelligence</span>
+
+      <a class="nav-item active" href="#" data-tab="overview" id="nav-overview">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+        <span>Analytics</span>
+      </a>
+
+      <a class="nav-item" href="#" data-tab="companies" id="nav-companies">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
+        <span>Company Approvals</span>
+      </a>
+
+      <a class="nav-item" href="#" data-tab="drives" id="nav-drives">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+        <span>Campus Drives</span>
+      </a>
+
+      <span class="nav-group-label">Management</span>
+
+      <a class="nav-item" href="#" data-tab="users" id="nav-users">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
+        <span>Users Directory</span>
+      </a>
+
+      <a class="nav-item" href="#" data-tab="reports" id="nav-reports">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+        <span>Placement Reports</span>
+      </a>
+
+      <a class="nav-item" href="#" id="admin-logout-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15"/></svg>
+        <span>Sign Out</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-user">
+      <div class="user-avatar" id="sidebar-adm-avatar" style="background:#7c3aed;">A</div>
+      <div class="user-meta">
+        <div class="name" id="sidebar-adm-name">Placement Officer</div>
+        <div class="role">Placement Admin</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN CONTENT ────────────────────────────────────────── -->
+  <div class="main-content">
+
+    <header class="page-header">
+      <div style="font-size:var(--text-sm);font-weight:600;color:var(--gray-700);">
+        Institutional Placement &amp; Training Administration
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-primary btn-sm" onclick="Admin.openCreateDriveModal()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+          Announce Drive
+        </button>
+        <button class="icon-btn" id="adm-notif-btn" aria-label="Notifications">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"/></svg>
+          <span class="notification-dot hidden" id="adm-notif-dot"></span>
+        </button>
+        <div class="notif-panel" id="adm-notif-panel">
+          <div class="notif-header">
+            <span class="notif-title">Notifications</span>
+            <button class="btn btn-sm btn-secondary" onclick="Notifications.markAllRead()">Mark all read</button>
+          </div>
+          <div id="adm-notif-list"><div class="loading-state"><div class="spinner"></div></div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-body">
+
+      <!-- ══════════════════════ TAB 1: ANALYTICS ═════════════════ -->
+      <div id="tab-overview" class="tab-pane">
+        <div class="section-header mb-6">
+          <div>
+            <h1 class="section-title" style="font-size:var(--text-xl);">Placement Operations &amp; Analytics</h1>
+            <p class="section-sub">Real-time metrics on candidate placement percentage, department performance, and hiring partners</p>
+          </div>
+        </div>
+
+        <div class="analytics-grid">
+          <div class="analytic-card">
+            <div class="analytic-value" id="admin-metric-students">0</div>
+            <div class="analytic-label">Registered Students</div>
+          </div>
+          <div class="analytic-card">
+            <div class="analytic-value" id="admin-metric-placed" style="color:var(--success);">0</div>
+            <div class="analytic-label">Students Placed</div>
+          </div>
+          <div class="analytic-card">
+            <div class="analytic-value" id="admin-metric-placement-rate" style="color:var(--primary);">0%</div>
+            <div class="analytic-label">Placement Rate</div>
+          </div>
+          <div class="analytic-card">
+            <div class="analytic-value" id="admin-metric-companies">0</div>
+            <div class="analytic-label">Partner Companies</div>
+          </div>
+          <div class="analytic-card">
+            <div class="analytic-value" id="admin-metric-pending-verifications" style="color:var(--warning);">0</div>
+            <div class="analytic-label">Pending Approvals</div>
+          </div>
+          <div class="analytic-card">
+            <div class="analytic-value" id="admin-metric-jobs">0</div>
+            <div class="analytic-label">Active Openings</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--space-6);margin-bottom:var(--space-6);">
+          <!-- Departmental Distribution CSS Bar Chart -->
+          <div class="card p-5">
+            <div style="font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-4);">Department-wise Placement Distribution</div>
+            <div id="branch-stats-container" class="bar-chart">
+              <div class="loading-state"><div class="spinner"></div></div>
+            </div>
+          </div>
+
+          <!-- Quick Operations Action Box -->
+          <div class="card p-5">
+            <div style="font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">⚡ Placement Cell Operations</div>
+            <p style="font-size:var(--text-xs);color:var(--gray-500);margin-bottom:var(--space-4);">High priority administrative tasks for campus placement workflow:</p>
+            <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+              <button class="btn btn-primary" onclick="Admin.openCreateDriveModal()">
+                🚀 Broadcast New Campus Placement Drive
+              </button>
+              <button class="btn btn-secondary" onclick="Admin.switchTab('companies')">
+                🏢 Review Pending Company Registrations
+              </button>
+              <button class="btn btn-outline" onclick="Admin.switchTab('reports')">
+                📑 View &amp; Download Verified Placement Reports
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════ TAB 2: COMPANY APPROVALS ════════ -->
+      <div id="tab-companies" class="tab-pane" style="display:none;">
+        <div class="section-header mb-6">
+          <div>
+            <h1 class="section-title" style="font-size:var(--text-xl);">Company Partner Approvals</h1>
+            <p class="section-sub">Verify and authorize recruiting organizations for campus hiring</p>
+          </div>
+          <select id="admin-company-filter" class="form-control" style="width:200px;">
+            <option value="">All Statuses</option>
+            <option value="pending">Pending Approval</option>
+            <option value="verified">Verified Partners</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Company Name</th>
+                <th>Industry Domain</th>
+                <th>Website</th>
+                <th>Verification Status</th>
+                <th>Recruiter Contact</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-companies-table-body">
+              <tr><td colspan="6" style="text-align:center;padding:var(--space-8);"><div class="spinner" style="margin:0 auto;"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ══════════════════════ TAB 3: USERS DIRECTORY ══════════ -->
+      <div id="tab-users" class="tab-pane" style="display:none;">
+        <div class="section-header mb-6">
+          <div>
+            <h1 class="section-title" style="font-size:var(--text-xl);">Users &amp; Stakeholders Directory</h1>
+            <p class="section-sub">Manage platform access accounts for students, recruiters, and placement admins</p>
+          </div>
+          <select id="admin-user-role-filter" class="form-control" style="width:180px;">
+            <option value="">All Roles</option>
+            <option value="student">Students</option>
+            <option value="recruiter">Recruiters</option>
+            <option value="admin">Administrators</option>
+          </select>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name &amp; Email</th>
+                <th>Role</th>
+                <th>Branch / Company</th>
+                <th>Profile Status</th>
+                <th>Joined Date</th>
+                <th>Account</th>
+              </tr>
+            </thead>
+            <tbody id="admin-users-table-body">
+              <tr><td colspan="6" style="text-align:center;padding:var(--space-8);"><div class="spinner" style="margin:0 auto;"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ══════════════════════ TAB 4: CAMPUS DRIVES ════════════ -->
+      <div id="tab-drives" class="tab-pane" style="display:none;">
+        <div class="section-header mb-6">
+          <div>
+            <h1 class="section-title" style="font-size:var(--text-xl);">Campus Recruitment Drives</h1>
+            <p class="section-sub">Organize campus hiring seasons, test schedules, and placement milestones</p>
+          </div>
+          <button class="btn btn-primary" onclick="Admin.openCreateDriveModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+            Create Drive
+          </button>
+        </div>
+
+        <div id="admin-drives-container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-4);">
+          <div class="loading-state" style="grid-column:1/-1;"><div class="spinner"></div></div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════ TAB 5: PLACEMENT REPORTS ════════ -->
+      <div id="tab-reports" class="tab-pane" style="display:none;">
+        <div class="section-header mb-6">
+          <div>
+            <h1 class="section-title" style="font-size:var(--text-xl);">Institutional Placement Reports</h1>
+            <p class="section-sub">Official record of students selected with offers (Total: <strong id="report-total-offers" style="color:var(--success);">0</strong>)</p>
+          </div>
+          <button class="btn btn-success" onclick="Admin.exportReportCSV()">
+            📥 Download Report (CSV)
+          </button>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Candidate Name</th>
+                <th>Roll No</th>
+                <th>Branch &amp; CGPA</th>
+                <th>Selected Company</th>
+                <th>Role &amp; CTC</th>
+                <th>Offer Date</th>
+              </tr>
+            </thead>
+            <tbody id="reports-table-body">
+              <tr><td colspan="7" style="text-align:center;padding:var(--space-8);"><div class="spinner" style="margin:0 auto;"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /page-body -->
+  </div><!-- /main-content -->
+
+  <!-- ── BOTTOM NAV (Mobile) ────────────────────────────────── -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-items">
+      <button class="bottom-nav-item active" data-tab="overview">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+        Analytics
+      </button>
+      <button class="bottom-nav-item" data-tab="companies">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
+        Verify
+      </button>
+      <button class="bottom-nav-item" data-tab="drives">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+        Drives
+      </button>
+      <button class="bottom-nav-item" data-tab="users">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
+        Users
+      </button>
+      <button class="bottom-nav-item" data-tab="reports">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+        Reports
+      </button>
+    </div>
+  </nav>
+
+</div><!-- /app-shell -->
+
+<!-- MODAL: Announce Drive -->
+<div class="modal-overlay" id="create-drive-modal">
+  <div class="modal" style="max-width:600px;">
+    <div class="modal-header">
+      <h2 class="modal-title">Announce Campus Recruitment Drive</h2>
+      <button class="modal-close" onclick="Admin.closeModal('create-drive-modal')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <form id="create-drive-form">
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Drive Title *</label>
+          <input type="text" id="drive-title" class="form-control" placeholder="e.g. Annual Campus Placement Drive 2026" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Academic Year</label>
+            <input type="text" id="drive-academic-year" class="form-control" value="2025-2026" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Min CGPA Requirement</label>
+            <input type="number" step="0.1" id="drive-min-cgpa" class="form-control" value="6.0" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Start Date *</label>
+            <input type="date" id="drive-start-date" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">End Date *</label>
+            <input type="date" id="drive-end-date" class="form-control" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Placement Coordinator / Officer</label>
+          <input type="text" id="drive-coordinator" class="form-control" value="Head of Placement & Training" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Drive Schedule &amp; Details</label>
+          <textarea id="drive-description" class="form-control" placeholder="Details about participating companies, test schedules, and campus venues..."></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="Admin.closeModal('create-drive-modal')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Broadcast Drive to Students</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="toast-container"></div>
+
+<!-- Scripts -->
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/admin.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    Admin.init();
+  });
+</script>
+</body>
+</html>

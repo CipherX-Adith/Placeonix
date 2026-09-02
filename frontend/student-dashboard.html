@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Student Portal – Placeonix</title>
+  <meta name="description" content="Your smart campus placement dashboard. Discover jobs, track applications, and prepare for interviews." />
+  <link rel="icon" type="image/png" sizes="128x128" href="images/favicon.png?v=6" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=6" />
+  <link rel="shortcut icon" href="favicon.ico?v=6" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=6" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- ── SIDEBAR ─────────────────────────────────────────────── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="images/favicon.png" alt="Placeonix" style="width: 32px; height: 32px; object-fit: contain; margin-right: 8px;" />
+      <span class="logo-text">Placeonix</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <span class="nav-group-label">Main</span>
+
+      <a class="nav-item active" href="#" data-page="home" id="nav-home">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+        <span>Home</span>
+      </a>
+
+      <a class="nav-item" href="#" data-page="discover" id="nav-discover">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+        <span>Discover</span>
+      </a>
+
+      <a class="nav-item" href="#" data-page="applications" id="nav-applications">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/></svg>
+        <span>Applications</span>
+      </a>
+
+      <a class="nav-item" href="#" data-page="preparation" id="nav-preparation">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
+        <span>Preparation</span>
+      </a>
+
+      <span class="nav-group-label">Account</span>
+
+      <a class="nav-item" href="#" data-page="profile" id="nav-profile">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+        <span>Profile</span>
+      </a>
+
+      <a class="nav-item" href="#" id="logout-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15"/></svg>
+        <span>Sign Out</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-user">
+      <div class="user-avatar" id="sidebar-avatar">A</div>
+      <div class="user-meta">
+        <div class="name" id="sidebar-name">Student</div>
+        <div class="role">Student</div>
+        <div class="profile-bar">
+          <div class="profile-bar-label">
+            <span>Profile</span>
+            <span id="sidebar-profile-pct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="sidebar-profile-fill" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ────────────────────────────────────────────────── -->
+  <div class="main-content">
+
+    <!-- Sticky top bar -->
+    <header class="page-header">
+      <div class="search-bar">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+        <input type="search" id="global-search" placeholder="Search jobs, companies, skills…" autocomplete="off" />
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="notif-btn" aria-label="Notifications">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"/></svg>
+          <span class="notification-dot hidden" id="notif-dot"></span>
+        </button>
+        <!-- Notification panel -->
+        <div class="notif-panel" id="notif-panel">
+          <div class="notif-header">
+            <span class="notif-title">Notifications</span>
+            <button class="btn btn-sm btn-secondary" id="mark-all-read">Mark all read</button>
+          </div>
+          <div id="notif-list"><div class="loading-state"><div class="spinner"></div></div></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Live placement offer rail: mirrors the alert-first flow students use for campus updates. -->
+    <section class="placement-alert-bar" aria-label="Live placement alerts">
+      <div class="placement-alert-label">
+        <span class="placement-alert-pulse" aria-hidden="true"></span>
+        Placement alerts
+      </div>
+      <div class="placement-alert-viewport">
+        <div class="placement-alert-track" id="placement-alert-track" aria-live="polite">
+          <span class="placement-alert-empty">Checking for new placement offers…</span>
+        </div>
+      </div>
+      <button class="placement-alert-all" type="button" data-page="discover">View offers <span aria-hidden="true">→</span></button>
+    </section>
+
+    <!-- ── PAGE CONTENT ───────────────────────────────────────── -->
+    <div class="page-body">
+
+      <!-- ═══════════════════════════════ HOME PAGE ══════════ -->
+      <div id="page-home">
+
+        <!-- 1. Greeting -->
+        <div class="greeting-section">
+          <h1 class="greeting-title" id="greeting-text">Good morning! 👋</h1>
+          <p class="greeting-sub" id="greeting-sub">Here's your placement snapshot for today.</p>
+        </div>
+
+        <!-- New offers are deliberately the first decision point on the dashboard. -->
+        <section class="offer-spotlight" id="offer-spotlight" aria-labelledby="offer-spotlight-title">
+          <div class="offer-spotlight-kicker"><span class="live-dot"></span> New placement offer</div>
+          <div class="offer-spotlight-content">
+            <div>
+              <p class="offer-spotlight-eyebrow" id="offer-spotlight-company">Loading opportunities</p>
+              <h2 id="offer-spotlight-title">Finding your best placement match…</h2>
+              <p class="offer-spotlight-meta" id="offer-spotlight-meta">We’ll surface eligible roles as soon as they’re available.</p>
+            </div>
+            <div class="offer-spotlight-actions" id="offer-spotlight-actions"></div>
+          </div>
+          <div class="offer-spotlight-orbit orbit-one" aria-hidden="true"></div>
+          <div class="offer-spotlight-orbit orbit-two" aria-hidden="true"></div>
+        </section>
+
+        <!-- 2. Placement Snapshot -->
+        <div class="section">
+          <div class="snapshot-grid" id="snapshot-grid">
+            <div class="snapshot-card" data-page="discover">
+              <div class="snapshot-icon blue">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"/></svg>
+              </div>
+              <div class="snapshot-body">
+                <div class="snapshot-value" id="snap-jobs">—</div>
+                <div class="snapshot-label">Jobs Open</div>
+                <div class="snapshot-action offer">Browse all →</div>
+              </div>
+            </div>
+            <div class="snapshot-card" data-page="applications">
+              <div class="snapshot-icon green">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+              </div>
+              <div class="snapshot-body">
+                <div class="snapshot-value" id="snap-applied">—</div>
+                <div class="snapshot-label">Applied</div>
+                <div class="snapshot-action update" id="snap-applied-sub">View history →</div>
+              </div>
+            </div>
+            <div class="snapshot-card" data-page="applications">
+              <div class="snapshot-icon amber">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+              </div>
+              <div class="snapshot-body">
+                <div class="snapshot-value" id="snap-interviews">—</div>
+                <div class="snapshot-label">Interviews</div>
+                <div class="snapshot-action upcoming" id="snap-interviews-sub">Scheduled</div>
+              </div>
+            </div>
+            <div class="snapshot-card" data-page="applications">
+              <div class="snapshot-icon" style="background:#faf5ff;color:#7c3aed;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0"/></svg>
+              </div>
+              <div class="snapshot-body">
+                <div class="snapshot-value" id="snap-offers">—</div>
+                <div class="snapshot-label">Offers</div>
+                <div class="snapshot-action offer" id="snap-offers-sub">View details →</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Top Job Matches -->
+        <div class="section">
+          <div class="section-header">
+            <div>
+              <div class="section-title">Top Matches for You</div>
+              <div class="section-sub">Ranked by compatibility with your profile</div>
+            </div>
+            <a class="view-all" href="#" data-page="discover">
+              See all
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:14px;height:14px;stroke-width:2.5"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            </a>
+          </div>
+          <div class="job-cards-scroll" id="top-matches-list">
+            <div class="loading-state"><div class="spinner"></div> Loading recommendations…</div>
+          </div>
+        </div>
+
+        <!-- 4. Why these jobs? – Match score explainer -->
+        <div class="section" id="match-explain-section" style="display:none;">
+          <div class="match-explain-panel">
+            <div class="match-explain-header" id="match-explain-toggle">
+              <span class="match-explain-title">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:16px;height:16px;stroke-width:2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/></svg>
+                Why these jobs? — Match Score Breakdown
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="explain-chevron" style="width:16px;height:16px;stroke-width:2.5;transition:transform .2s"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+            </div>
+            <div class="match-explain-body" id="match-explain-body" style="display:none;">
+              <div id="match-breakdown-content">
+                <p style="color:var(--gray-500);font-size:var(--text-sm);padding:var(--space-3) 0;">Select a job card to see its breakdown.</p>
+              </div>
+              <div class="divider"></div>
+              <div style="display:flex;gap:var(--space-6);flex-wrap:wrap;font-size:var(--text-xs);color:var(--gray-500);">
+                <span>🎯 Skills 40% &nbsp; 📋 Eligibility 25% &nbsp; 🎓 Academics 15% &nbsp; ❤️ Preferences 10% &nbsp; 💼 Experience 10%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Applications Requiring Attention -->
+        <div class="section" id="attention-section">
+          <div class="section-header">
+            <div>
+              <div class="section-title">Needs Your Attention</div>
+              <div class="section-sub">Action required on these applications</div>
+            </div>
+            <a class="view-all" href="#" data-page="applications">All applications</a>
+          </div>
+          <div class="attention-list" id="attention-list">
+            <div class="loading-state"><div class="spinner"></div></div>
+          </div>
+        </div>
+
+        <!-- 6. Upcoming Recruitment Drives -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-title">Upcoming Drives</div>
+            <a class="view-all" href="#" data-page="discover">View calendar</a>
+          </div>
+          <div class="drives-list" id="drives-list">
+            <div class="loading-state"><div class="spinner"></div></div>
+          </div>
+        </div>
+
+        <!-- 7. Application Journey Mini -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-title">Your Application Journey</div>
+            <a class="view-all" href="#" data-page="applications">Full timeline</a>
+          </div>
+          <div class="journey-mini">
+            <div class="journey-steps" id="journey-steps">
+              <div class="journey-step">
+                <div class="journey-circle">?</div>
+                <div class="journey-label">Applied</div>
+                <div class="journey-count" id="jc-applied">—</div>
+              </div>
+              <div class="journey-step">
+                <div class="journey-circle">?</div>
+                <div class="journey-label">In Review</div>
+                <div class="journey-count" id="jc-review">—</div>
+              </div>
+              <div class="journey-step">
+                <div class="journey-circle">?</div>
+                <div class="journey-label">Shortlisted</div>
+                <div class="journey-count" id="jc-shortlisted">—</div>
+              </div>
+              <div class="journey-step">
+                <div class="journey-circle">?</div>
+                <div class="journey-label">Interview</div>
+                <div class="journey-count" id="jc-interview">—</div>
+              </div>
+              <div class="journey-step">
+                <div class="journey-circle">?</div>
+                <div class="journey-label">Selected</div>
+                <div class="journey-count" id="jc-selected">—</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /page-home -->
+
+      <!-- ═══════════════════════════════ DISCOVER PAGE ══════ -->
+      <div id="page-discover" style="display:none;">
+        <div class="section-header mb-6" style="margin-bottom:var(--space-5);">
+          <div>
+            <h1 class="section-title" style="font-size:var(--text-xl);">Discover Opportunities</h1>
+            <p class="section-sub">Find roles that match your skills and ambitions</p>
+          </div>
+        </div>
+
+        <div class="discover-tabs" id="discover-tabs">
+          <span class="discover-tab active" data-tab="recommended">⚡ Recommended</span>
+          <span class="discover-tab" data-tab="all">All Jobs</span>
+          <span class="discover-tab" data-tab="eligible">Eligible For You</span>
+          <span class="discover-tab" data-tab="closing">Closing Soon</span>
+        </div>
+
+        <div class="discover-layout">
+          <!-- Filter Panel -->
+          <aside class="filter-panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-4);">
+              <span style="font-size:var(--text-sm);font-weight:700;color:var(--gray-900);">Filters</span>
+              <button class="btn btn-sm btn-secondary" id="clear-filters">Clear all</button>
+            </div>
+
+            <div class="filter-section">
+              <div class="filter-label">Job Type</div>
+              <label class="filter-checkbox"><input type="checkbox" value="Full-time" class="filter-type" /> Full-time</label>
+              <label class="filter-checkbox"><input type="checkbox" value="Part-time" class="filter-type" /> Part-time</label>
+              <label class="filter-checkbox"><input type="checkbox" value="Internship" class="filter-type" /> Internship</label>
+              <label class="filter-checkbox"><input type="checkbox" value="Contract" class="filter-type" /> Contract</label>
+            </div>
+
+            <div class="filter-section">
+              <div class="filter-label">Min. CGPA Required</div>
+              <input type="range" class="filter-range" id="filter-cgpa" min="0" max="10" step="0.5" value="0" />
+              <div style="font-size:var(--text-xs);color:var(--gray-500);margin-top:4px;">≥ <span id="filter-cgpa-val">0.0</span></div>
+            </div>
+
+            <div class="filter-section">
+              <div class="filter-label">Location</div>
+              <input type="text" class="form-control" id="filter-location" placeholder="e.g. Bengaluru" style="font-size:var(--text-sm);" />
+            </div>
+
+            <div class="filter-section">
+              <div class="filter-label">Branch</div>
+              <label class="filter-checkbox"><input type="checkbox" value="Computer Science and Engineering" class="filter-branch" /> CSE</label>
+              <label class="filter-checkbox"><input type="checkbox" value="Information Technology" class="filter-branch" /> IT</label>
+              <label class="filter-checkbox"><input type="checkbox" value="Electronics and Communication Engineering" class="filter-branch" /> ECE</label>
+              <label class="filter-checkbox"><input type="checkbox" value="Artificial Intelligence & Data Science" class="filter-branch" /> AI&DS</label>
+            </div>
+
+            <div class="filter-section">
+              <div class="filter-label">Passing Year</div>
+              <label class="filter-checkbox"><input type="checkbox" value="2025" class="filter-year" /> 2025</label>
+              <label class="filter-checkbox"><input type="checkbox" value="2026" class="filter-year" /> 2026</label>
+              <label class="filter-checkbox"><input type="checkbox" value="2027" class="filter-year" /> 2027</label>
+            </div>
+
+            <button class="btn btn-primary btn-full" id="apply-filters" style="margin-top:var(--space-4);">Apply Filters</button>
+          </aside>
+
+          <!-- Jobs Grid -->
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-4);">
+              <span class="text-sm text-muted" id="discover-count">Loading…</span>
+              <select class="form-control" id="discover-sort" style="width:160px;font-size:var(--text-sm);">
+                <option value="match">Sort: Best Match</option>
+                <option value="date">Sort: Newest</option>
+                <option value="salary">Sort: Highest Salary</option>
+                <option value="deadline">Sort: Deadline</option>
+              </select>
+            </div>
+            <div id="discover-list" style="display:flex;flex-direction:column;gap:var(--space-4);">
+              <div class="loading-state"><div class="spinner"></div></div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /page-discover -->
+
+      <!-- ═══════════════════════════════ APPLICATIONS PAGE ═══ -->
+      <div id="page-applications" style="display:none;">
+        <div class="section-header mb-6" style="margin-bottom:var(--space-5);">
+          <div>
+            <h1 class="section-title" style="font-size:var(--text-xl);">My Applications</h1>
+            <p class="section-sub">Track every stage of your placement journey</p>
+          </div>
+          <div style="display:flex;gap:var(--space-2);">
+            <select class="form-control" id="app-filter-status" style="width:160px;font-size:var(--text-sm);">
+              <option value="">All Stages</option>
+              <option value="applied">Applied</option>
+              <option value="under_review">Under Review</option>
+              <option value="shortlisted">Shortlisted</option>
+              <option value="interview">Interview</option>
+              <option value="selected">Selected</option>
+              <option value="rejected">Rejected</option>
+              <option value="withdrawn">Withdrawn</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Journey Summary Bar -->
+        <div class="journey-mini" style="margin-bottom:var(--space-6);">
+          <div class="journey-steps" id="app-journey-steps">
+            <div class="journey-step"><div class="journey-circle" id="aj-applied-circle">?</div><div class="journey-label">Applied</div><div class="journey-count" id="aj-applied">—</div></div>
+            <div class="journey-step"><div class="journey-circle" id="aj-review-circle">?</div><div class="journey-label">In Review</div><div class="journey-count" id="aj-review">—</div></div>
+            <div class="journey-step"><div class="journey-circle" id="aj-short-circle">?</div><div class="journey-label">Shortlisted</div><div class="journey-count" id="aj-short">—</div></div>
+            <div class="journey-step"><div class="journey-circle" id="aj-intv-circle">?</div><div class="journey-label">Interview</div><div class="journey-count" id="aj-intv">—</div></div>
+            <div class="journey-step"><div class="journey-circle" id="aj-sel-circle">?</div><div class="journey-label">Selected</div><div class="journey-count" id="aj-sel">—</div></div>
+          </div>
+        </div>
+
+        <div id="applications-list">
+          <div class="loading-state"><div class="spinner"></div></div>
+        </div>
+      </div><!-- /page-applications -->
+
+      <!-- ═══════════════════════════════ PREPARATION PAGE ════ -->
+      <div id="page-preparation" style="display:none;">
+        <div style="margin-bottom:var(--space-6);">
+          <h1 class="section-title" style="font-size:var(--text-xl);">Preparation Hub</h1>
+          <p class="section-sub">Build skills, practice aptitude, and ace your interviews</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-5);">
+
+          <!-- Aptitude -->
+          <div class="card p-5">
+            <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+              <div style="width:40px;height:40px;border-radius:var(--radius-md);background:var(--blue-50);color:var(--primary);display:flex;align-items:center;justify-content:center;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:20px;height:20px;stroke-width:1.75"><path stroke-linecap="round" stroke-linejoin="round" d="m9 7.5 3 4.5m0 0 3-4.5M12 12v5.25M15 12H9M3 8.688c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 0 1.218 0l7.108-4.061A1.125 1.125 0 0 1 21 8.688v4.624A1.125 1.125 0 0 1 19.683 14.4l-7.108 4.061a1.125 1.125 0 0 1-1.218 0l-7.108-4.061A1.125 1.125 0 0 1 3 13.312V8.688Z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:var(--text-base);font-weight:700;">Aptitude</div>
+                <div style="font-size:var(--text-xs);color:var(--gray-500);">Quantitative · Logical · Verbal</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--space-2);">
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">📐 Quantitative Reasoning</button>
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">🧩 Logical Reasoning</button>
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">📖 Verbal Ability</button>
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">🔢 Data Interpretation</button>
+            </div>
+            <div style="margin-top:var(--space-3);padding:var(--space-3);background:var(--gray-50);border-radius:var(--radius-md);font-size:var(--text-xs);color:var(--gray-500);">Practice tests coming soon.</div>
+          </div>
+
+          <!-- Technical -->
+          <div class="card p-5">
+            <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+              <div style="width:40px;height:40px;border-radius:var(--radius-md);background:var(--success-bg);color:var(--success);display:flex;align-items:center;justify-content:center;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:20px;height:20px;stroke-width:1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></svg>
+              </div>
+              <div>
+                <div style="font-size:var(--text-base);font-weight:700;">Technical</div>
+                <div style="font-size:var(--text-xs);color:var(--gray-500);">DSA · DBMS · OS · Networks</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--space-2);">
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">🌳 Data Structures & Algorithms</button>
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">🗄️ Database Management Systems</button>
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">💻 Operating Systems</button>
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">🌐 Computer Networks</button>
+            </div>
+            <div style="margin-top:var(--space-3);padding:var(--space-3);background:var(--gray-50);border-radius:var(--radius-md);font-size:var(--text-xs);color:var(--gray-500);">Curated resources coming soon.</div>
+          </div>
+
+          <!-- Interview Prep -->
+          <div class="card p-5">
+            <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+              <div style="width:40px;height:40px;border-radius:var(--radius-md);background:var(--warning-bg);color:var(--warning);display:flex;align-items:center;justify-content:center;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:20px;height:20px;stroke-width:1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
+              </div>
+              <div>
+                <div style="font-size:var(--text-base);font-weight:700;">Interview Prep</div>
+                <div style="font-size:var(--text-xs);color:var(--gray-500);">Technical · HR · Company-specific</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--space-2);">
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">🤝 HR Interview Questions</button>
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">⚙️ Technical Interview Guide</button>
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">🏢 Company-specific Patterns</button>
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">🎭 Mock Interviews</button>
+            </div>
+            <div style="margin-top:var(--space-3);padding:var(--space-3);background:var(--gray-50);border-radius:var(--radius-md);font-size:var(--text-xs);color:var(--gray-500);">Mock sessions coming soon.</div>
+          </div>
+
+          <!-- Resume Builder -->
+          <div class="card p-5">
+            <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+              <div style="width:40px;height:40px;border-radius:var(--radius-md);background:var(--danger-bg);color:var(--danger);display:flex;align-items:center;justify-content:center;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:20px;height:20px;stroke-width:1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:var(--text-base);font-weight:700;">Resume</div>
+                <div style="font-size:var(--text-xs);color:var(--gray-500);">Upload · Analyze · Improve</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--space-2);">
+              <button class="btn btn-primary btn-full" id="prep-upload-resume">📎 Upload / Update Resume</button>
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">📊 Resume Score Analysis</button>
+              <button class="btn btn-secondary btn-full" style="justify-content:flex-start;">✨ Resume Tips & Templates</button>
+            </div>
+            <div id="resume-upload-status" style="margin-top:var(--space-3);font-size:var(--text-xs);color:var(--gray-500);"></div>
+            <input type="file" id="resume-file-input" accept=".pdf,.doc,.docx" style="display:none;" />
+          </div>
+
+        </div>
+      </div><!-- /page-preparation -->
+
+      <!-- ═══════════════════════════════ PROFILE PAGE ════════ -->
+      <div id="page-profile" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:var(--space-6);flex-wrap:wrap;gap:var(--space-3);">
+          <div>
+            <h1 class="section-title" style="font-size:var(--text-xl);">My Profile</h1>
+            <p class="section-sub">Complete and verify your profile to unlock higher job match scores</p>
+          </div>
+          <div style="display:flex;gap:var(--space-2);align-items:center;">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-trigger-ai-upload" style="background:linear-gradient(135deg, #eff6ff 0%, #ede9fe 100%);border-color:#c7d2fe;color:#4338ca;font-weight:600;">
+              ✨ Auto-Fill with AI Resume
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" id="profile-header-edit-btn">
+              ✏️ Edit Profile
+            </button>
+          </div>
+        </div>
+
+        <!-- AI Resume Auto-Fill Banner / Dropzone -->
+        <div class="card p-5" style="margin-bottom:var(--space-6);background:linear-gradient(135deg, #f8faff 0%, #f5f3ff 100%);border:1px solid #c7d2fe;position:relative;overflow:hidden;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;">
+            <div style="display:flex;gap:var(--space-4);align-items:flex-start;max-width:720px;">
+              <div style="width:48px;height:48px;border-radius:var(--radius-lg);background:#4f46e5;color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:0 4px 12px rgba(79, 70, 229, 0.25);">
+                🧠
+              </div>
+              <div>
+                <div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:4px;">
+                  <span style="font-size:var(--text-base);font-weight:700;color:#1e1b4b;">Placeonix AI Resume Parser</span>
+                  <span class="badge" style="background:#e0e7ff;color:#3730a3;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;">SMART EXTRACTION</span>
+                </div>
+                <p style="font-size:var(--text-sm);color:#475569;line-height:1.5;margin:0 0 var(--space-3);">
+                  Upload your resume (PDF, DOC, DOCX, TXT) and Placeonix AI will automatically extract your Name, Roll Number, Branch, CGPA, Passing Year, Skills, Links, and Bio to complete your profile in seconds.
+                </p>
+                <div id="ai-parse-chips" style="display:none;flex-wrap:wrap;gap:6px;margin-top:var(--space-2);"></div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:var(--space-2);flex-shrink:0;">
+              <button class="btn btn-primary" type="button" id="ai-upload-btn" style="background:#4f46e5;border-color:#4338ca;box-shadow:0 4px 12px rgba(79, 70, 229, 0.25);">
+                📄 Upload Resume & Auto-Fill
+              </button>
+              <input type="file" id="ai-resume-file" accept=".pdf,.doc,.docx,.txt" style="display:none;" />
+              <div id="ai-upload-status" style="font-size:var(--text-xs);color:#475569;font-weight:500;">Supported: PDF, DOC, DOCX</div>
+            </div>
+          </div>
+
+          <!-- AI Loading Overlay / Progress -->
+          <div id="ai-loading-bar" style="display:none;margin-top:var(--space-4);padding-top:var(--space-3);border-top:1px dashed #cbd5e1;">
+            <div style="display:flex;align-items:center;gap:var(--space-3);">
+              <div class="spinner" style="width:20px;height:20px;border-width:2px;border-top-color:#4f46e5;"></div>
+              <span id="ai-loading-text" style="font-size:var(--text-sm);font-weight:600;color:#4338ca;">
+                Reading document & extracting profile fields with AI...
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:var(--space-6);align-items:start;">
+
+          <!-- Profile completeness card -->
+          <div class="card p-5">
+            <div style="text-align:center;margin-bottom:var(--space-5);">
+              <div class="user-avatar" style="width:64px;height:64px;font-size:var(--text-xl);margin:0 auto var(--space-3);" id="profile-avatar">A</div>
+              <div style="font-size:var(--text-base);font-weight:700;" id="profile-name">Student</div>
+              <div style="font-size:var(--text-sm);color:var(--gray-500);" id="profile-email"></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:var(--text-sm);margin-bottom:var(--space-2);">
+                <span style="font-weight:600;">Profile Strength</span>
+                <span style="color:var(--primary);font-weight:700;" id="profile-strength-pct">0%</span>
+              </div>
+              <div class="progress-track" style="height:8px;margin-bottom:var(--space-3);">
+                <div class="progress-fill" id="profile-strength-fill" style="width:0%;"></div>
+              </div>
+              <div id="profile-checklist" style="display:flex;flex-direction:column;gap:var(--space-2);font-size:var(--text-sm);"></div>
+            </div>
+          </div>
+
+          <!-- Edit form -->
+          <div class="card p-5">
+            <form id="profile-form">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-4);">
+                <div style="display:flex;align-items:center;gap:var(--space-3);">
+                  <div style="font-size:var(--text-base);font-weight:700;">Academic Information</div>
+                  <span id="profile-mode-badge" style="font-size:var(--text-xs);padding:2px 8px;border-radius:var(--radius-full);background:var(--gray-100);color:var(--gray-600);font-weight:600;border:1px solid var(--gray-200);">
+                    🔒 View Only
+                  </span>
+                </div>
+                <button type="button" class="btn btn-outline btn-sm" id="profile-toggle-edit-btn">
+                  ✏️ Edit Profile
+                </button>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="pf-name">Full Name</label>
+                  <input class="form-control pf-field" type="text" id="pf-name" placeholder="Your name" disabled />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="pf-roll">Roll Number</label>
+                  <input class="form-control pf-field" type="text" id="pf-roll" placeholder="21CS001" disabled />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="pf-branch">Branch</label>
+                  <select class="form-control pf-field" id="pf-branch" disabled>
+                    <option>Computer Science and Engineering</option>
+                    <option>Information Technology</option>
+                    <option>Electronics and Communication Engineering</option>
+                    <option>Artificial Intelligence &amp; Data Science</option>
+                    <option>Mechanical Engineering</option>
+                    <option>Civil Engineering</option>
+                    <option>Electrical Engineering</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="pf-cgpa">CGPA (out of 10)</label>
+                  <input class="form-control pf-field" type="number" id="pf-cgpa" min="0" max="10" step="0.01" placeholder="8.5" disabled />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="pf-year">Passing Year</label>
+                  <select class="form-control pf-field" id="pf-year" disabled>
+                    <option>2024</option><option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="pf-backlogs">Active Backlogs</label>
+                  <input class="form-control pf-field" type="number" id="pf-backlogs" min="0" value="0" disabled />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="pf-phone">Phone</label>
+                  <input class="form-control pf-field" type="tel" id="pf-phone" placeholder="+91 9876543210" disabled />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="pf-linkedin">LinkedIn URL</label>
+                  <input class="form-control pf-field" type="url" id="pf-linkedin" placeholder="https://linkedin.com/in/…" disabled />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="pf-skills">Skills (comma-separated)</label>
+                <input class="form-control pf-field" type="text" id="pf-skills" placeholder="Python, React, Node.js, MongoDB, Java…" disabled />
+                <div class="form-hint">Add all skills to improve your match score</div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="pf-bio">Bio / Summary</label>
+                <textarea class="form-control pf-field" id="pf-bio" placeholder="Brief introduction about yourself…" disabled></textarea>
+              </div>
+
+              <div class="divider"></div>
+              <div style="font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-4);">Job Preferences <span style="font-size:var(--text-xs);font-weight:400;color:var(--gray-400);">(improves match score by 10%)</span></div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="pf-pref-loc">Preferred Locations</label>
+                  <input class="form-control pf-field" type="text" id="pf-pref-loc" placeholder="Bengaluru, Hyderabad, Pune" disabled />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="pf-pref-type">Preferred Job Types</label>
+                  <input class="form-control pf-field" type="text" id="pf-pref-type" placeholder="Full-time, Internship" disabled />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="pf-pref-roles">Preferred Roles</label>
+                <input class="form-control pf-field" type="text" id="pf-pref-roles" placeholder="Backend Developer, Data Engineer" disabled />
+              </div>
+
+              <div class="divider"></div>
+
+              <!-- Action button bar -->
+              <div style="display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap;">
+                <div id="profile-edit-actions" style="display:none;gap:var(--space-3);align-items:center;">
+                  <button class="btn btn-primary" type="submit" id="profile-save-btn">💾 Save Changes</button>
+                  <button class="btn btn-secondary" type="button" id="profile-cancel-btn">✕ Cancel</button>
+                </div>
+                <button class="btn btn-primary" type="button" id="profile-main-edit-btn">✏️ Edit Profile</button>
+                <button class="btn btn-secondary" type="button" id="profile-upload-resume-btn">Upload Resume</button>
+                <input type="file" id="profile-resume-file" accept=".pdf,.doc,.docx" style="display:none;" />
+              </div>
+              <div id="profile-save-status" style="margin-top:var(--space-3);font-size:var(--text-sm);"></div>
+            </form>
+          </div>
+        </div>
+      </div><!-- /page-profile -->
+
+    </div><!-- /page-body -->
+  </div><!-- /main-content -->
+
+  <!-- ── BOTTOM NAV (Mobile) ────────────────────────────────── -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-items">
+      <button class="bottom-nav-item active" data-page="home">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/></svg>
+        Home
+      </button>
+      <button class="bottom-nav-item" data-page="discover">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+        Discover
+      </button>
+      <button class="bottom-nav-item" data-page="applications">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z"/></svg>
+        Apply
+      </button>
+      <button class="bottom-nav-item" data-page="preparation">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
+        Prep
+      </button>
+      <button class="bottom-nav-item" data-page="profile">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+        Profile
+      </button>
+    </div>
+  </nav>
+
+</div><!-- /app-shell -->
+
+<!-- Job Detail Modal -->
+<div class="modal-overlay" id="job-detail-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-job-title">Role</h2>
+      <button class="modal-close" id="modal-close-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" id="job-detail-body"></div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" id="modal-close-btn2">Close</button>
+      <button class="btn btn-primary" id="modal-apply-btn">Apply Now</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/student-dashboard.js"></script>
+</body>
+</html>

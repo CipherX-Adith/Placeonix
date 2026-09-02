@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="pGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0070f3"/>
+      <stop offset="100%" stop-color="#0047b3"/>
+    </linearGradient>
+    <linearGradient id="pDarkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a1629"/>
+      <stop offset="100%" stop-color="#050b14"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0066cc"/>
+      <stop offset="100%" stop-color="#0088ff"/>
+    </linearGradient>
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0070f3" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- === P-ARROW LOGO ICON MARK === -->
+  <g transform="translate(10, 10)">
+    <!-- Lower stem / curve shadow (dark navy) -->
+    <path d="M 12 52 C 12 72, 24 88, 38 88 L 44 88 C 42 75, 42 62, 54 52 L 28 52 C 20 52, 12 52, 12 52 Z" fill="url(#pDarkGrad)"/>
+    
+    <!-- Left vertical stem & bottom loop -->
+    <path d="M 12 18 C 12 10, 18 4, 26 4 L 72 4 C 88 4, 100 16, 100 32 C 100 48, 88 60, 72 60 L 52 60 C 35 60, 24 72, 22 88 L 12 88 C 12 88, 12 30, 12 18 Z" fill="url(#pGrad)"/>
+    
+    <!-- Top counter curve / Inner white cutout shaped like upward arrow -->
+    <path d="M 38 22 L 68 22 C 74 22, 80 26, 80 32 C 80 38, 74 42, 68 42 L 56 42 L 38 22 Z" fill="#ffffff" opacity="0.12"/>
+    
+    <!-- Sharp upward growth arrow piercing through the P -->
+    <path d="M 28 62 L 64 26 L 56 26 L 76 16 L 80 36 L 72 28 L 36 64 Z" fill="#ffffff"/>
+  </g>
+
+  <!-- === WORDMARK "Placeonix" === -->
+  <g transform="translate(130, 70)">
+    <!-- "Place" in Deep Navy / Dark Font -->
+    <text font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-weight="800" font-size="52" fill="#0a1629" letter-spacing="-1.5">
+      Place
+    </text>
+    
+    <!-- "oni" in Vibrant Brand Blue -->
+    <text x="146" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-weight="800" font-size="52" fill="#0a66c2" letter-spacing="-1.5">
+      oni
+    </text>
+    
+    <!-- "x" with Green Growth Arrow -->
+    <!-- Base stroke of x in blue -->
+    <path d="M 232 -38 L 246 -18 L 230 4 L 244 4 L 254 -10 L 264 4 L 278 4 L 260 -18 L 270 -32 L 258 -32 L 252 -23 L 244 -38 Z" fill="#0a66c2"/>
+    
+    <!-- Upward arrow stroke on the x in bright emerald green -->
+    <path d="M 240 4 L 272 -38 L 285 -38 L 248 4 Z" fill="url(#greenGrad)" filter="url(#subtleGlow)"/>
+    <!-- Arrow head pointing top right -->
+    <polygon points="266,-44 290,-44 290,-20 282,-26 274,-36" fill="url(#greenGrad)"/>
+    
+    <!-- Green Dot on the 'i' for dynamic accent -->
+    <circle cx="218" cy="-42" r="5" fill="url(#greenGrad)" />
+  </g>
+
+  <!-- === TAGLINE "CONNECT • MATCH • GROW" === -->
+  <g transform="translate(134, 102)">
+    <text font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-weight="700" font-size="11.5" fill="#475569" letter-spacing="4.5">
+      CONNECT
+    </text>
+    <circle cx="106" cy="-4" r="2.5" fill="#0a66c2"/>
+    <text x="122" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-weight="700" font-size="11.5" fill="#475569" letter-spacing="4.5">
+      MATCH
+    </text>
+    <circle cx="204" cy="-4" r="2.5" fill="#10b981"/>
+    <text x="220" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-weight="700" font-size="11.5" fill="#475569" letter-spacing="4.5">
+      GROW
+    </text>
+  </g>
+</svg>

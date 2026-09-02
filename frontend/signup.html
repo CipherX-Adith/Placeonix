@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Placeonix – Create Your Account | Campus Placement Portal</title>
+  <meta name="description" content="Create your Placeonix student, recruiter, or placement cell account." />
+  <link rel="icon" type="image/png" sizes="128x128" href="images/favicon.png?v=6" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=6" />
+  <link rel="shortcut icon" href="favicon.ico?v=6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    :root {
+      --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      
+      --theme-primary: #0a66c2;
+      --theme-primary-hover: #084e96;
+      --theme-primary-light: #e8f3fc;
+      --theme-primary-border: #bfdbfe;
+      --theme-accent: #10b981;
+      --theme-bg-soft: #f0f7ff;
+      --theme-shadow: rgba(10, 102, 194, 0.25);
+    }
+
+    body.theme-recruiter {
+      --theme-primary: #059669;
+      --theme-primary-hover: #047857;
+      --theme-primary-light: #ecfdf5;
+      --theme-primary-border: #a7f3d0;
+      --theme-accent: #0ea5e9;
+      --theme-bg-soft: #f0fdf4;
+      --theme-shadow: rgba(5, 150, 105, 0.25);
+    }
+
+    body.theme-admin {
+      --theme-primary: #6d28d9;
+      --theme-primary-hover: #5b21b6;
+      --theme-primary-light: #f5f3ff;
+      --theme-primary-border: #ddd6fe;
+      --theme-accent: #f59e0b;
+      --theme-bg-soft: #faf5ff;
+      --theme-shadow: rgba(109, 40, 217, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: #f4f7fb;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(10, 102, 194, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.04) 0px, transparent 50%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #1e293b;
+      line-height: 1.5;
+      transition: background-color 0.4s ease;
+    }
+
+    /* ── LOGO BRAND ── */
+    .px-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .px-logo-icon {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .px-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .px-logo-title {
+      font-family: var(--font-heading);
+      font-size: 23px;
+      font-weight: 800;
+      color: #0a66c2;
+      letter-spacing: -0.6px;
+      line-height: 1;
+    }
+    .px-logo-title span {
+      color: #059669;
+    }
+    .px-logo-tagline {
+      font-size: 8px;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ── AUTH CONTAINER ── */
+    .auth-page-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+    }
+
+    .auth-card-container {
+      width: 100%;
+      max-width: 1040px;
+      background: #ffffff;
+      border-radius: 24px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 20px 45px -15px rgba(15, 23, 42, 0.07), 0 1px 3px rgba(0, 0, 0, 0.02);
+      display: grid;
+      grid-template-columns: 440px 1fr;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    /* ── LEFT HERO PANEL ── */
+    .auth-left-hero {
+      background: var(--theme-bg-soft);
+      border-right: 1px solid #e2e8f0;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: background 0.4s ease;
+    }
+
+    .back-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #64748b;
+      text-decoration: none;
+      transition: color 0.2s, transform 0.2s;
+      width: fit-content;
+    }
+    .back-home-link:hover {
+      color: var(--theme-primary);
+      transform: translateX(-3px);
+    }
+
+    .hero-illustration-box {
+      margin: auto 0;
+      text-align: center;
+      padding: 24px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-svg-holder {
+      width: 220px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      position: relative;
+      animation: gentleFloat 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes gentleFloat {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-8px); }
+    }
+
+    .hero-welcome-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
+    }
+
+    .hero-welcome-desc {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.55;
+      max-width: 320px;
+    }
+
+    /* ── RIGHT FORM PANEL ── */
+    .auth-right-panel {
+      padding: 40px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .auth-panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .top-action-text {
+      font-size: 13.5px;
+      color: #64748b;
+    }
+    .top-action-link {
+      font-weight: 700;
+      color: var(--theme-primary);
+      text-decoration: none;
+      margin-left: 4px;
+      transition: color 0.2s;
+    }
+    .top-action-link:hover {
+      text-decoration: underline;
+    }
+
+    .auth-title-group {
+      margin-bottom: 18px;
+    }
+    .auth-main-title {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.6px;
+      line-height: 1.2;
+    }
+    .auth-sub-title {
+      font-size: 14px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* ── 3-SEGMENT ROLE SWITCHER ── */
+    .role-segmented-switcher {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: #f1f5f9;
+      padding: 5px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      gap: 4px;
+    }
+    .role-segment-btn {
+      padding: 9px 12px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      border: none;
+      background: transparent;
+      color: #64748b;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .role-segment-btn:hover:not(.active) {
+      color: #1e293b;
+      background: rgba(255, 255, 255, 0.6);
+    }
+    .role-segment-btn.active {
+      background: var(--theme-primary);
+      color: #ffffff;
+      box-shadow: 0 4px 12px var(--theme-shadow);
+    }
+
+    /* ── FORM ELEMENTS ── */
+    .auth-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .auth-form-group {
+      margin-bottom: 14px;
+    }
+    .auth-label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 5px;
+    }
+
+    .auth-input-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .auth-input-icon {
+      position: absolute;
+      left: 13px;
+      width: 17px;
+      height: 17px;
+      color: #94a3b8;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+    .auth-text-input,
+    .auth-select-input {
+      width: 100%;
+      height: 42px;
+      padding: 0 38px 0 38px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-family: var(--font-body);
+      color: #0f172a;
+      background: #ffffff;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .auth-select-input {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+    .auth-text-input::placeholder {
+      color: #94a3b8;
+    }
+    .auth-text-input:focus,
+    .auth-select-input:focus {
+      border-color: var(--theme-primary);
+      box-shadow: 0 0 0 3.5px var(--theme-primary-light);
+    }
+    .auth-input-container:focus-within .auth-input-icon {
+      color: var(--theme-primary);
+    }
+
+    .auth-pwd-toggle {
+      position: absolute;
+      right: 12px;
+      background: none;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: color 0.2s;
+    }
+    .auth-pwd-toggle:hover {
+      color: #334155;
+    }
+
+    /* ── TERMS CHECKBOX ── */
+    .terms-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 12px 0 16px 0;
+      font-size: 12.5px;
+      color: #64748b;
+    }
+    .terms-row input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: var(--theme-primary);
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+    .terms-row a {
+      color: var(--theme-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .terms-row a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── ACTION BUTTONS ── */
+    .btn-auth-primary {
+      width: 100%;
+      height: 46px;
+      background: var(--theme-primary);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 14.5px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px var(--theme-shadow);
+      transition: all 0.25s ease;
+    }
+    .btn-auth-primary:hover {
+      background: var(--theme-primary-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px var(--theme-shadow);
+    }
+    .btn-auth-primary:active {
+      transform: translateY(0);
+    }
+
+    .auth-divider-wrap {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 14px 0;
+    }
+    .auth-divider-line {
+      flex: 1;
+      height: 1px;
+      background: #e2e8f0;
+    }
+    .auth-divider-text {
+      padding: 0 12px;
+      font-size: 12px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .btn-auth-google {
+      width: 100%;
+      height: 44px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #334155;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+    .btn-auth-google:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      color: #0f172a;
+    }
+
+    .auth-bottom-switch {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px;
+      color: #64748b;
+    }
+    .auth-bottom-link {
+      font-weight: 700;
+      color: var(--theme-primary);
+      text-decoration: none;
+      margin-left: 4px;
+    }
+    .auth-bottom-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ── BOTTOM TRUST & FEATURES STRIP ── */
+    .trust-footer-strip {
+      max-width: 1040px;
+      margin: 0 auto 32px auto;
+      width: calc(100% - 40px);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) auto;
+      gap: 16px;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 14px 20px;
+      box-shadow: 0 4px 20px -6px rgba(15, 23, 42, 0.04);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .trust-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--theme-primary-light);
+      color: var(--theme-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    .trust-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.2;
+    }
+    .trust-sub {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .admin-quick-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .admin-quick-badge:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+      color: var(--theme-primary);
+    }
+
+    .page-bottom-copyright {
+      text-align: center;
+      font-size: 12px;
+      color: #94a3b8;
+      padding-bottom: 24px;
+    }
+    .page-bottom-copyright a {
+      color: #64748b;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    .page-bottom-copyright a:hover {
+      color: var(--theme-primary);
+    }
+
+    @media (max-width: 900px) {
+      .auth-card-container {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+      }
+      .auth-left-hero {
+        padding: 28px 24px;
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .hero-svg-holder {
+        height: 140px;
+        margin-bottom: 14px;
+      }
+      .auth-right-panel {
+        padding: 32px 24px;
+      }
+      .auth-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .trust-footer-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Split Card Layout -->
+  <div class="auth-page-wrapper">
+    <div class="auth-card-container">
+
+      <!-- LEFT COLUMN: DYNAMIC ROLE HERO & ILLUSTRATION -->
+      <div class="auth-left-hero" id="left-hero-panel">
+        
+        <a href="index.html" class="back-home-link">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          <span>Back to home</span>
+        </a>
+
+        <div class="hero-illustration-box">
+          <div class="hero-svg-holder" id="hero-artwork">
+            
+            <!-- STUDENT SVG -->
+            <svg id="art-student" viewBox="0 0 240 200" fill="none" style="width:100%;height:100%;">
+              <circle cx="120" cy="100" r="80" fill="#E8F3FC"/>
+              <ellipse cx="120" cy="155" rx="75" ry="12" fill="#CBD5E1" opacity="0.6"/>
+              <rect x="55" y="130" width="130" height="20" rx="4" fill="#0A66C2"/>
+              <rect x="52" y="133" width="6" height="14" rx="2" fill="#FFFFFF" opacity="0.7"/>
+              <rect x="180" y="134" width="4" height="12" rx="1" fill="#FFFFFF" opacity="0.7"/>
+              <rect x="62" y="112" width="116" height="18" rx="4" fill="#38BDF8"/>
+              <rect x="60" y="115" width="5" height="12" rx="2" fill="#FFFFFF" opacity="0.8"/>
+              <rect x="182" y="105" width="22" height="32" rx="3" fill="#60A5FA"/>
+              <path d="M187 88L191 105H184L187 88Z" fill="#F59E0B"/>
+              <path d="M197 84L200 105H194L197 84Z" fill="#10B981"/>
+              <path d="M120 52L178 74L120 96L62 74L120 52Z" fill="#0F172A"/>
+              <path d="M84 82V104C84 116 156 116 156 104V82" fill="#1E293B"/>
+              <circle cx="120" cy="74" r="4.5" fill="#F59E0B"/>
+              <path d="M120 74C136 78 152 88 156 104" stroke="#F59E0B" stroke-width="2.5" fill="none"/>
+              <rect x="153" y="104" width="6" height="16" rx="2" fill="#F59E0B"/>
+              <path d="M48 50L51 58L59 61L51 64L48 72L45 64L37 61L45 58L48 50Z" fill="#38BDF8"/>
+              <path d="M195 44L197 50L203 52L197 54L195 60L193 54L187 52L193 50L195 44Z" fill="#F59E0B"/>
+            </svg>
+
+            <!-- RECRUITER SVG -->
+            <svg id="art-recruiter" viewBox="0 0 240 200" fill="none" style="width:100%;height:100%;display:none;">
+              <circle cx="120" cy="100" r="80" fill="#ECFDF5"/>
+              <ellipse cx="120" cy="160" rx="80" ry="10" fill="#CBD5E1" opacity="0.6"/>
+              <rect x="68" y="58" width="42" height="96" rx="3" fill="#10B981"/>
+              <rect x="116" y="40" width="48" height="114" rx="3" fill="#059669"/>
+              <rect x="168" y="72" width="34" height="82" rx="3" fill="#34D399"/>
+              <rect x="74" y="66" width="6" height="6" rx="1" fill="#ECFDF5" opacity="0.8"/>
+              <rect x="86" y="66" width="6" height="6" rx="1" fill="#ECFDF5" opacity="0.8"/>
+              <rect x="98" y="66" width="6" height="6" rx="1" fill="#ECFDF5" opacity="0.8"/>
+              <rect x="124" y="50" width="8" height="8" rx="1" fill="#ECFDF5" opacity="0.9"/>
+              <rect x="138" y="50" width="8" height="8" rx="1" fill="#ECFDF5" opacity="0.9"/>
+              <rect x="88" y="118" width="64" height="42" rx="6" fill="#0F172A"/>
+              <path d="M108 118V110C108 107 132 107 132 110V118" stroke="#0F172A" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <rect x="115" y="128" width="10" height="7" rx="1.5" fill="#F59E0B"/>
+              <circle cx="170" cy="50" r="14" fill="#059669"/>
+              <path d="M165 50L169 54L176 46" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <!-- PLACEMENT OFFICER SVG -->
+            <svg id="art-admin" viewBox="0 0 240 200" fill="none" style="width:100%;height:100%;display:none;">
+              <circle cx="120" cy="100" r="80" fill="#F5F3FF"/>
+              <ellipse cx="120" cy="162" rx="80" ry="10" fill="#CBD5E1" opacity="0.6"/>
+              <path d="M88 64C88 38 152 38 152 64H88Z" fill="#6D28D9"/>
+              <line x1="120" y1="38" x2="120" y2="20" stroke="#4C1D95" stroke-width="2.5"/>
+              <path d="M120 20L136 26L120 32Z" fill="#F59E0B"/>
+              <path d="M72 82L120 62L168 82H72Z" fill="#7C3AED"/>
+              <rect x="76" y="82" width="88" height="8" fill="#5B21B6"/>
+              <rect x="84" y="90" width="10" height="52" fill="#DDD6FE"/>
+              <rect x="104" y="90" width="10" height="52" fill="#DDD6FE"/>
+              <rect x="126" y="90" width="10" height="52" fill="#DDD6FE"/>
+              <rect x="146" y="90" width="10" height="52" fill="#DDD6FE"/>
+              <path d="M112 142V116C112 110 128 110 128 116V142H112Z" fill="#4C1D95"/>
+              <rect x="68" y="142" width="104" height="12" rx="2" fill="#6D28D9"/>
+            </svg>
+
+          </div>
+
+          <h2 class="hero-welcome-title" id="hero-title">Start Your Career Journey 🚀</h2>
+          <p class="hero-welcome-desc" id="hero-desc">
+            Join thousands of students and recruiters building the future of campus placements.
+          </p>
+        </div>
+
+        <div><!-- Spacer --></div>
+      </div>
+
+      <!-- RIGHT COLUMN: SIGNUP FORM -->
+      <div class="auth-right-panel">
+        
+        <!-- Top Row -->
+        <div class="auth-panel-top">
+          <a href="index.html" class="px-logo-wrap">
+            <svg class="px-logo-icon" viewBox="0 0 44 44" fill="none">
+              <rect width="44" height="44" rx="11" fill="#0A66C2"/>
+              <path d="M13 32V12H23C27.4183 12 31 15.5817 31 20C31 24.4183 27.4183 28 23 28H13" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M25 11L33 11M33 11V19M33 11L22 22" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="px-logo-text">
+              <span class="px-logo-title">Place<span>onix</span></span>
+              <span class="px-logo-tagline">CONNECT • MATCH • GROW</span>
+            </div>
+          </a>
+
+          <div class="top-action-text">
+            <span>Already have an account?</span>
+            <a href="login.html" class="top-action-link" id="top-signin-link">Sign In</a>
+          </div>
+        </div>
+
+        <!-- Headings -->
+        <div class="auth-title-group">
+          <h1 class="auth-main-title" id="signup-heading">Create your account</h1>
+          <p class="auth-sub-title" id="signup-subheading">Sign up as a Student to explore verified campus opportunities</p>
+        </div>
+
+        <!-- 3-Segment Role Switcher -->
+        <div class="role-segmented-switcher">
+          <button type="button" class="role-segment-btn active" id="btn-role-student" onclick="switchSignupRole('student')">
+            Student
+          </button>
+          <button type="button" class="role-segment-btn" id="btn-role-recruiter" onclick="switchSignupRole('recruiter')">
+            Recruiter
+          </button>
+          <button type="button" class="role-segment-btn" id="btn-role-admin" onclick="switchSignupRole('admin')">
+            Placement Cell
+          </button>
+        </div>
+
+        <!-- Signup Form -->
+        <form id="portal-signup-form">
+          
+          <!-- Full Name -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="signup-fullname">Full Name *</label>
+            <div class="auth-input-container">
+              <span class="auth-input-icon">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+              </span>
+              <input type="text" id="signup-fullname" class="auth-text-input" placeholder="e.g. Rahul Sharma" required />
+            </div>
+          </div>
+
+          <!-- DYNAMIC ROLE FIELDS -->
+
+          <!-- Student Specific Fields -->
+          <div id="fields-student" class="role-fields-block">
+            <div class="auth-grid-2">
+              <div class="auth-form-group">
+                <label class="auth-label" for="student-college">College / University *</label>
+                <div class="auth-input-container">
+                  <span class="auth-input-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                  <input type="text" id="student-college" class="auth-text-input" placeholder="e.g. GLA University" value="GLA University, Mathura" />
+                </div>
+              </div>
+              <div class="auth-form-group">
+                <label class="auth-label" for="student-rollno">Roll Number *</label>
+                <div class="auth-input-container">
+                  <span class="auth-input-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10M7 12h10M7 17h10"/></svg></span>
+                  <input type="text" id="student-rollno" class="auth-text-input" placeholder="e.g. 22CS045" value="22CS045" />
+                </div>
+              </div>
+            </div>
+
+            <div class="auth-grid-2">
+              <div class="auth-form-group">
+                <label class="auth-label" for="student-branch">Branch *</label>
+                <div class="auth-input-container">
+                  <span class="auth-input-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M4.93 19.07l4.24-4.24"/></svg></span>
+                  <select id="student-branch" class="auth-select-input">
+                    <option value="Computer Science and Engineering" selected>Computer Science and Engineering</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Electronics and Communication Engineering">Electronics &amp; Communication</option>
+                    <option value="Electrical and Electronics Engineering">Electrical Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Artificial Intelligence & Data Science">AI &amp; Data Science</option>
+                  </select>
+                </div>
+              </div>
+              <div class="auth-form-group">
+                <label class="auth-label" for="student-gradyear">Graduation Year *</label>
+                <div class="auth-input-container">
+                  <span class="auth-input-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+                  <select id="student-gradyear" class="auth-select-input">
+                    <option value="2026" selected>2026 Batch</option>
+                    <option value="2025">2025 Batch</option>
+                    <option value="2027">2027 Batch</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recruiter Specific Fields -->
+          <div id="fields-recruiter" class="role-fields-block" style="display:none;">
+            <div class="auth-grid-2">
+              <div class="auth-form-group">
+                <label class="auth-label" for="recruiter-company">Company Name *</label>
+                <div class="auth-input-container">
+                  <span class="auth-input-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/></svg></span>
+                  <input type="text" id="recruiter-company" class="auth-text-input" placeholder="e.g. Google, Microsoft, TechCorp" />
+                </div>
+              </div>
+              <div class="auth-form-group">
+                <label class="auth-label" for="recruiter-designation">Designation *</label>
+                <div class="auth-input-container">
+                  <span class="auth-input-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
+                  <input type="text" id="recruiter-designation" class="auth-text-input" placeholder="e.g. Talent Lead, University Recruiter" />
+                </div>
+              </div>
+            </div>
+            <div class="auth-form-group">
+              <label class="auth-label" for="recruiter-website">Company Website</label>
+              <div class="auth-input-container">
+                <span class="auth-input-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></span>
+                <input type="url" id="recruiter-website" class="auth-text-input" placeholder="https://careers.company.com" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Placement Officer / Admin Specific Fields -->
+          <div id="fields-admin" class="role-fields-block" style="display:none;">
+            <div class="auth-grid-2">
+              <div class="auth-form-group">
+                <label class="auth-label" for="admin-institution">Institution / University *</label>
+                <div class="auth-input-container">
+                  <span class="auth-input-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+                  <input type="text" id="admin-institution" class="auth-text-input" placeholder="e.g. National Institute of Technology" />
+                </div>
+              </div>
+              <div class="auth-form-group">
+                <label class="auth-label" for="admin-staffid">Staff ID / Admin Code *</label>
+                <div class="auth-input-container">
+                  <span class="auth-input-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/></svg></span>
+                  <input type="text" id="admin-staffid" class="auth-text-input" placeholder="e.g. TPO-2026-ADM" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Address -->
+          <div class="auth-form-group">
+            <label class="auth-label" for="signup-email" id="signup-email-label">Email Address *</label>
+            <div class="auth-input-container">
+              <span class="auth-input-icon">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </span>
+              <input type="email" id="signup-email" class="auth-text-input" placeholder="e.g. rahul.sharma@placeonix.edu" required />
+            </div>
+          </div>
+
+          <!-- Password & Confirm Password Grid -->
+          <div class="auth-grid-2">
+            <div class="auth-form-group">
+              <label class="auth-label" for="signup-password">Password *</label>
+              <div class="auth-input-container">
+                <span class="auth-input-icon">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </span>
+                <input type="password" id="signup-password" class="auth-text-input" placeholder="Create strong password" required />
+                <button type="button" class="auth-pwd-toggle" onclick="togglePasswordVisibility('signup-password', this)">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="auth-form-group">
+              <label class="auth-label" for="signup-confirmpassword">Confirm Password *</label>
+              <div class="auth-input-container">
+                <span class="auth-input-icon">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </span>
+                <input type="password" id="signup-confirmpassword" class="auth-text-input" placeholder="Re-enter password" required />
+              </div>
+            </div>
+          </div>
+
+          <!-- Terms Checkbox -->
+          <div class="terms-row">
+            <input type="checkbox" id="signup-terms" required checked />
+            <label for="signup-terms">I agree to the <a href="javascript:void(0)">Terms of Service</a> and <a href="javascript:void(0)">Privacy Policy</a></label>
+          </div>
+
+          <!-- Primary Submit CTA -->
+          <button type="submit" class="btn-auth-primary" id="btn-submit-signup">
+            <span id="signup-btn-text">Create Student Account</span>
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <!-- Divider -->
+          <div class="auth-divider-wrap">
+            <div class="auth-divider-line"></div>
+            <span class="auth-divider-text">or continue with</span>
+            <div class="auth-divider-line"></div>
+          </div>
+
+          <!-- Google Sign Up -->
+          <button type="button" class="btn-auth-google" onclick="handleGoogleOAuth()">
+            <svg width="18" height="18" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+            </svg>
+            <span>Continue with Google</span>
+          </button>
+
+          <!-- Bottom Switch Prompt -->
+          <div class="auth-bottom-switch">
+            <span>Already have an account?</span>
+            <a href="login.html" class="auth-bottom-link" id="bottom-login-link">Sign In</a>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Trust Badges Strip -->
+  <div class="trust-footer-strip">
+    <div class="trust-item">
+      <div class="trust-icon-box">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="trust-title">Secure • Trusted • Verified</div>
+        <div class="trust-sub">Your data is safe with Placeonix</div>
+      </div>
+    </div>
+
+    <div class="trust-item">
+      <div class="trust-icon-box">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/>
+        </svg>
+      </div>
+      <div>
+        <div class="trust-title">Verified Profiles</div>
+        <div class="trust-sub">100% authentic students</div>
+      </div>
+    </div>
+
+    <div class="trust-item">
+      <div class="trust-icon-box">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
+          <rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/>
+        </svg>
+      </div>
+      <div>
+        <div class="trust-title">Top Recruiters</div>
+        <div class="trust-sub">Trusted by leading companies</div>
+      </div>
+    </div>
+
+    <div class="trust-item">
+      <div class="trust-icon-box">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="trust-title">Smart Matching</div>
+        <div class="trust-sub">AI-powered opportunities</div>
+      </div>
+    </div>
+
+    <a href="admin-dashboard.html" class="admin-quick-badge">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+        <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 8v8M8 12h8"/>
+      </svg>
+      <div>
+        <span style="display:block;font-size:11.5px;font-weight:700;">Administrator Access</span>
+        <span style="display:block;font-size:10px;color:#64748b;">For system administrators &rsaquo;</span>
+      </div>
+    </a>
+  </div>
+
+  <footer class="page-bottom-copyright">
+    <span>&copy; 2024 Placeonix. All rights reserved.</span>
+    <a href="javascript:void(0)">Privacy Policy</a> • 
+    <a href="javascript:void(0)">Terms of Service</a> • 
+    <a href="javascript:void(0)">Contact Us</a>
+  </footer>
+
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+
+  <script>
+    let currentSignupRole = 'student';
+
+    const signupConfig = {
+      student: {
+        bodyClass: '',
+        portalTitle: 'Create your account',
+        portalSub: 'Sign up as a Student to explore verified campus opportunities',
+        emailLabel: 'College Email Address *',
+        emailPlaceholder: 'e.g. rahul.sharma@placeonix.edu',
+        ctaText: 'Create Student Account',
+        heroTitle: 'Start Your Career Journey 🚀',
+        heroDesc: 'Join thousands of students and recruiters building the future of campus placements.',
+        artId: 'art-student',
+        demoEmail: 'rahul.sharma@placeonix.edu'
+      },
+      recruiter: {
+        bodyClass: 'theme-recruiter',
+        portalTitle: 'Recruiter Registration',
+        portalSub: 'Hire premier campus talent and manage job postings effortlessly',
+        emailLabel: 'Work Email Address *',
+        emailPlaceholder: 'e.g. recruiter.google@placeonix.com',
+        ctaText: 'Create Recruiter Account',
+        heroTitle: 'Hire Top Campus Talent 💼',
+        heroDesc: 'Connect with verified graduating students and streamline your recruitment pipeline.',
+        artId: 'art-recruiter',
+        demoEmail: 'recruiter.google@placeonix.com'
+      },
+      admin: {
+        bodyClass: 'theme-admin',
+        portalTitle: 'Placement Cell Setup',
+        portalSub: 'Empower your institution with real-time placement management & analytics',
+        emailLabel: 'Official University Email *',
+        emailPlaceholder: 'e.g. admin@placeonix.edu',
+        ctaText: 'Create Placement Cell Account',
+        heroTitle: 'Institutional Placement Hub 🏛️',
+        heroDesc: 'Coordinate placement drives, verify recruiters, and track student success metrics.',
+        artId: 'art-admin',
+        demoEmail: 'admin@placeonix.edu'
+      }
+    };
+
+    function switchSignupRole(role) {
+      currentSignupRole = role;
+      const conf = signupConfig[role] || signupConfig.student;
+
+      // Update body theme class
+      document.body.className = conf.bodyClass;
+
+      // Update Segmented Buttons
+      ['student', 'recruiter', 'admin'].forEach(r => {
+        const b = document.getElementById(`btn-role-${r}`);
+        if (b) b.classList.toggle('active', r === role);
+      });
+
+      // Update Headings & Labels
+      document.getElementById('signup-heading').textContent = conf.portalTitle;
+      document.getElementById('signup-subheading').textContent = conf.portalSub;
+      document.getElementById('signup-email-label').textContent = conf.emailLabel;
+      document.getElementById('signup-email').placeholder = conf.emailPlaceholder;
+      document.getElementById('signup-btn-text').textContent = conf.ctaText;
+
+      // Update Hero
+      document.getElementById('hero-title').textContent = conf.heroTitle;
+      document.getElementById('hero-desc').textContent = conf.heroDesc;
+
+      // Switch Artwork
+      ['art-student', 'art-recruiter', 'art-admin'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = (id === conf.artId) ? 'block' : 'none';
+      });
+
+      // Switch Dynamic Role Fields
+      document.getElementById('fields-student').style.display = (role === 'student') ? 'block' : 'none';
+      document.getElementById('fields-recruiter').style.display = (role === 'recruiter') ? 'block' : 'none';
+      document.getElementById('fields-admin').style.display = (role === 'admin') ? 'block' : 'none';
+
+      // Update login link
+      const signinLink = document.getElementById('top-signin-link');
+      if (signinLink) signinLink.href = `login.html?role=${role}`;
+      const bottomSigninLink = document.getElementById('bottom-login-link');
+      if (bottomSigninLink) bottomSigninLink.href = `login.html?role=${role}`;
+    }
+
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    async function handleGoogleOAuth() {
+      const conf = signupConfig[currentSignupRole];
+      let email = (document.getElementById('signup-email').value || '').trim();
+      if (!email) email = conf.demoEmail;
+
+      showToast(`Signing up via Google (${currentSignupRole.toUpperCase()})...`, 'info');
+      try {
+        await Auth.loginWithGoogle({
+          email,
+          name: document.getElementById('signup-fullname').value || email.split('@')[0],
+          role: currentSignupRole,
+          college: document.getElementById('student-college')?.value || 'GLA University, Mathura',
+          rollNo: document.getElementById('student-rollno')?.value || '22CS045',
+          branch: document.getElementById('student-branch')?.value || 'Computer Science and Engineering',
+          graduationYear: Number(document.getElementById('student-gradyear')?.value || 2026),
+          companyName: document.getElementById('recruiter-company')?.value || 'TechCorp India',
+          designation: document.getElementById('recruiter-designation')?.value || 'Talent Acquisition',
+        });
+      } catch (err) {}
+    }
+
+    // Submit handler
+    document.getElementById('portal-signup-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = (document.getElementById('signup-fullname').value || '').trim();
+      const email = (document.getElementById('signup-email').value || '').trim();
+      const password = document.getElementById('signup-password').value;
+      const confirmPassword = document.getElementById('signup-confirmpassword').value;
+
+      if (password !== confirmPassword) {
+        showToast('Passwords do not match! Please check Confirm Password.', 'danger');
+        document.getElementById('signup-confirmpassword').focus();
+        return;
+      }
+
+      const payload = {
+        name,
+        email,
+        password,
+        role: currentSignupRole,
+        termsAccepted: document.getElementById('signup-terms').checked,
+      };
+
+      if (currentSignupRole === 'student') {
+        payload.college = (document.getElementById('student-college').value || '').trim();
+        payload.rollNo = (document.getElementById('student-rollno').value || '').trim();
+        payload.branch = document.getElementById('student-branch').value;
+        payload.graduationYear = Number(document.getElementById('student-gradyear').value || 2026);
+      } else if (currentSignupRole === 'recruiter') {
+        payload.companyName = (document.getElementById('recruiter-company').value || '').trim();
+        payload.designation = (document.getElementById('recruiter-designation').value || '').trim();
+        payload.companyWebsite = (document.getElementById('recruiter-website').value || '').trim();
+      } else if (currentSignupRole === 'admin') {
+        payload.institution = (document.getElementById('admin-institution').value || '').trim();
+        payload.staffId = (document.getElementById('admin-staffid').value || '').trim();
+      }
+
+      try {
+        const btn = document.getElementById('btn-submit-signup');
+        btn.disabled = true;
+        btn.innerHTML = `<span>Creating account...</span>`;
+
+        await Auth.register(payload);
+      } catch (err) {
+        const btn = document.getElementById('btn-submit-signup');
+        btn.disabled = false;
+        btn.innerHTML = `<span id="signup-btn-text">${signupConfig[currentSignupRole].ctaText}</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const role = params.get('role');
+      if (role && ['student', 'recruiter', 'admin'].includes(role)) {
+        switchSignupRole(role);
+      } else {
+        switchSignupRole('student');
+      }
+    });
+  </script>
+</body>
+</html>

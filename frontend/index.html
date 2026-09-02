@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Placeonix – Campus Placement &amp; Professional Career Network</title>
+  <meta name="description" content="Find jobs, connections, insights and more to grow your career with Placeonix, the smart campus recruitment and placement network." />
+  <link rel="icon" type="image/png" sizes="128x128" href="images/favicon.png?v=6" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=6" />
+  <link rel="shortcut icon" href="favicon.ico?v=6" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── PLACEONIX PROFESSIONAL NETWORK LANDING SYSTEM (LINKEDIN INSPIRED & ELEVATED) ── */
+    :root {
+      --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+      --navy-950: #07101f;
+      --navy-900: #0a1629;
+      --navy-800: #0f2347;
+      --navy-700: #143265;
+      --brand-blue: #0a66c2;
+      --brand-blue-hover: #004182;
+      --brand-blue-light: #e8f3ff;
+      --brand-blue-border: #bfdbfe;
+      --warm-bg: #f3f2ef;
+      --surface-white: #ffffff;
+      --border-subtle: #e2e8f0;
+      --border-dark: #1e293b;
+      --text-muted: #56687a;
+      --text-main: #191919;
+      --emerald-green: #057642;
+      --amber-gold: #b25e02;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ffffff;
+      font-family: var(--font-display);
+      color: var(--text-main);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER NAVBAR ── */
+    .lx-nav {
+      background: #ffffff;
+      border-bottom: 1px solid #e8ebeb;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(16px, 5vw, 80px);
+      position: sticky;
+      top: 0;
+      z-index: 250;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .lx-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .lx-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .lx-logo-icon {
+      width: 38px;
+      height: 38px;
+      background: #0a66c2;
+      color: #ffffff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 22px;
+      box-shadow: 0 4px 12px rgba(10,102,194,0.25);
+    }
+    .lx-logo-text {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0a66c2;
+      letter-spacing: -0.7px;
+    }
+    .lx-logo-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: #475569;
+      background: #f1f5f9;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      display: none;
+    }
+    @media (min-width: 990px) { .lx-logo-tag { display: inline-block; } }
+
+    /* Nav Links & Action */
+    .lx-nav-menu {
+      display: none;
+      align-items: center;
+      gap: 24px;
+    }
+    @media (min-width: 920px) { .lx-nav-menu { display: flex; } }
+    .lx-nav-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: #56687a;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      transition: color 0.15s ease;
+      cursor: pointer;
+      padding: 4px 6px;
+    }
+    .lx-nav-link svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.75;
+      transition: stroke 0.15s;
+    }
+    .lx-nav-link:hover {
+      color: #0a66c2;
+    }
+    .lx-nav-divider {
+      width: 1px;
+      height: 32px;
+      background: #e2e8f0;
+      margin: 0 4px;
+    }
+    .lx-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .lx-btn-join-nav {
+      padding: 10px 22px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0a66c2;
+      background: #ffffff;
+      border: 1.5px solid #0a66c2;
+      border-radius: 28px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .lx-btn-join-nav:hover {
+      background: rgba(10, 102, 194, 0.08);
+      box-shadow: inset 0 0 0 1px #0a66c2;
+    }
+    .lx-btn-signin-nav {
+      padding: 10px 24px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      background: #0a66c2;
+      border: none;
+      border-radius: 28px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(10,102,194,0.25);
+      transition: all 0.2s ease;
+    }
+    .lx-btn-signin-nav:hover {
+      background: #004182;
+      transform: translateY(-1px);
+    }
+
+    /* Mobile Hamburger */
+    .lx-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      gap: 5px;
+    }
+    @media (max-width: 919px) { .lx-hamburger { display: flex; } }
+    .lx-hamburger span {
+      width: 22px;
+      height: 2px;
+      background: #334155;
+      border-radius: 2px;
+      transition: all 0.2s ease;
+    }
+    .lx-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .lx-hamburger.open span:nth-child(2) { opacity: 0; }
+    .lx-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile Menu Drawer */
+    .lx-mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #ffffff;
+      z-index: 240;
+      padding: 24px 20px;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid #e2e8f0;
+      animation: fadeIn 0.2s ease;
+    }
+    .lx-mobile-drawer.open { display: flex; }
+    .lx-mobile-item {
+      padding: 12px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #334155;
+      text-decoration: none;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .lx-mobile-item:hover {
+      background: #f1f5f9;
+      color: #0a66c2;
+    }
+
+    /* ── LIVE CAMPUS WIRE TICKER ── */
+    .lx-ticker {
+      background: #0a1629;
+      color: #cbd5e1;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 0 clamp(16px, 5vw, 80px);
+      font-size: 12px;
+      border-bottom: 1px solid #1e293b;
+    }
+    .lx-ticker-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #38bdf8;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 11px;
+      padding-right: 20px;
+      flex-shrink: 0;
+      border-right: 1px solid #334155;
+    }
+    .lx-ticker-pulse {
+      width: 8px;
+      height: 8px;
+      background: #38bdf8;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(56,189,248,0.25);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .lx-ticker-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+      margin-left: 20px;
+    }
+    .lx-ticker-text {
+      display: inline-block;
+      animation: tickerRoll 30s linear infinite;
+    }
+    @keyframes tickerRoll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .lx-ticker-text span {
+      margin-right: 48px;
+      font-weight: 500;
+    }
+    .lx-ticker-text strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* ── HERO SECTION (LINKEDIN EXACT COMPOSITION & VIBE) ── */
+    .lx-hero-wrap {
+      background: #ffffff;
+      padding: clamp(32px, 5vw, 64px) clamp(16px, 5vw, 80px);
+      border-bottom: 1px solid #eef2f6;
+    }
+    .lx-hero {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (min-width: 980px) {
+      .lx-hero {
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 64px;
+        min-height: 520px;
+      }
+    }
+
+    .lx-hero-left {
+      max-width: 540px;
+    }
+    .lx-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height: 1.15;
+      font-weight: 800;
+      color: #191919;
+      letter-spacing: -1.6px;
+      margin: 0 0 14px 0;
+    }
+    .lx-hero-subtitle {
+      font-size: clamp(15px, 1.3vw, 18px);
+      line-height: 1.55;
+      color: #56687a;
+      margin: 0 0 28px 0;
+      font-weight: 400;
+    }
+
+    /* Role Selection Chips */
+    .lx-role-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .lx-role-chip {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .lx-role-chip:hover {
+      border-color: #0a66c2;
+      color: #0a66c2;
+      background: #f0f7ff;
+    }
+    .lx-role-chip.active {
+      background: #e8f3ff;
+      border-color: #0a66c2;
+      color: #0a66c2;
+    }
+
+    /* ── LINKEDIN AUTH STACK IN HERO ── */
+    .lx-hero-auth-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 440px;
+    }
+    
+    /* Google SSO Pill Button (Prominent) */
+    .lx-btn-google-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      height: 52px;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 28px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #191919;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .lx-btn-google-pill:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transform: translateY(-1px);
+    }
+    .lx-btn-google-pill svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    /* Email Sign In Pill Button */
+    .lx-btn-email-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 52px;
+      background: #ffffff;
+      border: 1.5px solid #191919;
+      border-radius: 28px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #191919;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .lx-btn-email-pill:hover {
+      background: rgba(0,0,0,0.04);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transform: translateY(-1px);
+    }
+
+    /* Terms Disclaimer */
+    .lx-auth-disclaimer {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #64748b;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+    .lx-auth-disclaimer a {
+      color: #0a66c2;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .lx-auth-disclaimer a:hover {
+      text-decoration: underline;
+    }
+
+    /* "New to Placeonix? Join now" */
+    .lx-join-prompt {
+      font-size: 16px;
+      color: #191919;
+      margin-top: 8px;
+    }
+    .lx-join-prompt a {
+      color: #0a66c2;
+      font-weight: 700;
+      text-decoration: none;
+      margin-left: 6px;
+    }
+    .lx-join-prompt a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── HERO RIGHT: EDITORIAL CARTOON ILLUSTRATION (DRAWN SEAMLESSLY ON CANVAS) ── */
+    .lx-hero-right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+    .lx-hero-aura {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 243, 255, 0.85) 0%, rgba(243, 248, 255, 0.4) 65%, rgba(255, 255, 255, 0) 100%);
+      z-index: 0;
+      pointer-events: none;
+      transform: translate(10px, 10px);
+    }
+    .lx-cartoon-frame {
+      position: relative;
+      width: 100%;
+      max-width: 580px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+    .lx-cartoon-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 35px rgba(10, 22, 41, 0.04));
+      background: transparent;
+    }
+
+    /* Floating Micro Cards Around the Cartoon */
+    .lx-micro-badge-top {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 14px;
+      padding: 10px 14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 2;
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .lx-badge-icon-wrap {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: #e8f3ff;
+      color: #0a66c2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+    }
+    .lx-badge-text-main {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+    .lx-badge-text-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: #057642;
+    }
+
+    .lx-micro-badge-bot {
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 14px;
+      padding: 10px 14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 2;
+      animation: floatBadge 4s ease-in-out infinite 2s;
+    }
+
+    /* ── STATS SECTION ── */
+    .lx-stats-section {
+      background: #fafbfd;
+      border-top: 1px solid #eef2f6;
+      border-bottom: 1px solid #eef2f6;
+      padding: 44px clamp(16px, 5vw, 80px);
+    }
+    .lx-stats-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .lx-stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .lx-stat-item {
+      text-align: left;
+      padding: 16px 20px;
+      border-left: 3.5px solid #0a66c2;
+      background: #ffffff;
+      border-radius: 0 14px 14px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .lx-stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3vw, 36px);
+      font-weight: 800;
+      color: #0a1629;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .lx-stat-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    /* ── EXPLORE OPPORTUNITIES PILLS (LINKEDIN STYLE) ── */
+    .lx-topics-section {
+      padding: 72px clamp(16px, 5vw, 80px);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .lx-section-head {
+      margin-bottom: 36px;
+      text-align: left;
+    }
+    .lx-section-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.2vw, 38px);
+      font-weight: 800;
+      color: #191919;
+      letter-spacing: -0.8px;
+      margin: 0 0 10px;
+    }
+    .lx-section-head p {
+      font-size: 16px;
+      color: #56687a;
+      margin: 0;
+    }
+
+    .lx-topic-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .lx-pill-btn {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      color: #334155;
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lx-pill-btn:hover {
+      border-color: #0a66c2;
+      color: #0a66c2;
+      background: #f0f7ff;
+      transform: translateY(-2px);
+    }
+
+    /* ── 3-WAY STAKEHOLDER CARDS (STUDENT, RECRUITER, ADMIN) ── */
+    .lx-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    @media (min-width: 880px) {
+      .lx-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .lx-card {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1.5px solid #e2e8f0;
+      padding: 32px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+      transition: all 0.25s ease;
+    }
+    .lx-card:hover {
+      box-shadow: 0 18px 36px rgba(10,102,194,0.12);
+      border-color: #93c5fd;
+      transform: translateY(-5px);
+    }
+    .lx-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+    .lx-card-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 10px;
+    }
+    .lx-card-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #64748b;
+      margin: 0 0 22px;
+      flex-grow: 1;
+    }
+    .lx-card-points {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13.5px;
+      color: #334155;
+      font-weight: 500;
+    }
+    .lx-card-points li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .lx-card-points svg {
+      width: 17px;
+      height: 17px;
+      color: #0a66c2;
+      flex-shrink: 0;
+    }
+    .lx-card-btn {
+      width: 100%;
+      padding: 13px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      text-align: center;
+      cursor: pointer;
+      border: 1.5px solid #0a66c2;
+      background: transparent;
+      color: #0a66c2;
+      transition: all 0.2s ease;
+    }
+    .lx-card:hover .lx-card-btn {
+      background: #0a66c2;
+      color: #ffffff;
+    }
+
+    /* ── DEMO INSTANT ACCESS BANNER ── */
+    .lx-demo-banner {
+      background: linear-gradient(135deg, #0a1629 0%, #0f2b5c 100%);
+      border-radius: 24px;
+      padding: 40px 32px;
+      color: #ffffff;
+      margin: 40px auto 72px;
+      max-width: 1200px;
+      box-shadow: 0 20px 40px rgba(10,22,41,0.18);
+    }
+    .lx-demo-head {
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    .lx-demo-head h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0 0 6px;
+      color: #ffffff;
+    }
+    .lx-demo-head p {
+      font-size: 14px;
+      color: #93c5fd;
+      margin: 0;
+    }
+    .lx-demo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 768px) {
+      .lx-demo-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .lx-demo-tile {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(10px);
+      border-radius: 14px;
+      padding: 18px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .lx-demo-tile:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+    }
+    .lx-demo-role-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
+    .lx-demo-cred {
+      font-size: 12px;
+      color: #cbd5e1;
+      font-family: monospace;
+    }
+    .lx-demo-arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    /* ── FOOTER ── */
+    .lx-footer {
+      background: #f3f2ef;
+      border-top: 1px solid #e5e7eb;
+      padding: 56px clamp(16px, 5vw, 80px) 32px;
+    }
+    .lx-footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 768px) {
+      .lx-footer-inner {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+      }
+    }
+    .lx-footer-brand p {
+      font-size: 13.5px;
+      color: #56687a;
+      line-height: 1.6;
+      max-width: 340px;
+      margin-top: 14px;
+    }
+    .lx-footer-col h5 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 16px;
+    }
+    .lx-footer-col a {
+      display: block;
+      color: #56687a;
+      text-decoration: none;
+      font-size: 13px;
+      margin-bottom: 10px;
+      transition: color 0.15s;
+    }
+    .lx-footer-col a:hover {
+      color: #0a66c2;
+    }
+    .lx-footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #94a3b8;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation (LinkedIn Style) -->
+  <nav class="lx-nav" id="lx-nav">
+    <div class="lx-nav-left">
+      <a class="lx-logo" href="/" style="display: inline-flex; align-items: center; text-decoration: none;">
+        <img src="images/logo.png" alt="Placeonix – Connect • Match • Grow" style="height: 50px; width: auto; max-width: 260px; object-fit: contain; display: block;" />
+      </a>
+    </div>
+
+    <!-- Center Nav Items -->
+    <div class="lx-nav-menu">
+      <a class="lx-nav-link" href="#explore">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+        <span>Explore Jobs</span>
+      </a>
+      <a class="lx-nav-link" href="#portals">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
+        <span>Portals</span>
+      </a>
+      <a class="lx-nav-link" href="#demo-access">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"/></svg>
+        <span>Demo Access</span>
+      </a>
+      <div class="lx-nav-divider"></div>
+    </div>
+
+    <!-- Right Action Pill Buttons -->
+    <div class="lx-nav-actions">
+      <a href="signup.html" class="lx-btn-join-nav" style="display:inline-flex;align-items:center;text-decoration:none;">Join now</a>
+      <a href="login.html" class="lx-btn-signin-nav" style="display:inline-flex;align-items:center;text-decoration:none;">Sign in</a>
+      <button class="lx-hamburger" id="hamburger-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Live Campus Signal Ticker -->
+  <div class="lx-ticker" aria-label="Live placement opportunities">
+    <div class="lx-ticker-badge">
+      <span class="lx-ticker-pulse"></span>
+      Live Campus Wire
+    </div>
+    <div class="lx-ticker-wrap">
+      <div class="lx-ticker-text">
+        <span>💼 <strong>Microsoft &amp; Google</strong> campus recruitment drives active for 2026 batch</span>
+        <span>⚡ <strong>Match Engine 2.0:</strong> Live 5-factor compatibility scores enabled for all applicants</span>
+        <span>🎯 <strong>Status Update:</strong> 140+ new verified job openings posted this week</span>
+        <span>🏛️ <strong>Placement Cell:</strong> Direct stage tracking from Shortlist to Final Offer Letter</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="lx-mobile-drawer" id="mobile-menu">
+    <a class="lx-mobile-item" href="#explore" onclick="closeMobileMenu()">🔍 Discover Jobs &amp; Matches</a>
+    <a class="lx-mobile-item" href="#portals" onclick="closeMobileMenu()">🏛️ Portals (Student, Recruiter, Admin)</a>
+    <a class="lx-mobile-item" href="#demo-access" onclick="closeMobileMenu()">🔑 One-Click Demo Credentials</a>
+    <hr style="border:0; border-top:1px solid #f1f5f9; margin:10px 0;" />
+    <button class="lx-btn-signin-nav" style="width:100%; justify-content:center;" onclick="closeMobileMenu(); openAuthModal('login', 'student')">🎓 Student Sign In</button>
+    <button class="lx-btn-join-nav" style="width:100%; justify-content:center; margin-top:10px;" onclick="closeMobileMenu(); openAuthModal('login', 'recruiter')">🏢 Recruiter Sign In</button>
+  </div>
+
+  <!-- ── HERO SECTION (LINKEDIN EXACT STRUCTURE) ── -->
+  <div class="lx-hero-wrap">
+    <main class="lx-hero">
+      <!-- Left Hero Column -->
+      <div class="lx-hero-left">
+        <h1 class="lx-hero-title">
+          Connect your campus to opportunity.
+        </h1>
+        <p class="lx-hero-subtitle">
+          Welcome to Placeonix — the digital bridge connecting verified students, top employers, and placement cells from campus to career.
+        </p>
+
+        <!-- Fast Role Selector Chips -->
+        <div class="lx-role-chips">
+          <a href="signup.html?role=student" class="lx-role-chip active" id="chip-student" style="text-decoration:none;">🎓 For Students</a>
+          <a href="signup.html?role=recruiter" class="lx-role-chip" id="chip-recruiter" style="text-decoration:none;">🏢 For Recruiters</a>
+          <a href="signup.html?role=admin" class="lx-role-chip" id="chip-admin" style="text-decoration:none;">🏛️ Placement Cell</a>
+        </div>
+
+        <!-- Auth Action Stack in Hero -->
+        <div class="lx-hero-auth-box">
+          <!-- Continue with Google Button -->
+          <button class="lx-btn-google-pill" onclick="handleGoogleSignIn()">
+            <svg viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+            </svg>
+            <span id="hero-google-text">Continue with Google</span>
+          </button>
+
+          <!-- Sign In with Email Button (Direct to dedicated page) -->
+          <a href="login.html" class="lx-btn-email-pill" style="display:flex;align-items:center;justify-content:center;text-decoration:none;">
+            Sign in with email
+          </a>
+
+          <!-- Disclaimer -->
+          <p class="lx-auth-disclaimer">
+            By clicking Continue to join or sign in, you agree to Placeonix's <a href="javascript:void(0)">User Agreement</a>, <a href="javascript:void(0)">Privacy Policy</a>, and <a href="javascript:void(0)">Cookie Policy</a>.
+          </p>
+
+          <!-- New to Placeonix? Join now -->
+          <div class="lx-join-prompt">
+            New to Placeonix? <a href="signup.html">Join now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Hero Column: LinkedIn-Style Editorial Cartoon Illustration Drawn Directly in Page -->
+      <div class="lx-hero-right">
+        <div class="lx-hero-aura" aria-hidden="true"></div>
+        <div class="lx-cartoon-frame">
+          <img src="images/hero-character.png" alt="Placeonix Career &amp; Placement Community" class="lx-cartoon-img" />
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Live Stats Strip -->
+  <section class="lx-stats-section">
+    <div class="lx-stats-grid">
+      <div class="lx-stat-item">
+        <div class="lx-stat-number">1,200+</div>
+        <div class="lx-stat-label">Verified Student Profiles</div>
+      </div>
+      <div class="lx-stat-item">
+        <div class="lx-stat-number">85+</div>
+        <div class="lx-stat-label">Partner Recruiters</div>
+      </div>
+      <div class="lx-stat-item">
+        <div class="lx-stat-number">140+</div>
+        <div class="lx-stat-label">Active Campus Openings</div>
+      </div>
+      <div class="lx-stat-item">
+        <div class="lx-stat-number">94.2%</div>
+        <div class="lx-stat-label">Placement Success Rate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore by Career Pathways / Topics -->
+  <section class="lx-topics-section" id="explore">
+    <div class="lx-section-head">
+      <h2>Explore opportunities tailored for you</h2>
+      <p>Discover roles based on engineering domains, high-frequency campus hiring streams, and salary bands.</p>
+    </div>
+
+    <div class="lx-topic-pills">
+      <button class="lx-pill-btn" onclick="openAuthModal('login', 'student')">💻 Full-Stack &amp; Web Development</button>
+      <button class="lx-pill-btn" onclick="openAuthModal('login', 'student')">🤖 AI &amp; Machine Learning</button>
+      <button class="lx-pill-btn" onclick="openAuthModal('login', 'student')">☁️ Cloud &amp; DevOps Engineering</button>
+      <button class="lx-pill-btn" onclick="openAuthModal('login', 'student')">📱 Mobile App Development</button>
+      <button class="lx-pill-btn" onclick="openAuthModal('login', 'student')">📊 Data Science &amp; Analytics</button>
+      <button class="lx-pill-btn" onclick="openAuthModal('login', 'student')">🔒 Cyber Security &amp; Systems</button>
+      <button class="lx-pill-btn" onclick="openAuthModal('login', 'student')">🚀 Product Management</button>
+    </div>
+
+    <!-- 3 Stakeholder Pillar Cards -->
+    <div class="lx-cards-grid" id="portals">
+      <!-- Card 1: Students -->
+      <div class="lx-card">
+        <div>
+          <div class="lx-card-icon" style="background:#e8f3ff; color:#0a66c2;">🎓</div>
+          <h3 class="lx-card-title">Students &amp; Graduates</h3>
+          <p class="lx-card-desc">Showcase your verified profile, auto-calculate eligibility, apply in one click, and track your application stage with zero ambiguity.</p>
+          <ul class="lx-card-points">
+            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Instant 5-Factor Match Score breakdown</li>
+            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> PDF Resume Parser &amp; Skill Extractor</li>
+            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Live interview schedules &amp; status logs</li>
+          </ul>
+        </div>
+        <button class="lx-card-btn" onclick="openAuthModal('login', 'student')">Enter Student Portal →</button>
+      </div>
+
+      <!-- Card 2: Recruiters -->
+      <div class="lx-card">
+        <div>
+          <div class="lx-card-icon" style="background:#ecfdf5; color:#057642;">🏢</div>
+          <h3 class="lx-card-title">Corporate Recruiters</h3>
+          <p class="lx-card-desc">Publish openings, filter candidates with strict eligibility cutoffs, and move talent seamlessly through standardized hiring stages.</p>
+          <ul class="lx-card-points">
+            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> State-Machine Pipeline Enforcement</li>
+            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Built-in Interview Slot Scheduling</li>
+            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Direct Feedback &amp; Decision Messaging</li>
+          </ul>
+        </div>
+        <button class="lx-card-btn" onclick="openAuthModal('login', 'recruiter')">Enter Recruiter Portal →</button>
+      </div>
+
+      <!-- Card 3: Placement Admins -->
+      <div class="lx-card">
+        <div>
+          <div class="lx-card-icon" style="background:#f5f3ff; color:#7c3aed;">👑</div>
+          <h3 class="lx-card-title">Placement Administrators</h3>
+          <p class="lx-card-desc">Oversee complete campus recruitment drives, analyze department-wise statistics, and broadcast verified opportunities institution-wide.</p>
+          <ul class="lx-card-points">
+            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Real-time Campus Analytics &amp; Reports</li>
+            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Campus-wide Drive Announcement Hub</li>
+            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 1-Click CSV &amp; Audit Data Exports</li>
+          </ul>
+        </div>
+        <button class="lx-card-btn" onclick="openAuthModal('login', 'admin')">Enter Admin Dashboard →</button>
+      </div>
+    </div>
+
+    <!-- Quick Demo Logins Banner -->
+    <div class="lx-demo-banner" id="demo-access">
+      <div class="lx-demo-head">
+        <h3>⚡ One-Tap Interactive Demo Access</h3>
+        <p>Choose any role below to pre-populate verified credentials and experience Placeonix instantly.</p>
+      </div>
+      <div class="lx-demo-grid">
+        <div class="lx-demo-tile" onclick="fillDemo('rahul.sharma@placeonix.edu', 'student123', 'student')">
+          <div>
+            <div class="lx-demo-role-name">🎓 Student Portal Demo</div>
+            <div class="lx-demo-cred">rahul.sharma@placeonix.edu</div>
+          </div>
+          <div class="lx-demo-arrow">→</div>
+        </div>
+        <div class="lx-demo-tile" onclick="fillDemo('recruiter.google@placeonix.com', 'recruiter123', 'recruiter')">
+          <div>
+            <div class="lx-demo-role-name">🏢 Google Recruiter Demo</div>
+            <div class="lx-demo-cred">recruiter.google@placeonix.com</div>
+          </div>
+          <div class="lx-demo-arrow">→</div>
+        </div>
+        <div class="lx-demo-tile" onclick="fillDemo('admin@placeonix.edu', 'admin123', 'admin')">
+          <div>
+            <div class="lx-demo-role-name">👑 Placement Officer Demo</div>
+            <div class="lx-demo-cred">admin@placeonix.edu</div>
+          </div>
+          <div class="lx-demo-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modern Footer -->
+  <footer class="lx-footer">
+    <div class="lx-footer-inner">
+      <div class="lx-footer-brand">
+        <a class="lx-logo" href="/" style="display: inline-flex; align-items: center; text-decoration: none;">
+          <img src="images/logo.png" alt="Placeonix" style="height: 40px; width: auto; object-fit: contain; display: block;" />
+        </a>
+        <p>The next-generation campus recruitment platform empowering universities, enterprise recruiters, and graduates to build meaningful career journeys.</p>
+      </div>
+      <div class="lx-footer-col">
+        <h5>General</h5>
+        <a href="javascript:void(0)" onclick="openAuthModal('register')">Sign Up</a>
+        <a href="javascript:void(0)" onclick="openAuthModal('login')">Sign In</a>
+        <a href="#explore">Job Board</a>
+        <a href="#portals">Stakeholder Hub</a>
+      </div>
+      <div class="lx-footer-col">
+        <h5>Portals</h5>
+        <a href="javascript:void(0)" onclick="openAuthModal('login', 'student')">Student Portal</a>
+        <a href="javascript:void(0)" onclick="openAuthModal('login', 'recruiter')">Recruiter Pipeline</a>
+        <a href="javascript:void(0)" onclick="openAuthModal('login', 'admin')">Placement Officer</a>
+      </div>
+      <div class="lx-footer-col">
+        <h5>Placement Cell</h5>
+        <a href="javascript:void(0)">Support Hub</a>
+        <a href="javascript:void(0)">Campus Policy</a>
+        <a href="javascript:void(0)">Privacy &amp; Terms</a>
+      </div>
+    </div>
+
+    <div class="lx-footer-bottom">
+      <span>Placeonix Corporation © 2026. All rights reserved.</span>
+      <span>Engineered for campus excellence &amp; transparent hiring.</span>
+    </div>
+  </footer>
+
+  <!-- Unified Auth Modal (Sign In / Register) -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal" style="max-width:480px;max-height:92vh;overflow-y:auto;border-radius:20px;">
+      <div class="modal-header" style="padding:20px 24px 12px;">
+        <h2 class="modal-title" id="auth-modal-title" style="font-size:20px;font-weight:800;">Create your account</h2>
+        <button class="modal-close" onclick="closeAuthModal()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body" style="padding:12px 24px 24px;">
+        <!-- Role Selector Pills -->
+        <div class="px-role-tabs" style="margin-bottom:18px;">
+          <button id="modal-role-student" type="button" class="px-role-tab active" onclick="selectModalRole('student')">
+            <span>🎓 Student</span>
+          </button>
+          <button id="modal-role-recruiter" type="button" class="px-role-tab" onclick="selectModalRole('recruiter')">
+            <span>🏢 Recruiter</span>
+          </button>
+          <button id="modal-role-admin" type="button" class="px-role-tab" onclick="selectModalRole('admin')">
+            <span>🏛️ Placement Cell</span>
+          </button>
+        </div>
+
+        <form id="auth-form">
+          <input type="hidden" id="modal-auth-role" value="student" />
+          <input type="hidden" id="modal-auth-mode" value="register" />
+
+          <!-- Full Name -->
+          <div class="form-group" id="modal-group-name">
+            <label class="form-label">Full Name *</label>
+            <input type="text" id="modal-auth-name" class="form-control" placeholder="Enter your full name" required />
+          </div>
+
+          <!-- STUDENT FIELDS -->
+          <div id="modal-student-fields">
+            <div class="form-group" style="position:relative;">
+              <label class="form-label">College / Institution *</label>
+              <input type="text" id="modal-student-college" class="form-control" placeholder="Search your college..." value="GLA University, Mathura" />
+            </div>
+
+            <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:var(--space-3);">
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Roll Number *</label>
+                <input type="text" id="modal-student-rollno" class="form-control" placeholder="22CS045" />
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Branch *</label>
+                <select id="modal-student-branch" class="form-control">
+                  <option value="Computer Science and Engineering" selected>CSE</option>
+                  <option value="Information Technology">IT</option>
+                  <option value="Artificial Intelligence & Data Science">AI&amp;DS</option>
+                  <option value="Electronics and Communication Engineering">ECE</option>
+                  <option value="Mechanical Engineering">Mechanical</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Graduation Year *</label>
+              <select id="modal-student-gradyear" class="form-control">
+                <option value="2025">2025 Batch</option>
+                <option value="2026" selected>2026 Batch</option>
+                <option value="2027">2027 Batch</option>
+                <option value="2028">2028 Batch</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- RECRUITER FIELDS -->
+          <div id="modal-recruiter-fields" style="display:none;">
+            <div class="form-group">
+              <label class="form-label">Company Name *</label>
+              <input type="text" id="modal-recruiter-company" class="form-control" placeholder="e.g. Google / Microsoft / Amazon" />
+            </div>
+            <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:var(--space-3);">
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Designation *</label>
+                <input type="text" id="modal-recruiter-designation" class="form-control" placeholder="HR Manager / TA Lead" />
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Company Size</label>
+                <select id="modal-recruiter-size" class="form-control">
+                  <option value="1-10">1-10</option>
+                  <option value="11-50">11-50</option>
+                  <option value="51-200" selected>51-200</option>
+                  <option value="500+">500+</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADMIN FIELDS -->
+          <div id="modal-admin-fields" style="display:none;">
+            <div class="form-group">
+              <label class="form-label">Institution *</label>
+              <input type="text" id="modal-admin-institution" class="form-control" placeholder="e.g. GLA University, Mathura" value="GLA University, Mathura" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Employee / Staff ID *</label>
+              <input type="text" id="modal-admin-staffid" class="form-control" placeholder="e.g. TPO-8492" />
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="form-label" id="modal-email-label">Email Address *</label>
+            <input type="email" id="modal-auth-email" class="form-control" placeholder="name@university.edu" required />
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label class="form-label">Password *</label>
+            <div style="position:relative;">
+              <input type="password" id="modal-auth-password" class="form-control" placeholder="••••••••" required style="padding-right:40px;" />
+              <button type="button" onclick="toggleModalPassword('modal-auth-password', this)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--gray-400);background:none;border:none;cursor:pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:18px;height:18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+              </button>
+            </div>
+            <!-- Password requirements -->
+            <div class="px-pwd-checklist" style="font-size:11.5px;margin-top:6px;">
+              <div class="px-pwd-rule" id="modal-rule-length"><span class="px-pwd-rule-dot">○</span><span>8+ chars</span></div>
+              <div class="px-pwd-rule" id="modal-rule-number"><span class="px-pwd-rule-dot">○</span><span>1 number</span></div>
+              <div class="px-pwd-rule" id="modal-rule-special"><span class="px-pwd-rule-dot">○</span><span>1 special</span></div>
+            </div>
+          </div>
+
+          <!-- Confirm Password (in register mode) -->
+          <div class="form-group" id="modal-group-confirmpwd">
+            <label class="form-label">Confirm Password *</label>
+            <div style="position:relative;">
+              <input type="password" id="modal-auth-confirmpassword" class="form-control" placeholder="••••••••" style="padding-right:40px;" />
+              <button type="button" onclick="toggleModalPassword('modal-auth-confirmpassword', this)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--gray-400);background:none;border:none;cursor:pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:18px;height:18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Terms Checkbox -->
+          <div class="px-terms-row" id="modal-group-terms" style="margin:12px 0 16px;">
+            <input type="checkbox" id="modal-auth-terms" checked />
+            <label for="modal-auth-terms" style="font-size:12.5px;">I agree to Placeonix <a href="javascript:void(0)" style="color:#0a66c2;font-weight:600;">Terms &amp; Privacy Policy</a>.</label>
+          </div>
+
+          <!-- Submit CTA -->
+          <button type="submit" id="modal-auth-submit-btn" class="lx-btn-signin-nav" style="width:100%;height:46px;font-size:15px;border-radius:10px;">
+            Create Student Account →
+          </button>
+
+          <!-- Divider -->
+          <div style="display:flex;align-items:center;margin:14px 0;gap:10px;">
+            <div style="flex:1;height:1px;background:#e2e8f0;"></div>
+            <span style="font-size:11px;color:#94a3b8;font-weight:700;text-transform:uppercase;">or continue with</span>
+            <div style="flex:1;height:1px;background:#e2e8f0;"></div>
+          </div>
+
+          <!-- Google SSO -->
+          <button type="button" class="btn btn-secondary btn-full" style="display:flex;align-items:center;justify-content:center;gap:10px;height:44px;border-radius:10px;border:1.5px solid #cbd5e1;background:#ffffff;font-size:14px;font-weight:600;color:#1e293b;" onclick="handleModalGoogleAuth()">
+            <svg width="18" height="18" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+            </svg>
+            <span id="modal-google-btn-text">Continue with Google</span>
+          </button>
+
+          <!-- Switch Mode / Full Page Link -->
+          <div style="text-align:center;margin-top:14px;font-size:13px;color:var(--gray-500);">
+            <span id="modal-switch-text">Already registered?</span>
+            <a href="javascript:void(0)" id="modal-switch-link" style="color:#0a66c2;font-weight:700;margin-left:4px;" onclick="toggleModalAuthMode()">
+              Sign In
+            </a>
+            <span style="margin:0 6px;color:#cbd5e1;">•</span>
+            <a href="signup.html" style="color:#64748b;font-weight:600;">Open Full Page ↗</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+
+  <script>
+    let currentAuthMode = 'register';
+    let currentAuthRole = 'student';
+    let mobileMenuOpen = false;
+
+    function setHeroRole(role) {
+      currentAuthRole = role;
+      ['student', 'recruiter', 'admin'].forEach(r => {
+        const chip = document.getElementById(`chip-${r}`);
+        if (chip) chip.classList.toggle('active', r === role);
+      });
+      const gText = document.getElementById('hero-google-text');
+      if (gText) {
+        if (role === 'recruiter') gText.textContent = 'Continue with Google (Recruiter)';
+        else if (role === 'admin') gText.textContent = 'Continue with Google (Placement Officer)';
+        else gText.textContent = 'Continue with Google';
+      }
+    }
+
+    function toggleMobileMenu() {
+      mobileMenuOpen = !mobileMenuOpen;
+      document.getElementById('hamburger-btn').classList.toggle('open', mobileMenuOpen);
+      document.getElementById('mobile-menu').classList.toggle('open', mobileMenuOpen);
+    }
+
+    function closeMobileMenu() {
+      mobileMenuOpen = false;
+      document.getElementById('hamburger-btn').classList.remove('open');
+      document.getElementById('mobile-menu').classList.remove('open');
+    }
+
+    function openAuthModal(mode = 'register', role = 'student') {
+      currentAuthMode = mode;
+      currentAuthRole = role || 'student';
+      document.getElementById('auth-modal').classList.add('open');
+      selectModalRole(currentAuthRole);
+      updateModalUI();
+    }
+
+    function closeAuthModal() {
+      document.getElementById('auth-modal').classList.remove('open');
+    }
+
+    function selectModalRole(role) {
+      currentAuthRole = role;
+      setHeroRole(role);
+      document.getElementById('modal-auth-role').value = role;
+      ['student', 'recruiter', 'admin'].forEach(r => {
+        const btn = document.getElementById(`modal-role-${r}`);
+        if (btn) btn.classList.toggle('active', r === role);
+      });
+      updateModalRoleFields();
+    }
+
+    function toggleModalAuthMode() {
+      currentAuthMode = currentAuthMode === 'login' ? 'register' : 'login';
+      updateModalUI();
+    }
+
+    function updateModalUI() {
+      const isLogin = currentAuthMode === 'login';
+      document.getElementById('modal-auth-mode').value = currentAuthMode;
+      document.getElementById('auth-modal-title').textContent = isLogin ? 'Sign In to Placeonix' : 'Create your account';
+      document.getElementById('modal-group-name').style.display = isLogin ? 'none' : 'block';
+      document.getElementById('modal-group-confirmpwd').style.display = isLogin ? 'none' : 'block';
+      document.getElementById('modal-group-terms').style.display = isLogin ? 'none' : 'flex';
+      
+      document.getElementById('modal-switch-text').textContent = isLogin ? "Don't have an account?" : "Already registered?";
+      document.getElementById('modal-switch-link').textContent = isLogin ? "Create Account" : "Sign In";
+
+      const gBtnText = document.getElementById('modal-google-btn-text');
+      if (gBtnText) gBtnText.textContent = isLogin ? 'Sign in with Google' : 'Continue with Google';
+
+      updateModalRoleFields();
+    }
+
+    function updateModalRoleFields() {
+      const isLogin = currentAuthMode === 'login';
+      const isStudent = currentAuthRole === 'student';
+      const isRecruiter = currentAuthRole === 'recruiter';
+      const isAdmin = currentAuthRole === 'admin';
+
+      document.getElementById('modal-student-fields').style.display = (!isLogin && isStudent) ? 'block' : 'none';
+      document.getElementById('modal-recruiter-fields').style.display = (!isLogin && isRecruiter) ? 'block' : 'none';
+      document.getElementById('modal-admin-fields').style.display = (!isLogin && isAdmin) ? 'block' : 'none';
+
+      const emailLabel = document.getElementById('modal-email-label');
+      const submitBtn = document.getElementById('modal-auth-submit-btn');
+
+      if (isLogin) {
+        emailLabel.textContent = 'Email Address *';
+        submitBtn.textContent = 'Sign In →';
+      } else {
+        if (isStudent) {
+          emailLabel.textContent = 'College Email Address *';
+          submitBtn.textContent = 'Create Student Account →';
+        } else if (isRecruiter) {
+          emailLabel.textContent = 'Work Email *';
+          submitBtn.textContent = 'Create Recruiter Account →';
+        } else {
+          emailLabel.textContent = 'Official College Email *';
+          submitBtn.textContent = 'Create Placement Cell Account →';
+        }
+      }
+    }
+
+    // Modal Password Checklist
+    const modalPwd = document.getElementById('modal-auth-password');
+    if (modalPwd) {
+      modalPwd.addEventListener('input', () => {
+        const val = modalPwd.value;
+        const isLen = val.length >= 8;
+        const isNum = /\d/.test(val);
+        const isSpec = /[^A-Za-z0-9]/.test(val);
+        
+        document.getElementById('modal-rule-length').className = `px-pwd-rule ${isLen ? 'valid' : ''}`;
+        document.getElementById('modal-rule-length').querySelector('.px-pwd-rule-dot').textContent = isLen ? '✓' : '○';
+
+        document.getElementById('modal-rule-number').className = `px-pwd-rule ${isNum ? 'valid' : ''}`;
+        document.getElementById('modal-rule-number').querySelector('.px-pwd-rule-dot').textContent = isNum ? '✓' : '○';
+
+        document.getElementById('modal-rule-special').className = `px-pwd-rule ${isSpec ? 'valid' : ''}`;
+        document.getElementById('modal-rule-special').querySelector('.px-pwd-rule-dot').textContent = isSpec ? '✓' : '○';
+      });
+    }
+
+    function toggleModalPassword(id, btn) {
+      const el = document.getElementById(id);
+      if (el) el.type = el.type === 'password' ? 'text' : 'password';
+    }
+
+    async function handleModalGoogleAuth() {
+      const role = currentAuthRole;
+      let email = (document.getElementById('modal-auth-email')?.value || '').trim();
+      let name = (document.getElementById('modal-auth-name')?.value || '').trim();
+
+      if (!email) {
+        if (role === 'recruiter') email = 'recruiter.google@placeonix.com';
+        else if (role === 'admin') email = 'admin@placeonix.edu';
+        else email = 'rahul.sharma@placeonix.edu';
+      }
+
+      showToast(`Signing in via Google (${role.toUpperCase()})...`, 'info');
+      try {
+        await Auth.loginWithGoogle({
+          email,
+          name: name || email.split('@')[0],
+          role,
+          college: document.getElementById('modal-student-college')?.value || 'GLA University, Mathura',
+          rollNo: document.getElementById('modal-student-rollno')?.value || '22CS045',
+          branch: document.getElementById('modal-student-branch')?.value || 'Computer Science and Engineering',
+          graduationYear: Number(document.getElementById('modal-student-gradyear')?.value || 2026),
+          companyName: document.getElementById('modal-recruiter-company')?.value || 'Google Partner',
+        });
+      } catch (err) {}
+    }
+
+    // Modal Form Submit
+    document.getElementById('auth-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = (document.getElementById('modal-auth-email').value || '').trim();
+      const password = document.getElementById('modal-auth-password').value;
+      const role = currentAuthRole;
+
+      if (currentAuthMode === 'login') {
+        await Auth.login(email, password, role);
+      } else {
+        const confirmPwd = document.getElementById('modal-auth-confirmpassword').value;
+        if (password !== confirmPwd) {
+          showToast('Passwords do not match! Please verify Confirm Password.', 'danger');
+          return;
+        }
+
+        const formData = {
+          name: (document.getElementById('modal-auth-name').value || '').trim(),
+          email,
+          password,
+          role,
+          termsAccepted: document.getElementById('modal-auth-terms').checked,
+        };
+
+        if (role === 'student') {
+          formData.college = (document.getElementById('modal-student-college').value || '').trim();
+          formData.rollNo = (document.getElementById('modal-student-rollno').value || '').trim();
+          formData.branch = document.getElementById('modal-student-branch').value;
+          formData.graduationYear = Number(document.getElementById('modal-student-gradyear').value || 2026);
+        } else if (role === 'recruiter') {
+          formData.companyName = (document.getElementById('modal-recruiter-company').value || '').trim();
+          formData.designation = (document.getElementById('modal-recruiter-designation').value || '').trim();
+          formData.companySize = document.getElementById('modal-recruiter-size').value;
+        } else if (role === 'admin') {
+          formData.institution = (document.getElementById('modal-admin-institution').value || '').trim();
+          formData.staffId = (document.getElementById('modal-admin-staffid').value || '').trim();
+        }
+
+        const res = await Auth.register(formData);
+        if (res.success) {
+          closeAuthModal();
+          showToast('Account created successfully! Redirecting...', 'success');
+          setTimeout(() => {
+            if (role === 'student') window.location.href = 'student-dashboard.html';
+            else if (role === 'recruiter') window.location.href = 'recruiter-dashboard.html';
+            else window.location.href = 'admin-dashboard.html';
+          }, 800);
+        }
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (mobileMenuOpen && !e.target.closest('#mobile-menu') && !e.target.closest('#hamburger-btn')) {
+        closeMobileMenu();
+      }
+    });
+
+    document.getElementById('auth-modal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('auth-modal')) closeAuthModal();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof Auth !== 'undefined' && Auth.isAuthenticated()) {
+        const user = Auth.getUser();
+        if (user) {
+          if (user.role === 'student') window.location.href = 'student-dashboard.html';
+          else if (user.role === 'recruiter') window.location.href = 'recruiter-dashboard.html';
+          else if (user.role === 'admin') window.location.href = 'admin-dashboard.html';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+
