@@ -68,24 +68,63 @@
       transition: background-color 0.3s ease;
     }
 
-    /* ── LOGO ── */
-    .px-logo-wrap {
+    /* ── CRISP VECTOR BRAND LOGO ── */
+    .px-brand-logo {
       display: inline-flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
-    .px-logo-wrap:hover {
-      opacity: 0.92;
+    .px-brand-logo:hover {
       transform: translateY(-1px);
+      opacity: 0.95;
     }
-    .px-brand-logo-img {
-      height: 38px;
-      width: auto;
-      max-width: 200px;
-      object-fit: contain;
-      display: block;
+    .px-brand-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #0a66c2 0%, #0047b3 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(10, 102, 194, 0.25);
+    }
+    .px-brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .px-brand-title {
+      font-family: var(--font-heading);
+      font-size: 23px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.6px;
+      line-height: 1.05;
+    }
+    .px-brand-title span {
+      color: #0a66c2;
+    }
+    .px-brand-title .accent-x {
+      color: #10b981;
+      font-weight: 900;
+    }
+    body.theme-recruiter .px-brand-title span {
+      color: #059669;
+    }
+    body.theme-admin .px-brand-title span {
+      color: #6d28d9;
+    }
+    .px-brand-tagline {
+      font-family: var(--font-heading);
+      font-size: 8px;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-top: 3px;
     }
 
     /* ── MAIN CARD WRAPPER ── */
@@ -94,18 +133,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 32px 20px;
+      padding: 36px 20px;
     }
 
     .auth-card-container {
       width: 100%;
-      max-width: 1040px;
+      max-width: 1020px;
       background: #ffffff;
       border-radius: 24px;
       border: 1px solid #e2e8f0;
       box-shadow: 0 20px 45px -15px rgba(15, 23, 42, 0.07), 0 1px 3px rgba(0, 0, 0, 0.02);
       display: grid;
-      grid-template-columns: 440px 1fr;
+      grid-template-columns: 430px 1fr;
       overflow: hidden;
       transition: all 0.3s ease;
     }
@@ -114,7 +153,7 @@
     .auth-left-hero {
       background: var(--theme-bg-soft);
       border-right: 1px solid #e2e8f0;
-      padding: 36px 32px;
+      padding: 34px 30px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -142,7 +181,7 @@
     .hero-illustration-box {
       margin: auto 0;
       text-align: center;
-      padding: 20px 8px;
+      padding: 16px 8px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -154,35 +193,39 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       position: relative;
       animation: gentleFloat 5s ease-in-out infinite alternate;
     }
 
     @keyframes gentleFloat {
       0% { transform: translateY(0px); }
-      100% { transform: translateY(-8px); }
+      100% { transform: translateY(-7px); }
     }
 
     .hero-welcome-title {
       font-family: var(--font-heading);
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 800;
       color: #0f172a;
       letter-spacing: -0.4px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      line-height: 1.35;
+      text-align: center;
+      max-width: 320px;
     }
 
     .hero-welcome-desc {
-      font-size: 14px;
+      font-size: 13.5px;
       color: #64748b;
       line-height: 1.55;
-      max-width: 320px;
+      max-width: 300px;
+      text-align: center;
     }
 
     /* ── RIGHT FORM PANEL ── */
     .auth-right-panel {
-      padding: 40px 44px;
+      padding: 38px 42px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -192,23 +235,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 24px;
-    }
-
-    .top-action-text {
-      font-size: 13.5px;
-      color: #64748b;
-    }
-    .top-action-link {
-      font-weight: 700;
-      color: var(--theme-primary);
-      text-decoration: none;
-      margin-left: 4px;
-      transition: color 0.2s;
-      cursor: pointer;
-    }
-    .top-action-link:hover {
-      text-decoration: underline;
+      margin-bottom: 22px;
     }
 
     .auth-title-group {
@@ -223,7 +250,7 @@
       line-height: 1.2;
     }
     .auth-sub-title {
-      font-size: 14px;
+      font-size: 13.5px;
       color: #64748b;
       margin-top: 4px;
     }
@@ -235,7 +262,7 @@
       background: #f1f5f9;
       padding: 5px;
       border-radius: 12px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       gap: 4px;
     }
     .role-segment-btn {
@@ -264,7 +291,7 @@
 
     /* ── FORM ELEMENTS ── */
     .auth-form-group {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .auth-label-row {
       display: flex;
@@ -366,7 +393,7 @@
       gap: 8px;
       box-shadow: 0 4px 14px var(--theme-shadow);
       transition: all 0.25s ease;
-      margin-top: 6px;
+      margin-top: 4px;
     }
     .btn-auth-primary:hover {
       background: var(--theme-primary-hover);
@@ -381,7 +408,7 @@
       display: flex;
       align-items: center;
       text-align: center;
-      margin: 18px 0;
+      margin: 16px 0;
     }
     .auth-divider-line {
       flex: 1;
@@ -390,7 +417,7 @@
     }
     .auth-divider-text {
       padding: 0 14px;
-      font-size: 12.5px;
+      font-size: 12px;
       color: #94a3b8;
       font-weight: 500;
     }
@@ -418,10 +445,64 @@
       color: #0f172a;
     }
 
+    /* ── QUICK DEMO STRIP ── */
+    .demo-creds-strip {
+      margin-top: 16px;
+      padding: 10px 12px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .demo-creds-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .demo-pill-btn {
+      padding: 4px 9px;
+      font-size: 11.5px;
+      font-weight: 600;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .demo-pill-btn:hover {
+      background: var(--theme-primary);
+      color: #ffffff;
+      border-color: var(--theme-primary);
+    }
+
+    .auth-bottom-switch {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 13.5px;
+      color: #64748b;
+    }
+    .auth-bottom-link {
+      font-weight: 700;
+      color: var(--theme-primary);
+      text-decoration: none;
+      margin-left: 4px;
+      cursor: pointer;
+    }
+    .auth-bottom-link:hover {
+      text-decoration: underline;
+    }
+
     /* ── GATEWAY VIEW ── */
     .gateway-view-container {
       width: 100%;
-      max-width: 1040px;
+      max-width: 1020px;
       background: #ffffff;
       border-radius: 24px;
       border: 1px solid #e2e8f0;
@@ -445,7 +526,7 @@
       color: #0f172a;
       letter-spacing: -1px;
       line-height: 1.15;
-      margin: 24px 0 14px 0;
+      margin: 22px 0 14px 0;
     }
     .gateway-hero-title span {
       color: #0a66c2;
@@ -462,7 +543,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .gateway-role-card {
       background: #ffffff;
@@ -516,63 +597,9 @@
       position: relative;
     }
 
-    /* ── QUICK DEMO STRIP ── */
-    .demo-creds-strip {
-      margin-top: 16px;
-      padding: 10px 12px;
-      background: #f8fafc;
-      border: 1px dashed #cbd5e1;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .demo-creds-title {
-      font-size: 11px;
-      font-weight: 700;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .demo-pill-btn {
-      padding: 4px 9px;
-      font-size: 11.5px;
-      font-weight: 600;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      color: #334155;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .demo-pill-btn:hover {
-      background: var(--theme-primary);
-      color: #ffffff;
-      border-color: var(--theme-primary);
-    }
-
-    .auth-bottom-switch {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 13.5px;
-      color: #64748b;
-    }
-    .auth-bottom-link {
-      font-weight: 700;
-      color: var(--theme-primary);
-      text-decoration: none;
-      margin-left: 4px;
-      cursor: pointer;
-    }
-    .auth-bottom-link:hover {
-      text-decoration: underline;
-    }
-
     /* ── BOTTOM TRUST & FEATURES STRIP ── */
     .trust-footer-strip {
-      max-width: 1040px;
+      max-width: 1020px;
       margin: 0 auto 28px auto;
       width: calc(100% - 40px);
       display: grid;
@@ -689,9 +716,18 @@
     <div class="gateway-view-container" id="view-gateway" style="display:none;">
       
       <div class="gateway-left">
-        <!-- Logo -->
-        <a href="index.html" class="px-logo-wrap" title="Placeonix – CONNECT • MATCH • GROW">
-          <img src="images/logo.svg" alt="Placeonix – CONNECT • MATCH • GROW" class="px-brand-logo-img" />
+        <!-- Crisp Vector Brand Logo -->
+        <a href="index.html" class="px-brand-logo">
+          <div class="px-brand-icon-box">
+            <svg width="22" height="22" viewBox="0 0 44 44" fill="none">
+              <path d="M13 32V12H23C27.4183 12 31 15.5817 31 20C31 24.4183 27.4183 28 23 28H13" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M25 11L33 11M33 11V19M33 11L22 22" stroke="#10B981" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="px-brand-text">
+            <div class="px-brand-title">Place<span>oni</span><span class="accent-x">x</span></div>
+            <div class="px-brand-tagline">CONNECT • MATCH • GROW</div>
+          </div>
         </a>
 
         <h1 class="gateway-hero-title">
@@ -750,21 +786,19 @@
 
         <div class="auth-bottom-switch">
           <span>New to Placeonix?</span>
-          <a href="signup.html" class="auth-bottom-link">Join now</a>
+          <a href="signup.html" class="auth-bottom-link">Create an account</a>
         </div>
       </div>
 
       <!-- Right Artwork in Gateway -->
       <div class="gateway-right">
         <svg viewBox="0 0 400 360" fill="none" style="width:100%;max-width:380px;height:auto;">
-          <!-- Campus Building Background Shadow -->
           <path d="M140 60L200 35L260 60V140H140V60Z" fill="#DBEAFE" opacity="0.6"/>
           <rect x="155" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
           <rect x="180" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
           <rect x="205" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
           <rect x="230" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
           
-          <!-- Floating Badge 1: Verified Student -->
           <g transform="translate(100, 70)">
             <rect width="110" height="34" rx="8" fill="#FFFFFF" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
             <circle cx="18" cy="17" r="10" fill="#0A66C2"/>
@@ -773,7 +807,6 @@
             <rect x="36" y="19" width="30" height="4" rx="2" fill="#94A3B8"/>
           </g>
 
-          <!-- Floating Badge 2: AI Matching Stat -->
           <g transform="translate(90, 180)">
             <rect width="90" height="50" rx="10" fill="#FFFFFF" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
             <rect x="15" y="32" width="10" height="18" rx="2" fill="#0A66C2"/>
@@ -782,27 +815,22 @@
             <rect x="60" y="28" width="10" height="22" rx="2" fill="#6366F1"/>
           </g>
 
-          <!-- Big Bean Bag Seat (Royal Blue) -->
           <ellipse cx="210" cy="270" rx="90" ry="45" fill="#0A66C2"/>
           <ellipse cx="210" cy="250" rx="75" ry="40" fill="#2563EB"/>
 
-          <!-- Character Student on Laptop -->
-          <circle cx="210" cy="150" r="18" fill="#FDBA74"/> <!-- Head -->
-          <path d="M195 140C195 130 225 130 225 140C225 148 220 152 210 152C200 152 195 148 195 140Z" fill="#1E293B"/> <!-- Hair -->
-          <path d="M190 172C190 166 230 166 230 172V220H190V172Z" fill="#0284C7"/> <!-- T-Shirt -->
-          <rect x="180" y="210" width="60" height="30" rx="6" fill="#1E293B"/> <!-- Jeans -->
+          <circle cx="210" cy="150" r="18" fill="#FDBA74"/>
+          <path d="M195 140C195 130 225 130 225 140C225 148 220 152 210 152C200 152 195 148 195 140Z" fill="#1E293B"/>
+          <path d="M190 172C190 166 230 166 230 172V220H190V172Z" fill="#0284C7"/>
+          <rect x="180" y="210" width="60" height="30" rx="6" fill="#1E293B"/>
           
-          <!-- Modern Laptop -->
           <rect x="195" y="195" width="45" height="30" rx="3" fill="#E2E8F0"/>
           <rect x="198" y="198" width="39" height="24" rx="2" fill="#0F172A"/>
           <ellipse cx="217" cy="210" rx="3" ry="3" fill="#38BDF8"/>
           <rect x="185" y="224" width="65" height="4" rx="2" fill="#CBD5E1"/>
 
-          <!-- Backpack -->
           <rect x="110" y="245" width="35" height="45" rx="10" fill="#0F172A"/>
           <rect x="118" y="260" width="20" height="15" rx="4" fill="#334155"/>
 
-          <!-- Potted Plant on Right -->
           <ellipse cx="320" cy="290" rx="20" ry="6" fill="#CBD5E1"/>
           <path d="M312 290L315 260H325L328 290H312Z" fill="#94A3B8"/>
           <path d="M320 260C310 230 300 240 295 210C315 215 320 240 320 260Z" fill="#10B981"/>
@@ -906,16 +934,20 @@
       <!-- RIGHT COLUMN: ROLE LOGIN FORM -->
       <div class="auth-right-panel">
         
-        <!-- Top Row: Brand Logo + Switch Link -->
+        <!-- Top Row: Clean Single Brand Logo (Duplicate Join link removed) -->
         <div class="auth-panel-top">
-          <a href="index.html" class="px-logo-wrap" title="Placeonix – CONNECT • MATCH • GROW">
-            <img src="images/logo.svg" alt="Placeonix – CONNECT • MATCH • GROW" class="px-brand-logo-img" />
+          <a href="index.html" class="px-brand-logo">
+            <div class="px-brand-icon-box">
+              <svg width="22" height="22" viewBox="0 0 44 44" fill="none">
+                <path d="M13 32V12H23C27.4183 12 31 15.5817 31 20C31 24.4183 27.4183 28 23 28H13" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M25 11L33 11M33 11V19M33 11L22 22" stroke="#10B981" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="px-brand-text">
+              <div class="px-brand-title">Place<span>oni</span><span class="accent-x">x</span></div>
+              <div class="px-brand-tagline">CONNECT • MATCH • GROW</div>
+            </div>
           </a>
-
-          <div class="top-action-text">
-            <span>New here?</span>
-            <a href="signup.html" class="top-action-link" id="top-switch-link">Join now</a>
-          </div>
         </div>
 
         <!-- Headings -->
@@ -1005,7 +1037,7 @@
             <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('admin@placeonix.edu', 'admin123', 'admin')">🏛️ Placement Officer</button>
           </div>
 
-          <!-- Bottom Switch Prompt -->
+          <!-- Single Clean Bottom Switch Prompt -->
           <div class="auth-bottom-switch">
             <span>Don't have an account?</span>
             <a href="signup.html" class="auth-bottom-link" id="bottom-switch-link">Create account</a>
@@ -1194,10 +1226,6 @@
       if (bottomLink) {
         bottomLink.textContent = conf.bottomLinkText;
         bottomLink.href = `signup.html?role=${conf.signupParam}`;
-      }
-      const topLink = document.getElementById('top-switch-link');
-      if (topLink) {
-        topLink.href = `signup.html?role=${conf.signupParam}`;
       }
     }
 
