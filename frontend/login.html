@@ -642,7 +642,7 @@
       color: var(--theme-primary);
     }
 
-    /* ── RESPONSIVE ── */
+    /* ── RESPONSIVE: TABLET ── */
     @media (max-width: 900px) {
       .auth-card-container,
       .gateway-view-container {
@@ -650,23 +650,185 @@
         max-width: 520px;
       }
       .auth-left-hero {
-        padding: 28px 24px;
+        padding: 24px 20px;
         border-right: none;
         border-bottom: 1px solid #e2e8f0;
       }
       .hero-svg-holder {
-        height: 140px;
-        margin-bottom: 14px;
+        height: 120px;
+        width: 180px;
+        margin-bottom: 10px;
+      }
+      .hero-welcome-title {
+        font-size: 18px;
+      }
+      .hero-welcome-desc {
+        font-size: 12.5px;
       }
       .auth-right-panel,
       .gateway-left {
-        padding: 32px 24px;
+        padding: 28px 20px;
       }
       .gateway-right {
         display: none;
       }
       .trust-footer-strip {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .px-brand-logo-link::after {
+        height: 32px;
+        width: 160px;
+      }
+      .auth-main-title {
+        font-size: 22px;
+      }
+      .auth-sub-title {
+        font-size: 12.5px;
+      }
+      .role-segment-btn {
+        font-size: clamp(11px, 2.8vw, 13px);
+        padding: 8px 6px;
+      }
+    }
+
+    /* ── RESPONSIVE: MOBILE PHONES ── */
+    @media (max-width: 520px) {
+      .auth-page-wrapper {
+        padding: 16px 10px;
+        align-items: flex-start;
+      }
+      .auth-card-container {
+        border-radius: 18px;
+        max-width: 100%;
+      }
+      .auth-left-hero {
+        padding: 18px 16px;
+      }
+      .hero-illustration-box {
+        padding: 8px 0;
+      }
+      .hero-svg-holder {
+        height: 90px;
+        width: 140px;
+        margin-bottom: 8px;
+      }
+      .hero-welcome-title {
+        font-size: 16px;
+        margin-bottom: 4px;
+      }
+      .hero-welcome-desc {
+        font-size: 12px;
+        max-width: 260px;
+      }
+      .auth-right-panel {
+        padding: 22px 16px;
+      }
+      .auth-panel-top {
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .px-brand-logo-link::after {
+        height: 28px;
+        width: 140px;
+      }
+      .top-action-wrap {
+        font-size: 12px !important;
+      }
+      .auth-main-title {
+        font-size: 20px;
+      }
+      .auth-sub-title {
+        font-size: 12px;
+      }
+      .auth-title-group {
+        margin-bottom: 14px;
+      }
+      .role-segmented-switcher {
+        padding: 4px;
+        gap: 3px;
+        margin-bottom: 16px;
+        border-radius: 10px;
+      }
+      .role-segment-btn {
+        font-size: clamp(10.5px, 2.5vw, 12px);
+        padding: 7px 4px;
+        border-radius: 7px;
+      }
+      .auth-form-group {
+        margin-bottom: 12px;
+      }
+      .auth-label {
+        font-size: 12px;
+      }
+      .auth-text-input {
+        font-size: 16px; /* prevents iOS Safari auto-zoom */
+        padding: 10px 12px 10px 40px;
+        height: 44px;
+      }
+      .auth-input-container {
+        border-radius: 10px;
+      }
+      .remember-forgot-row {
+        font-size: 12px;
+      }
+      .btn-submit-auth {
+        height: 44px;
+        font-size: 14px;
+        border-radius: 10px;
+      }
+      .btn-auth-google {
+        height: 44px;
+        font-size: 13px;
+        border-radius: 10px;
+      }
+      .demo-creds-strip {
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .demo-pill-btn {
+        font-size: 11px;
+        padding: 5px 10px;
+      }
+      .trust-footer-strip {
         grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 16px;
+      }
+      .trust-item {
+        padding: 10px;
+      }
+      .back-home-link {
+        font-size: 12px;
+      }
+    }
+
+    /* ── RESPONSIVE: VERY SMALL PHONES ── */
+    @media (max-width: 380px) {
+      .auth-page-wrapper {
+        padding: 10px 6px;
+      }
+      .auth-right-panel {
+        padding: 18px 12px;
+      }
+      .auth-left-hero {
+        padding: 14px 12px;
+      }
+      .hero-svg-holder {
+        height: 75px;
+        width: 120px;
+      }
+      .px-brand-logo-link::after {
+        height: 24px;
+        width: 120px;
+      }
+      .role-segment-btn {
+        font-size: 10px;
+        padding: 6px 2px;
+      }
+      .auth-main-title {
+        font-size: 18px;
       }
     }
   </style>
@@ -676,127 +838,19 @@
   <!-- MAIN AUTH PAGE WRAPPER -->
   <div class="auth-page-wrapper">
     
-    <!-- 1. GATEWAY WELCOME VIEW (Connect your campus to opportunity) -->
-    <div class="gateway-view-container" id="view-gateway" style="display:none;">
-      
-      <div class="gateway-left">
-        <!-- Exact Brand Vector Logo -->
-        <a href="index.html" class="px-brand-logo-link" title="Placeonix – CONNECT • MATCH • GROW">
-          <svg class="px-brand-logo-svg" viewBox="0 0 430 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="gwPBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0066FF"/>
-                <stop offset="100%" stop-color="#0052CC"/>
-              </linearGradient>
-              <linearGradient id="gwPNavyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#0A192F"/>
-                <stop offset="100%" stop-color="#050E1C"/>
-              </linearGradient>
-              <linearGradient id="gwGreenArrowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#059669"/>
-                <stop offset="100%" stop-color="#10B981"/>
-              </linearGradient>
-              <linearGradient id="gwCyanLegGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0284C7"/>
-                <stop offset="100%" stop-color="#0EA5E9"/>
-              </linearGradient>
-            </defs>
-            <g transform="translate(6, 6)">
-              <path d="M12 42C12 58 22 72 34 72H40C38 60 38 50 48 42H24C17 42 12 42 12 42Z" fill="url(#gwPNavyGrad)"/>
-              <path d="M12 14C12 6 18 0 25 0H64C77 0 86 10 86 24C86 38 77 48 64 48H44C30 48 20 58 19 72H12C12 72 12 24 12 14Z" fill="url(#gwPBlueGrad)"/>
-              <path d="M24 50L54 20H46L64 12L68 30L60 22L30 52Z" fill="#FFFFFF"/>
-            </g>
-            <g transform="translate(108, 52)">
-              <text font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="44" fill="#0A1629" letter-spacing="-1.2">Place</text>
-              <text x="122" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="44" fill="#0066FF" letter-spacing="-1.2">oni</text>
-              <path d="M198 -32L210 -15L196 4H208L216 -8L225 4H237L222 -15L231 -28H221L215 -20L208 -32H198Z" fill="url(#gwCyanLegGrad)"/>
-              <path d="M205 4L232 -32H242L211 4Z" fill="url(#gwGreenArrowGrad)"/>
-              <polygon points="228,-36 248,-36 248,-16 241,-21 234,-30" fill="url(#gwGreenArrowGrad)"/>
-              <circle cx="182" cy="-35" r="4.2" fill="url(#gwGreenArrowGrad)"/>
-            </g>
-            <g transform="translate(110, 76)">
-              <text font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="9.5" fill="#64748B" letter-spacing="3.8">CONNECT</text>
-              <circle cx="82" cy="-3.5" r="2.2" fill="#0066FF"/>
-              <text x="96" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="9.5" fill="#64748B" letter-spacing="3.8">MATCH</text>
-              <circle cx="166" cy="-3.5" r="2.2" fill="#10B981"/>
-              <text x="180" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="9.5" fill="#64748B" letter-spacing="3.8">GROW</text>
-            </g>
-          </svg>
-        </a>
-
-        <h1 class="gateway-hero-title">
-          Connect your<br>campus to<br><span>opportunity.</span>
-        </h1>
-        <p class="gateway-hero-desc">
-          Placeonix is the digital bridge connecting verified students, top employers, and placement cells from campus to career.
-        </p>
-
-        <!-- 3 Role Options -->
-        <div class="gateway-role-cards-grid">
-          <div class="gateway-role-card active-blue" onclick="openRoleLogin('student')">
-            <div class="gateway-card-icon icon-student">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </div>
-            <span class="gateway-card-title">For Students</span>
-          </div>
-
-          <div class="gateway-role-card" onclick="openRoleLogin('recruiter')">
-            <div class="gateway-card-icon icon-recruiter">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-            </div>
-            <span class="gateway-card-title">For Recruiters</span>
-          </div>
-
-        </div>
-
-        <!-- Divider -->
-        <div class="auth-divider-wrap">
-          <div class="auth-divider-line"></div>
-          <span class="auth-divider-text">or</span>
-          <div class="auth-divider-line"></div>
-        </div>
-
-        <!-- Continue with Google Button -->
-        <button type="button" class="btn-auth-google" onclick="openRoleLogin('student')">
-          <svg width="18" height="18" viewBox="0 0 24 24">
-            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
-            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
-            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
-            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-          </svg>
-          <span>Continue with Google</span>
-        </button>
-
-        <button type="button" class="btn-auth-primary" style="margin-top:10px;" onclick="openRoleLogin('student')">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <span>Sign in with email</span>
-        </button>
-
-        <div class="auth-bottom-switch">
-          <span>New to Placeonix?</span>
-          <a href="signup.html" class="auth-bottom-link">Create an account</a>
-        </div>
-      </div>
-
-      <!-- Right Artwork in Gateway -->
-      <div class="gateway-right">
-        <img src="images/hero-illustration-blended.png" alt="Placeonix Platform" style="width:100%;max-width:440px;height:auto;object-fit:contain;filter:drop-shadow(0 15px 30px rgba(10,102,194,0.12));" />
-      </div>
-
-    </div>
-
-    <!-- 2. ROLE LOGIN VIEW (Student / Recruiter / Placement Officer Split-Card) -->
+    <!-- ROLE LOGIN VIEW (Student / Recruiter / Placement Officer Split-Card) -->
     <div class="auth-card-container" id="view-role-login">
 
       <!-- LEFT COLUMN: DYNAMIC ROLE HERO -->
       <div class="auth-left-hero" id="left-hero-panel">
         
-        <div class="back-home-link" onclick="openGatewayView()">
+        <!-- Navigate directly to real landing page -->
+        <a href="index.html" class="back-home-link">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
           <span>Back to home</span>
-        </div>
+        </a>
 
         <div class="hero-illustration-box">
           <div class="hero-svg-holder" id="hero-artwork">
@@ -1150,22 +1204,6 @@
       }
     };
 
-    function openGatewayView() {
-      document.getElementById('view-gateway').style.display = 'grid';
-      document.getElementById('view-role-login').style.display = 'none';
-      document.body.className = '';
-    }
-
-    function openRoleLogin(role) {
-      if (role === 'admin') {
-        showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
-        return;
-      }
-      document.getElementById('view-gateway').style.display = 'none';
-      document.getElementById('view-role-login').style.display = 'grid';
-      switchLoginRole(role);
-    }
-
     function switchLoginRole(role) {
       if (role === 'admin') {
         showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
@@ -1265,13 +1303,10 @@
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const role = params.get('role');
-      const view = params.get('view');
-      if (view === 'gateway') {
-        openGatewayView();
-      } else if (role && ['student', 'recruiter', 'admin'].includes(role)) {
-        openRoleLogin(role);
+      if (role && ['student', 'recruiter', 'admin'].includes(role)) {
+        switchLoginRole(role);
       } else {
-        openRoleLogin('student');
+        switchLoginRole('student');
       }
     });
   </script>

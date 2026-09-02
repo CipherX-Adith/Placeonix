@@ -574,6 +574,13 @@
               </div>
               <div id="profile-checklist" style="display:flex;flex-direction:column;gap:var(--space-2);font-size:var(--text-sm);"></div>
             </div>
+
+            <div class="divider" style="margin:var(--space-4) 0;"></div>
+
+            <button type="button" class="btn btn-outline" id="profile-card-logout-btn" onclick="Auth.logout()" style="width:100%;color:var(--danger);border-color:var(--danger-border);background:var(--danger-bg);font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;cursor:pointer;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+              <span>Sign Out</span>
+            </button>
           </div>
 
           <!-- Edit form -->

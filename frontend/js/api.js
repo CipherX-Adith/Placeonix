@@ -40,22 +40,17 @@ function showToast(message, type = 'info') {
 async function apiFetch(endpoint, options = {}) {
   const token = localStorage.getItem('placeonix_token');
 
-  // Always build an absolute URL so mobile browsers don't misroute relative paths.
-  // - file:// protocol (opened as local file) → localhost:5000
-  // - any other origin (served from Express) → same host:port as page
   let baseUrl;
   if (window.CONFIG && window.CONFIG.API_BASE_URL) {
     baseUrl = window.CONFIG.API_BASE_URL;
-  } else if (window.location.protocol === 'file:') {
-    baseUrl = 'http://localhost:5000/api';
+  } else if (typeof window !== 'undefined' && window.location && window.location.protocol !== 'file:') {
+    baseUrl = `${window.location.origin}/api`;
   } else {
-    // Use the exact host (IP or hostname) and port the page was served from.
-    const host = window.location.hostname;
-    const port = window.location.port || '80';
-    baseUrl = `${window.location.protocol}//${host}:${port}/api`;
+    baseUrl = 'http://localhost:5000/api';
   }
 
-  const url = `${baseUrl}${endpoint}`;
+  const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const url = `${baseUrl}${cleanEndpoint}`;
 
   const headers = {
     ...options.headers,
