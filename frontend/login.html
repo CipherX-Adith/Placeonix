@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>Placeonix – Sign In | Campus Placement Portal</title>
-  <meta name="description" content="Sign in to your Placeonix student, recruiter, or placement officer account." />
+  <title>Placeonix – Sign In | Campus Placement & Career Portal</title>
+  <meta name="description" content="Connect your campus to opportunity. Sign in to Placeonix as a Student, Recruiter, or Placement Officer." />
   <link rel="icon" type="image/png" sizes="128x128" href="images/favicon.png?v=6" />
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=6" />
   <link rel="shortcut icon" href="favicon.ico?v=6" />
@@ -18,14 +18,14 @@
       --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       
-      /* Dynamic Theme Variables (Default Student: Blue) */
+      /* Theme variables for Student (Blue) */
       --theme-primary: #0a66c2;
       --theme-primary-hover: #084e96;
       --theme-primary-light: #e8f3fc;
       --theme-primary-border: #bfdbfe;
       --theme-accent: #10b981;
       --theme-bg-soft: #f0f7ff;
-      --theme-shadow: rgba(10, 102, 194, 0.25);
+      --theme-shadow: rgba(10, 102, 194, 0.22);
     }
 
     body.theme-recruiter {
@@ -35,7 +35,7 @@
       --theme-primary-border: #a7f3d0;
       --theme-accent: #0ea5e9;
       --theme-bg-soft: #f0fdf4;
-      --theme-shadow: rgba(5, 150, 105, 0.25);
+      --theme-shadow: rgba(5, 150, 105, 0.22);
     }
 
     body.theme-admin {
@@ -45,7 +45,7 @@
       --theme-primary-border: #ddd6fe;
       --theme-accent: #f59e0b;
       --theme-bg-soft: #faf5ff;
-      --theme-shadow: rgba(109, 40, 217, 0.25);
+      --theme-shadow: rgba(109, 40, 217, 0.22);
     }
 
     * {
@@ -65,10 +65,10 @@
       flex-direction: column;
       color: #1e293b;
       line-height: 1.5;
-      transition: background-color 0.4s ease;
+      transition: background-color 0.3s ease;
     }
 
-    /* ── LOGO BRAND ── */
+    /* ── LOGO ── */
     .px-logo-wrap {
       display: flex;
       align-items: center;
@@ -89,7 +89,7 @@
     }
     .px-logo-title {
       font-family: var(--font-heading);
-      font-size: 23px;
+      font-size: 24px;
       font-weight: 800;
       color: #0a66c2;
       letter-spacing: -0.6px;
@@ -104,10 +104,10 @@
       color: #64748b;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
-    /* ── AUTH CONTAINER ── */
+    /* ── MAIN CARD WRAPPER ── */
     .auth-page-wrapper {
       flex: 1;
       display: flex;
@@ -138,7 +138,7 @@
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      transition: background 0.4s ease;
+      transition: background 0.3s ease;
     }
 
     .back-home-link {
@@ -151,6 +151,7 @@
       text-decoration: none;
       transition: color 0.2s, transform 0.2s;
       width: fit-content;
+      cursor: pointer;
     }
     .back-home-link:hover {
       color: var(--theme-primary);
@@ -160,7 +161,7 @@
     .hero-illustration-box {
       margin: auto 0;
       text-align: center;
-      padding: 24px 8px;
+      padding: 20px 8px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -223,6 +224,7 @@
       text-decoration: none;
       margin-left: 4px;
       transition: color 0.2s;
+      cursor: pointer;
     }
     .top-action-link:hover {
       text-decoration: underline;
@@ -300,6 +302,7 @@
       color: var(--theme-primary);
       text-decoration: none;
       transition: color 0.2s;
+      cursor: pointer;
     }
     .auth-forgot-link:hover {
       text-decoration: underline;
@@ -342,7 +345,6 @@
       border-color: var(--theme-primary);
       box-shadow: 0 0 0 3.5px var(--theme-primary-light);
     }
-    .auth-text-input:focus + .auth-input-icon,
     .auth-input-container:focus-within .auth-input-icon {
       color: var(--theme-primary);
     }
@@ -435,6 +437,104 @@
       color: #0f172a;
     }
 
+    /* ── GATEWAY VIEW ── */
+    .gateway-view-container {
+      width: 100%;
+      max-width: 1040px;
+      background: #ffffff;
+      border-radius: 24px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 20px 45px -15px rgba(15, 23, 42, 0.07);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .gateway-left {
+      padding: 48px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .gateway-hero-title {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin: 24px 0 14px 0;
+    }
+    .gateway-hero-title span {
+      color: #0a66c2;
+    }
+
+    .gateway-hero-desc {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .gateway-role-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .gateway-role-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .gateway-role-card:hover {
+      border-color: #0a66c2;
+      background: #f0f7ff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(10, 102, 194, 0.12);
+    }
+    .gateway-role-card.active-blue {
+      border-color: #0a66c2;
+      background: #f0f7ff;
+    }
+    .gateway-card-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-student { background: #e8f3fc; color: #0a66c2; }
+    .icon-recruiter { background: #ecfdf5; color: #059669; }
+    .icon-admin { background: #f5f3ff; color: #6d28d9; }
+
+    .gateway-card-title {
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .gateway-right {
+      background: linear-gradient(135deg, #f0f7ff 0%, #ecfdf5 100%);
+      padding: 48px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
     /* ── QUICK DEMO STRIP ── */
     .demo-creds-strip {
       margin-top: 16px;
@@ -483,6 +583,7 @@
       color: var(--theme-primary);
       text-decoration: none;
       margin-left: 4px;
+      cursor: pointer;
     }
     .auth-bottom-link:hover {
       text-decoration: underline;
@@ -491,7 +592,7 @@
     /* ── BOTTOM TRUST & FEATURES STRIP ── */
     .trust-footer-strip {
       max-width: 1040px;
-      margin: 0 auto 32px auto;
+      margin: 0 auto 28px auto;
       width: calc(100% - 40px);
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) auto;
@@ -571,7 +672,8 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .auth-card-container {
+      .auth-card-container,
+      .gateway-view-container {
         grid-template-columns: 1fr;
         max-width: 520px;
       }
@@ -584,8 +686,12 @@
         height: 140px;
         margin-bottom: 14px;
       }
-      .auth-right-panel {
+      .auth-right-panel,
+      .gateway-left {
         padding: 32px 24px;
+      }
+      .gateway-right {
+        display: none;
       }
       .trust-footer-strip {
         grid-template-columns: 1fr;
@@ -595,61 +701,188 @@
 </head>
 <body>
 
-  <!-- Main Split Card Layout -->
+  <!-- MAIN AUTH PAGE WRAPPER -->
   <div class="auth-page-wrapper">
-    <div class="auth-card-container">
+    
+    <!-- 1. GATEWAY WELCOME VIEW (Connect your campus to opportunity) -->
+    <div class="gateway-view-container" id="view-gateway" style="display:none;">
+      
+      <div class="gateway-left">
+        <!-- Logo -->
+        <a href="index.html" class="px-logo-wrap">
+          <svg class="px-logo-icon" viewBox="0 0 44 44" fill="none">
+            <rect width="44" height="44" rx="11" fill="#0A66C2"/>
+            <path d="M13 32V12H23C27.4183 12 31 15.5817 31 20C31 24.4183 27.4183 28 23 28H13" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M25 11L33 11M33 11V19M33 11L22 22" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="px-logo-text">
+            <span class="px-logo-title">Place<span>onix</span></span>
+            <span class="px-logo-tagline">CONNECT • MATCH • GROW</span>
+          </div>
+        </a>
 
-      <!-- LEFT COLUMN: DYNAMIC ROLE HERO & ILLUSTRATION -->
+        <h1 class="gateway-hero-title">
+          Connect your<br>campus to<br><span>opportunity.</span>
+        </h1>
+        <p class="gateway-hero-desc">
+          Placeonix is the digital bridge connecting verified students, top employers, and placement cells from campus to career.
+        </p>
+
+        <!-- 3 Role Options -->
+        <div class="gateway-role-cards-grid">
+          <div class="gateway-role-card active-blue" onclick="openRoleLogin('student')">
+            <div class="gateway-card-icon icon-student">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <span class="gateway-card-title">For Students</span>
+          </div>
+
+          <div class="gateway-role-card" onclick="openRoleLogin('recruiter')">
+            <div class="gateway-card-icon icon-recruiter">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <span class="gateway-card-title">For Recruiters</span>
+          </div>
+
+          <div class="gateway-role-card" onclick="openRoleLogin('admin')">
+            <div class="gateway-card-icon icon-admin">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span class="gateway-card-title">Placement Officer</span>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="auth-divider-wrap">
+          <div class="auth-divider-line"></div>
+          <span class="auth-divider-text">or</span>
+          <div class="auth-divider-line"></div>
+        </div>
+
+        <!-- Continue with Google Button -->
+        <button type="button" class="btn-auth-google" onclick="openRoleLogin('student')">
+          <svg width="18" height="18" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+          </svg>
+          <span>Continue with Google</span>
+        </button>
+
+        <button type="button" class="btn-auth-primary" style="margin-top:10px;" onclick="openRoleLogin('student')">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>Sign in with email</span>
+        </button>
+
+        <div class="auth-bottom-switch">
+          <span>New to Placeonix?</span>
+          <a href="signup.html" class="auth-bottom-link">Join now</a>
+        </div>
+      </div>
+
+      <!-- Right Artwork in Gateway -->
+      <div class="gateway-right">
+        <svg viewBox="0 0 400 360" fill="none" style="width:100%;max-width:380px;height:auto;">
+          <!-- Campus Building Background Shadow -->
+          <path d="M140 60L200 35L260 60V140H140V60Z" fill="#DBEAFE" opacity="0.6"/>
+          <rect x="155" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
+          <rect x="180" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
+          <rect x="205" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
+          <rect x="230" y="75" width="16" height="50" fill="#BFDBFE" opacity="0.8"/>
+          
+          <!-- Floating Badge 1: Verified Student -->
+          <g transform="translate(100, 70)">
+            <rect width="110" height="34" rx="8" fill="#FFFFFF" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
+            <circle cx="18" cy="17" r="10" fill="#0A66C2"/>
+            <path d="M14 17L17 20L22 14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+            <rect x="36" y="11" width="50" height="5" rx="2" fill="#0F172A"/>
+            <rect x="36" y="19" width="30" height="4" rx="2" fill="#94A3B8"/>
+          </g>
+
+          <!-- Floating Badge 2: AI Matching Stat -->
+          <g transform="translate(90, 180)">
+            <rect width="90" height="50" rx="10" fill="#FFFFFF" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))"/>
+            <rect x="15" y="32" width="10" height="18" rx="2" fill="#0A66C2"/>
+            <rect x="30" y="24" width="10" height="26" rx="2" fill="#38BDF8"/>
+            <rect x="45" y="16" width="10" height="34" rx="2" fill="#10B981"/>
+            <rect x="60" y="28" width="10" height="22" rx="2" fill="#6366F1"/>
+          </g>
+
+          <!-- Big Bean Bag Seat (Royal Blue) -->
+          <ellipse cx="210" cy="270" rx="90" ry="45" fill="#0A66C2"/>
+          <ellipse cx="210" cy="250" rx="75" ry="40" fill="#2563EB"/>
+
+          <!-- Character Student on Laptop -->
+          <circle cx="210" cy="150" r="18" fill="#FDBA74"/> <!-- Head -->
+          <path d="M195 140C195 130 225 130 225 140C225 148 220 152 210 152C200 152 195 148 195 140Z" fill="#1E293B"/> <!-- Hair -->
+          <path d="M190 172C190 166 230 166 230 172V220H190V172Z" fill="#0284C7"/> <!-- T-Shirt -->
+          <rect x="180" y="210" width="60" height="30" rx="6" fill="#1E293B"/> <!-- Jeans -->
+          
+          <!-- Modern Laptop -->
+          <rect x="195" y="195" width="45" height="30" rx="3" fill="#E2E8F0"/>
+          <rect x="198" y="198" width="39" height="24" rx="2" fill="#0F172A"/>
+          <ellipse cx="217" cy="210" rx="3" ry="3" fill="#38BDF8"/>
+          <rect x="185" y="224" width="65" height="4" rx="2" fill="#CBD5E1"/>
+
+          <!-- Backpack -->
+          <rect x="110" y="245" width="35" height="45" rx="10" fill="#0F172A"/>
+          <rect x="118" y="260" width="20" height="15" rx="4" fill="#334155"/>
+
+          <!-- Potted Plant on Right -->
+          <ellipse cx="320" cy="290" rx="20" ry="6" fill="#CBD5E1"/>
+          <path d="M312 290L315 260H325L328 290H312Z" fill="#94A3B8"/>
+          <path d="M320 260C310 230 300 240 295 210C315 215 320 240 320 260Z" fill="#10B981"/>
+          <path d="M320 260C330 230 340 240 345 210C325 215 320 240 320 260Z" fill="#059669"/>
+        </svg>
+      </div>
+
+    </div>
+
+    <!-- 2. ROLE LOGIN VIEW (Student / Recruiter / Placement Officer Split-Card) -->
+    <div class="auth-card-container" id="view-role-login">
+
+      <!-- LEFT COLUMN: DYNAMIC ROLE HERO -->
       <div class="auth-left-hero" id="left-hero-panel">
         
-        <a href="index.html" class="back-home-link">
+        <div class="back-home-link" onclick="openGatewayView()">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
           <span>Back to home</span>
-        </a>
+        </div>
 
         <div class="hero-illustration-box">
-          <!-- Interactive SVG Artwork Switcher -->
           <div class="hero-svg-holder" id="hero-artwork">
             
-            <!-- STUDENT SVG: Books + Graduation Cap + Sparkles -->
+            <!-- STUDENT ARTWORK: Books + Cap + Stationery -->
             <svg id="art-student" viewBox="0 0 240 200" fill="none" style="width:100%;height:100%;">
               <circle cx="120" cy="100" r="80" fill="#E8F3FC"/>
               <ellipse cx="120" cy="155" rx="75" ry="12" fill="#CBD5E1" opacity="0.6"/>
-              <!-- Book 1 (Navy Blue) -->
               <rect x="55" y="130" width="130" height="20" rx="4" fill="#0A66C2"/>
               <rect x="52" y="133" width="6" height="14" rx="2" fill="#FFFFFF" opacity="0.7"/>
               <rect x="180" y="134" width="4" height="12" rx="1" fill="#FFFFFF" opacity="0.7"/>
-              <!-- Book 2 (Light Blue) -->
               <rect x="62" y="112" width="116" height="18" rx="4" fill="#38BDF8"/>
               <rect x="60" y="115" width="5" height="12" rx="2" fill="#FFFFFF" opacity="0.8"/>
-              <!-- Pencil Cup Holder -->
               <rect x="182" y="105" width="22" height="32" rx="3" fill="#60A5FA"/>
               <path d="M187 88L191 105H184L187 88Z" fill="#F59E0B"/>
               <path d="M197 84L200 105H194L197 84Z" fill="#10B981"/>
-              <!-- Graduation Cap (Diamond Top) -->
               <path d="M120 52L178 74L120 96L62 74L120 52Z" fill="#0F172A"/>
-              <!-- Cap Skull Base -->
               <path d="M84 82V104C84 116 156 116 156 104V82" fill="#1E293B"/>
-              <!-- Tassel Button & String -->
               <circle cx="120" cy="74" r="4.5" fill="#F59E0B"/>
               <path d="M120 74C136 78 152 88 156 104" stroke="#F59E0B" stroke-width="2.5" fill="none"/>
               <rect x="153" y="104" width="6" height="16" rx="2" fill="#F59E0B"/>
-              <!-- Floating Sparkles -->
               <path d="M48 50L51 58L59 61L51 64L48 72L45 64L37 61L45 58L48 50Z" fill="#38BDF8"/>
               <path d="M195 44L197 50L203 52L197 54L195 60L193 54L187 52L193 50L195 44Z" fill="#F59E0B"/>
             </svg>
 
-            <!-- RECRUITER SVG: Skyscrapers + Briefcase + Success Badge (Initially Hidden) -->
+            <!-- RECRUITER ARTWORK: Skyscrapers + Briefcase + Success Badge -->
             <svg id="art-recruiter" viewBox="0 0 240 200" fill="none" style="width:100%;height:100%;display:none;">
               <circle cx="120" cy="100" r="80" fill="#ECFDF5"/>
               <ellipse cx="120" cy="160" rx="80" ry="10" fill="#CBD5E1" opacity="0.6"/>
-              <!-- Skyscraper Buildings Background -->
               <rect x="68" y="58" width="42" height="96" rx="3" fill="#10B981"/>
               <rect x="116" y="40" width="48" height="114" rx="3" fill="#059669"/>
               <rect x="168" y="72" width="34" height="82" rx="3" fill="#34D399"/>
-              <!-- Windows grid -->
               <rect x="74" y="66" width="6" height="6" rx="1" fill="#ECFDF5" opacity="0.8"/>
               <rect x="86" y="66" width="6" height="6" rx="1" fill="#ECFDF5" opacity="0.8"/>
               <rect x="98" y="66" width="6" height="6" rx="1" fill="#ECFDF5" opacity="0.8"/>
@@ -662,36 +895,27 @@
               <rect x="138" y="66" width="8" height="8" rx="1" fill="#ECFDF5" opacity="0.9"/>
               <rect x="124" y="82" width="8" height="8" rx="1" fill="#ECFDF5" opacity="0.9"/>
               <rect x="138" y="82" width="8" height="8" rx="1" fill="#ECFDF5" opacity="0.9"/>
-              <!-- Executive Briefcase Foreground -->
               <rect x="88" y="118" width="64" height="42" rx="6" fill="#0F172A"/>
-              <!-- Briefcase handle -->
               <path d="M108 118V110C108 107 132 107 132 110V118" stroke="#0F172A" stroke-width="4" stroke-linecap="round" fill="none"/>
               <rect x="115" y="128" width="10" height="7" rx="1.5" fill="#F59E0B"/>
-              <!-- Success verified checkmark badge -->
               <circle cx="170" cy="50" r="14" fill="#059669"/>
               <path d="M165 50L169 54L176 46" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
 
-            <!-- PLACEMENT OFFICER SVG: University Campus Dome + Classical Pillars (Initially Hidden) -->
+            <!-- PLACEMENT OFFICER ARTWORK: University Dome + Pillars -->
             <svg id="art-admin" viewBox="0 0 240 200" fill="none" style="width:100%;height:100%;display:none;">
               <circle cx="120" cy="100" r="80" fill="#F5F3FF"/>
               <ellipse cx="120" cy="162" rx="80" ry="10" fill="#CBD5E1" opacity="0.6"/>
-              <!-- Campus Dome Top -->
               <path d="M88 64C88 38 152 38 152 64H88Z" fill="#6D28D9"/>
-              <!-- Dome Spire & Flag -->
               <line x1="120" y1="38" x2="120" y2="20" stroke="#4C1D95" stroke-width="2.5"/>
               <path d="M120 20L136 26L120 32Z" fill="#F59E0B"/>
-              <!-- Main Cornice & Pediment Triangle -->
               <path d="M72 82L120 62L168 82H72Z" fill="#7C3AED"/>
               <rect x="76" y="82" width="88" height="8" fill="#5B21B6"/>
-              <!-- Classical Pillars -->
               <rect x="84" y="90" width="10" height="52" fill="#DDD6FE"/>
               <rect x="104" y="90" width="10" height="52" fill="#DDD6FE"/>
               <rect x="126" y="90" width="10" height="52" fill="#DDD6FE"/>
               <rect x="146" y="90" width="10" height="52" fill="#DDD6FE"/>
-              <!-- University Grand Entrance Arch -->
               <path d="M112 142V116C112 110 128 110 128 116V142H112Z" fill="#4C1D95"/>
-              <!-- Base Plinth -->
               <rect x="68" y="142" width="104" height="12" rx="2" fill="#6D28D9"/>
             </svg>
 
@@ -703,10 +927,10 @@
           </p>
         </div>
 
-        <div><!-- Spacer for layout balance --></div>
+        <div><!-- Balance Spacer --></div>
       </div>
 
-      <!-- RIGHT COLUMN: LOGIN FORM -->
+      <!-- RIGHT COLUMN: ROLE LOGIN FORM -->
       <div class="auth-right-panel">
         
         <!-- Top Row: Brand Logo + Switch Link -->
@@ -735,7 +959,7 @@
           <p class="auth-sub-title" id="portal-subheading">Access your student account</p>
         </div>
 
-        <!-- 3-Segment Role Switcher (Exact layout from image) -->
+        <!-- 3-Segment Role Switcher -->
         <div class="role-segmented-switcher">
           <button type="button" class="role-segment-btn active" id="btn-role-student" onclick="switchLoginRole('student')">
             Student
@@ -751,7 +975,7 @@
         <!-- Login Form -->
         <form id="portal-login-form">
           
-          <!-- Email / Username Input -->
+          <!-- Email Input -->
           <div class="auth-form-group">
             <label class="auth-label" for="login-email-input" id="email-label-text">College Email / Username</label>
             <div class="auth-input-container">
@@ -764,7 +988,7 @@
             </div>
           </div>
 
-          <!-- Password Input with Forgot link -->
+          <!-- Password Input -->
           <div class="auth-form-group">
             <div class="auth-label-row">
               <label class="auth-label" for="login-pwd-input">Password</label>
@@ -777,7 +1001,7 @@
                 </svg>
               </span>
               <input type="password" id="login-pwd-input" class="auth-text-input" placeholder="Enter your password" required />
-              <button type="button" class="auth-pwd-toggle" onclick="togglePasswordVisibility('login-pwd-input', this)" title="Show/Hide Password">
+              <button type="button" class="auth-pwd-toggle" onclick="togglePasswordVisibility('login-pwd-input', this)">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
                 </svg>
@@ -785,7 +1009,7 @@
             </div>
           </div>
 
-          <!-- Primary Sign In Button -->
+          <!-- Primary Sign In CTA -->
           <button type="submit" class="btn-auth-primary" id="btn-submit-login">
             <span id="submit-btn-text">Sign in</span>
           </button>
@@ -797,7 +1021,7 @@
             <div class="auth-divider-line"></div>
           </div>
 
-          <!-- Google Sign In Button -->
+          <!-- Google Sign In -->
           <button type="button" class="btn-auth-google" onclick="handleGoogleOAuth()">
             <svg width="18" height="18" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
@@ -808,7 +1032,7 @@
             <span>Continue with Google</span>
           </button>
 
-          <!-- Fast One-Click Demo Credentials Box -->
+          <!-- Fast 1-Click Demo Logins -->
           <div class="demo-creds-strip">
             <span class="demo-creds-title">⚡ 1-Click Demo:</span>
             <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('rahul.sharma@placeonix.edu', 'student123', 'student')">🎓 Student</button>
@@ -827,14 +1051,14 @@
       </div>
 
     </div>
+
   </div>
 
-  <!-- Bottom Trust Badges Strip (Exact match to reference UI) -->
+  <!-- Bottom Trust Badges Strip -->
   <div class="trust-footer-strip">
-    
     <div class="trust-item">
       <div class="trust-icon-box">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
       </div>
@@ -846,9 +1070,8 @@
 
     <div class="trust-item">
       <div class="trust-icon-box">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-          <polyline points="16 11 18 13 22 9"/>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/>
         </svg>
       </div>
       <div>
@@ -859,8 +1082,8 @@
 
     <div class="trust-item">
       <div class="trust-icon-box">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
+          <rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/>
         </svg>
       </div>
       <div>
@@ -871,7 +1094,7 @@
 
     <div class="trust-item">
       <div class="trust-icon-box">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
           <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/>
         </svg>
       </div>
@@ -883,7 +1106,7 @@
 
     <div class="trust-item">
       <div class="trust-icon-box">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
           <path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>
         </svg>
       </div>
@@ -893,7 +1116,6 @@
       </div>
     </div>
 
-    <!-- Administrator Direct Access Button -->
     <a href="admin-dashboard.html" class="admin-quick-badge">
       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
         <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 8v8M8 12h8"/>
@@ -903,10 +1125,8 @@
         <span style="display:block;font-size:10px;color:#64748b;">For system administrators &rsaquo;</span>
       </div>
     </a>
-
   </div>
 
-  <!-- Copyright Footer -->
   <footer class="page-bottom-copyright">
     <span>&copy; 2024 Placeonix. All rights reserved.</span>
     <a href="javascript:void(0)">Privacy Policy</a> • 
@@ -934,7 +1154,6 @@
         heroTitle: 'Welcome back, Future Achiever! 🎓',
         heroDesc: 'Sign in to continue your journey and explore the best opportunities.',
         artId: 'art-student',
-        bottomPromptText: "Don't have an account?",
         bottomLinkText: 'Create account',
         signupParam: 'student',
         demoEmail: 'rahul.sharma@placeonix.edu',
@@ -949,7 +1168,6 @@
         heroTitle: 'Welcome back, Talent Finder! 💼',
         heroDesc: 'Sign in to connect with campus talent and build your future workforce.',
         artId: 'art-recruiter',
-        bottomPromptText: "Don't have an account?",
         bottomLinkText: 'Create recruiter account',
         signupParam: 'recruiter',
         demoEmail: 'recruiter.google@placeonix.com',
@@ -964,7 +1182,6 @@
         heroTitle: 'Welcome back, Placement Officer! 🏛️',
         heroDesc: 'Sign in to manage your campus recruitment ecosystem in one place.',
         artId: 'art-admin',
-        bottomPromptText: "Don't have an account?",
         bottomLinkText: 'Create account',
         signupParam: 'admin',
         demoEmail: 'admin@placeonix.edu',
@@ -972,37 +1189,42 @@
       }
     };
 
+    function openGatewayView() {
+      document.getElementById('view-gateway').style.display = 'grid';
+      document.getElementById('view-role-login').style.display = 'none';
+      document.body.className = '';
+    }
+
+    function openRoleLogin(role) {
+      document.getElementById('view-gateway').style.display = 'none';
+      document.getElementById('view-role-login').style.display = 'grid';
+      switchLoginRole(role);
+    }
+
     function switchLoginRole(role) {
       activeRole = role;
       const conf = roleConfig[role] || roleConfig.student;
 
-      // Update body theme class
       document.body.className = conf.bodyClass;
 
-      // Update Segmented Buttons
       ['student', 'recruiter', 'admin'].forEach(r => {
-        const btn = document.getElementById(`btn-role-student`);
         const b = document.getElementById(`btn-role-${r}`);
         if (b) b.classList.toggle('active', r === role);
       });
 
-      // Update Form Titles & Placeholders
       document.getElementById('portal-heading').textContent = conf.portalTitle;
       document.getElementById('portal-subheading').textContent = conf.portalSub;
       document.getElementById('email-label-text').textContent = conf.emailLabel;
       document.getElementById('login-email-input').placeholder = conf.emailPlaceholder;
 
-      // Update Hero Text
       document.getElementById('hero-title').textContent = conf.heroTitle;
       document.getElementById('hero-desc').textContent = conf.heroDesc;
 
-      // Switch Artwork
       ['art-student', 'art-recruiter', 'art-admin'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = (id === conf.artId) ? 'block' : 'none';
       });
 
-      // Update bottom signup links
       const bottomLink = document.getElementById('bottom-switch-link');
       if (bottomLink) {
         bottomLink.textContent = conf.bottomLinkText;
@@ -1033,12 +1255,12 @@
         showToast('Please enter your email address first.', 'warning');
         return;
       }
-      showToast(`Password reset link has been dispatched to ${email}`, 'success');
+      showToast(`Password reset link sent to ${email}`, 'success');
     }
 
     async function handleGoogleOAuth() {
       const conf = roleConfig[activeRole];
-      let email = (document.getElementById('login-email-input').value || '').trim();
+      let email = (document.getElementById('login-email-input')?.value || '').trim();
       if (!email) email = conf.demoEmail;
 
       showToast(`Signing in via Google (${activeRole.toUpperCase()})...`, 'info');
@@ -1051,7 +1273,6 @@
       } catch (err) {}
     }
 
-    // Submit handler
     document.getElementById('portal-login-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = (document.getElementById('login-email-input').value || '').trim();
@@ -1070,14 +1291,16 @@
       }
     });
 
-    // Check URL parameters on page load
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const role = params.get('role');
-      if (role && ['student', 'recruiter', 'admin'].includes(role)) {
-        switchLoginRole(role);
+      const view = params.get('view');
+      if (view === 'gateway') {
+        openGatewayView();
+      } else if (role && ['student', 'recruiter', 'admin'].includes(role)) {
+        openRoleLogin(role);
       } else {
-        switchLoginRole('student');
+        openRoleLogin('student');
       }
     });
   </script>
