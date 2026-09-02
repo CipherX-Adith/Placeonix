@@ -1067,7 +1067,6 @@
             <span class="demo-creds-title">⚡ 1-Click Demo:</span>
             <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('rahul.sharma@placeonix.edu', 'student123', 'student')">🎓 Student</button>
             <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('recruiter.google@placeonix.com', 'recruiter123', 'recruiter')">🏢 Recruiter</button>
-            <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('admin', 'admin123', 'admin')">🏛️ Admin</button>
           </div>
 
         </form>
@@ -1205,10 +1204,6 @@
     };
 
     function switchLoginRole(role) {
-      if (role === 'admin') {
-        showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
-        return;
-      }
       activeRole = role;
       const conf = roleConfig[role] || roleConfig.student;
 
