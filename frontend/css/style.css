@@ -598,14 +598,19 @@ img { max-width: 100%; display: block; }
 .snapshot-action.upcoming  { color: var(--warning); }
 .snapshot-action.offer     { color: var(--primary); }
 
-/* ── 10. JOB MATCH CARDS ────────────────────────────────────── */
+/* ── 10. JOB MATCH CARDS (2-ROW GRID) ────────────────────────── */
 .job-cards-scroll {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--space-4);
-  overflow-x: auto;
+  overflow-x: visible;
   padding-bottom: var(--space-2);
-  scrollbar-width: thin;
-  scrollbar-color: var(--gray-300) transparent;
+}
+
+@media (min-width: 1080px) {
+  .job-cards-scroll {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .job-card {
@@ -613,19 +618,21 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
   cursor: pointer;
   position: relative;
 }
 
 .job-card:hover {
   border-color: var(--primary);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 10px 25px -5px rgba(10, 102, 194, 0.1), 0 8px 10px -6px rgba(10, 102, 194, 0.05);
+  transform: translateY(-2px);
 }
 
 .job-card-header {
@@ -1815,27 +1822,18 @@ textarea.form-control { min-height: 90px; resize: vertical; }
     margin-top: 2px;
   }
 
-  /* Job Matches Carousel */
+  /* Job Matches */
   .job-cards-scroll {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: var(--space-3);
-    padding: 2px 2px var(--space-3);
-    margin-right: calc(-1 * var(--space-3));
-    padding-right: var(--space-3);
-    scrollbar-width: none;
-  }
-  .job-cards-scroll::-webkit-scrollbar {
-    display: none;
+    overflow-x: visible;
+    padding: 0;
   }
   .job-card {
-    width: 84vw;
-    min-width: 270px;
-    max-width: 320px;
-    scroll-snap-align: start;
-    flex-shrink: 0;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     padding: var(--space-4);
     border-radius: var(--radius-lg);
   }
