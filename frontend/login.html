@@ -1064,9 +1064,15 @@
 
           <!-- Fast 1-Click Demo Logins -->
           <div class="demo-creds-strip">
-            <span class="demo-creds-title">⚡ 1-Click Demo:</span>
-            <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('rahul.sharma@placeonix.edu', 'student123', 'student')">🎓 Student</button>
-            <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('recruiter.google@placeonix.com', 'recruiter123', 'recruiter')">🏢 Recruiter</button>
+            <span class="demo-creds-title">⚡ 1-Click Demo Logins:</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;width:100%;margin-top:2px;">
+              <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('rahul.sharma@placeonix.edu', 'student123', 'student')" title="Rahul Sharma (CSE, 8.85 CGPA)">🎓 Rahul (CSE)</button>
+              <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('sneha.reddy@placeonix.edu', 'student123', 'student')" title="Sneha Reddy (AI/DS, 9.25 CGPA)">🎓 Sneha (AI/DS)</button>
+              <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('priya.patel@placeonix.edu', 'student123', 'student')" title="Priya Patel (IT, 8.40 CGPA)">🎓 Priya (IT)</button>
+              <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('recruiter.google@placeonix.com', 'recruiter123', 'recruiter')" title="Google India Recruiter">🏢 Google</button>
+              <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('recruiter.msft@placeonix.com', 'recruiter123', 'recruiter')" title="Microsoft IDC Recruiter">🏢 Microsoft</button>
+              <button type="button" class="demo-pill-btn" onclick="fillDemoCredentials('recruiter.amazon@placeonix.com', 'recruiter123', 'recruiter')" title="Amazon AWS Recruiter">🏢 AWS</button>
+            </div>
           </div>
 
         </form>
@@ -1204,8 +1210,8 @@
     };
 
     function switchLoginRole(role) {
-      if (role === 'admin') {
-        showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
+      if (role === 'admin' || role === 'placement') {
+        showToast('Placement Cell is under construction — coming soon!', 'info');
         return;
       }
       activeRole = role;
@@ -1213,10 +1219,12 @@
 
       document.body.className = conf.bodyClass;
 
-      ['student', 'recruiter', 'admin'].forEach(r => {
+      ['student', 'recruiter'].forEach(r => {
         const b = document.getElementById(`btn-role-${r}`);
         if (b) b.classList.toggle('active', r === role);
       });
+      const admBtn = document.getElementById('btn-role-admin');
+      if (admBtn) admBtn.classList.remove('active');
 
       document.getElementById('portal-heading').textContent = conf.portalTitle;
       document.getElementById('portal-subheading').textContent = conf.portalSub;
@@ -1251,7 +1259,13 @@
     }
 
     function fillDemoCredentials(email, password, role) {
-      if (role !== 'admin') switchLoginRole(role);
+      if (role === 'admin') {
+        document.getElementById('login-email-input').value = email;
+        document.getElementById('login-pwd-input').value = password;
+        showToast('Loaded Admin credentials (Universal login through any portal).', 'info');
+        return;
+      }
+      switchLoginRole(role);
       document.getElementById('login-email-input').value = email;
       document.getElementById('login-pwd-input').value = password;
       showToast(`Loaded demo credentials for ${role.toUpperCase()}`, 'info');
@@ -1300,10 +1314,17 @@
     });
 
     window.addEventListener('DOMContentLoaded', () => {
+      // Display logout or inactivity notices
+      const notice = sessionStorage.getItem('placeonix_notice');
+      if (notice) {
+        showToast(notice, notice.includes('inactivity') || notice.includes('expired') ? 'warning' : 'info');
+        sessionStorage.removeItem('placeonix_notice');
+      }
+
       const params = new URLSearchParams(window.location.search);
       const role = params.get('role');
-      if (role === 'admin') {
-        showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
+      if (role === 'admin' || role === 'placement') {
+        showToast('Placement Cell is under construction — coming soon!', 'info');
         switchLoginRole('student');
       } else if (role && ['student', 'recruiter'].includes(role)) {
         switchLoginRole(role);

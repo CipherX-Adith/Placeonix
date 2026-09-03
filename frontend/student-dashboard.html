@@ -16,10 +16,11 @@
 
   <!-- ── SIDEBAR ─────────────────────────────────────────────── -->
   <aside class="sidebar" id="sidebar">
-    <div class="sidebar-logo">
+    <div class="sidebar-logo" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:14px 18px;min-height:72px;border-bottom:1px solid var(--gray-100);gap:6px;">
       <a href="index.html" style="display:flex;align-items:center;text-decoration:none;">
-        <img src="images/placeonix-logo-v2.png" alt="Placeonix – CONNECT • MATCH • GROW" style="height: 38px; width: auto; max-width: 175px; object-fit: contain; display: block;" />
+        <img src="images/placeonix-logo-v2.png" alt="Placeonix – CONNECT • MATCH • GROW" style="height: 32px; width: auto; max-width: 155px; object-fit: contain; display: block;" />
       </a>
+      <span class="badge" style="background:#eff6ff;color:#2563eb;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;border:1px solid #bfdbfe;letter-spacing:0.4px;text-transform:uppercase;">Student</span>
     </div>
 
     <nav class="sidebar-nav">
@@ -411,7 +412,23 @@
       <div id="page-preparation" style="display:none;">
         <div style="margin-bottom:var(--space-6);">
           <h1 class="section-title" style="font-size:var(--text-xl);">Preparation Hub</h1>
-          <p class="section-sub">Build skills, practice aptitude, and ace your interviews</p>
+          <p class="section-sub">Build skills, practice aptitude, and ace your campus placements</p>
+        </div>
+
+        <!-- Dynamic Campus Skill Readiness & Gap Analyzer -->
+        <div class="card p-5" style="margin-bottom:var(--space-6);background:linear-gradient(135deg, #f8faff 0%, #f0fdf4 100%);border:1px solid #bbf7d0;">
+          <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+            <div style="width:40px;height:40px;border-radius:var(--radius-md);background:#059669;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;">
+              📊
+            </div>
+            <div>
+              <div style="font-size:var(--text-base);font-weight:700;color:#065f46;">Campus Skill Readiness &amp; Gap Analyzer</div>
+              <div style="font-size:var(--text-xs);color:#047857;">Real-time analysis compared with all live recruiter job requirements</div>
+            </div>
+          </div>
+          <div id="prep-skill-gap-container">
+            <div class="loading-state"><div class="spinner"></div> Analyzing campus skill requirements…</div>
+          </div>
         </div>
 
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-5);">

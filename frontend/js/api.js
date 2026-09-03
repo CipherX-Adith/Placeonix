@@ -70,12 +70,37 @@ async function apiFetch(endpoint, options = {}) {
       headers,
     });
 
-    const data = await response.json();
+    let data;
+    const contentType = response.headers.get('content-type') || '';
+    if (contentType.includes('application/json')) {
+      data = await response.json();
+    } else {
+      const text = await response.text();
+      try {
+        data = JSON.parse(text);
+      } catch (parseErr) {
+        if (!response.ok) {
+          throw new Error(`Server returned error (${response.status}). Ensure the Placeonix backend is running on port 5000.`);
+        }
+        data = { message: text };
+      }
+    }
 
     if (!response.ok) {
       if (response.status === 401) {
         localStorage.removeItem('placeonix_token');
         localStorage.removeItem('placeonix_user');
+        localStorage.removeItem('placeonix_last_active');
+
+        const currentPath = window.location.pathname || '';
+        if (currentPath.includes('dashboard') && !window._redirectingToLogin) {
+          window._redirectingToLogin = true;
+          sessionStorage.setItem('placeonix_notice', 'Your session has expired. Please sign in again.');
+          showToast('Session expired. Please sign in.', 'warning');
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 800);
+        }
       }
       throw new Error(data.message || 'Something went wrong');
     }

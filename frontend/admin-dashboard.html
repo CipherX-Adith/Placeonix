@@ -16,11 +16,11 @@
 
   <!-- ── SIDEBAR ─────────────────────────────────────────────── -->
   <aside class="sidebar" id="sidebar">
-    <div class="sidebar-logo" style="display:flex;align-items:center;justify-content:space-between;">
+    <div class="sidebar-logo" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:14px 18px;min-height:72px;border-bottom:1px solid var(--gray-100);gap:6px;">
       <a href="index.html" style="display:flex;align-items:center;text-decoration:none;">
-        <img src="images/placeonix-logo-v2.png" alt="Placeonix – CONNECT • MATCH • GROW" style="height: 38px; width: auto; max-width: 165px; object-fit: contain; display: block;" />
+        <img src="images/placeonix-logo-v2.png" alt="Placeonix – CONNECT • MATCH • GROW" style="height: 32px; width: auto; max-width: 155px; object-fit: contain; display: block;" />
       </a>
-      <span class="badge" style="background:#f5f3ff;color:#6d28d9;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:6px;border:1px solid #ddd6fe;">Admin</span>
+      <span class="badge" style="background:#f5f3ff;color:#6d28d9;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;border:1px solid #ddd6fe;letter-spacing:0.4px;text-transform:uppercase;">Admin</span>
     </div>
 
     <nav class="sidebar-nav">
@@ -110,29 +110,29 @@
         </div>
 
         <div class="analytics-grid">
-          <div class="analytic-card">
+          <div class="analytic-card" onclick="Admin.switchTab('users')" style="cursor:pointer;" title="View Stakeholders Directory">
             <div class="analytic-value" id="admin-metric-students">0</div>
-            <div class="analytic-label">Registered Students</div>
+            <div class="analytic-label">Registered Students →</div>
           </div>
-          <div class="analytic-card">
+          <div class="analytic-card" onclick="Admin.switchTab('reports')" style="cursor:pointer;" title="View Placement Reports">
             <div class="analytic-value" id="admin-metric-placed" style="color:var(--success);">0</div>
-            <div class="analytic-label">Students Placed</div>
+            <div class="analytic-label">Students Placed →</div>
           </div>
-          <div class="analytic-card">
+          <div class="analytic-card" onclick="Admin.switchTab('reports')" style="cursor:pointer;" title="View Placement Statistics">
             <div class="analytic-value" id="admin-metric-placement-rate" style="color:var(--primary);">0%</div>
-            <div class="analytic-label">Placement Rate</div>
+            <div class="analytic-label">Placement Rate →</div>
           </div>
-          <div class="analytic-card">
+          <div class="analytic-card" onclick="Admin.switchTab('companies')" style="cursor:pointer;" title="Manage Hiring Partners">
             <div class="analytic-value" id="admin-metric-companies">0</div>
-            <div class="analytic-label">Partner Companies</div>
+            <div class="analytic-label">Partner Companies →</div>
           </div>
-          <div class="analytic-card">
+          <div class="analytic-card" onclick="Admin.switchTab('companies')" style="cursor:pointer;" title="Review Company Approvals">
             <div class="analytic-value" id="admin-metric-pending-verifications" style="color:var(--warning);">0</div>
-            <div class="analytic-label">Pending Approvals</div>
+            <div class="analytic-label">Pending Approvals →</div>
           </div>
-          <div class="analytic-card">
+          <div class="analytic-card" onclick="Admin.switchTab('drives')" style="cursor:pointer;" title="Manage Campus Drives">
             <div class="analytic-value" id="admin-metric-jobs">0</div>
-            <div class="analytic-label">Active Openings</div>
+            <div class="analytic-label">Campus Drives →</div>
           </div>
         </div>
 
@@ -370,27 +370,6 @@
     </form>
   </div>
 </div>
-
-  <!-- Feature Under Implementation Notice Banner / Modal -->
-  <div style="position:fixed;inset:0;background:rgba(15,23,42,0.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;">
-    <div class="card" style="max-width:480px;width:100%;text-align:center;border-radius:24px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);background:#ffffff;padding:36px 28px;border:1px solid #e2e8f0;">
-      <div style="width:68px;height:68px;border-radius:20px;background:#f5f3ff;color:#7c3aed;font-size:32px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 8px 20px rgba(124,58,237,0.15);">
-        🏛️
-      </div>
-      <h2 style="font-size:22px;font-weight:800;color:#0f172a;margin-bottom:8px;letter-spacing:-0.4px;">Placement Cell is Coming Soon</h2>
-      <p style="font-size:14px;color:#64748b;line-height:1.6;margin-bottom:24px;">
-        The institutional placement coordination, drive broadcasting, and administrative analytics module is currently under active implementation.
-      </p>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="index.html" class="btn btn-primary" style="justify-content:center;height:44px;font-weight:700;text-decoration:none;">
-          ← Back to Homepage
-        </a>
-        <a href="student-dashboard.html" class="btn btn-secondary" style="justify-content:center;height:44px;font-weight:600;text-decoration:none;">
-          🎓 Open Student Portal
-        </a>
-      </div>
-    </div>
-  </div>
 
   <div id="toast-container"></div>
 

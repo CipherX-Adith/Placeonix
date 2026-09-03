@@ -20,13 +20,13 @@
 
     <!-- ── SIDEBAR ─────────────────────────────────────────────── -->
     <aside class="sidebar" id="sidebar">
-      <div class="sidebar-logo" style="display:flex;align-items:center;justify-content:space-between;">
+      <div class="sidebar-logo" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:14px 18px;min-height:72px;border-bottom:1px solid var(--gray-100);gap:6px;">
         <a href="index.html" style="display:flex;align-items:center;text-decoration:none;">
           <img src="images/placeonix-logo-v2.png" alt="Placeonix – CONNECT • MATCH • GROW"
-            style="height: 52px; width: auto; max-width: 200px; object-fit: contain; display: block;" />
+            style="height: 32px; width: auto; max-width: 155px; object-fit: contain; display: block;" />
         </a>
         <span class="badge"
-          style="background:#ecfdf5;color:#059669;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:6px;border:1px solid #a7f3d0;">Recruiter</span>
+          style="background:#ecfdf5;color:#059669;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;border:1px solid #a7f3d0;letter-spacing:0.4px;text-transform:uppercase;">Recruiter</span>
       </div>
 
       <nav class="sidebar-nav">
@@ -158,7 +158,7 @@
               </div>
             </div>
 
-            <div class="snapshot-card" onclick="Recruiter.switchTab('jobs')">
+            <div class="snapshot-card" onclick="Recruiter.switchTab('candidates')">
               <div class="snapshot-icon amber">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round"
@@ -168,11 +168,11 @@
               <div class="snapshot-body">
                 <div class="snapshot-value" id="rec-metric-applications">0</div>
                 <div class="snapshot-label">Total Applicants</div>
-                <div class="snapshot-action upcoming">Review candidates</div>
+                <div class="snapshot-action upcoming">Find candidates →</div>
               </div>
             </div>
 
-            <div class="snapshot-card">
+            <div class="snapshot-card" onclick="Recruiter.switchTab('jobs')">
               <div class="snapshot-icon green">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round"
@@ -182,11 +182,11 @@
               <div class="snapshot-body">
                 <div class="snapshot-value" id="rec-metric-shortlisted">0</div>
                 <div class="snapshot-label">Shortlisted & Interviews</div>
-                <div class="snapshot-action update">In Progress</div>
+                <div class="snapshot-action update">View pipelines →</div>
               </div>
             </div>
 
-            <div class="snapshot-card">
+            <div class="snapshot-card" onclick="Recruiter.switchTab('jobs')">
               <div class="snapshot-icon" style="background:#f0fdf4;color:#057a55;">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round"
@@ -196,7 +196,7 @@
               <div class="snapshot-body">
                 <div class="snapshot-value" id="rec-metric-hired">0</div>
                 <div class="snapshot-label">Selected Offers</div>
-                <div class="snapshot-action update">Offers Accepted</div>
+                <div class="snapshot-action update">Offers Accepted →</div>
               </div>
             </div>
           </div>

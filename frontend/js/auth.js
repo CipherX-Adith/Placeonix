@@ -1,52 +1,126 @@
-// Authentication Management for Placeonix
+// Authentication Management for Placeonix (Strict Guard, Inactivity Auto-Logout & Session Lifecycle)
+
+const INACTIVITY_TIMEOUT_MS = 15 * 60 * 1000; // 15 minutes of inactivity
 
 const Auth = {
+  _inactivityTimer: null,
+  _lastRecordTime: 0,
+
   getToken() {
     return localStorage.getItem('placeonix_token');
   },
 
   getUser() {
     const userStr = localStorage.getItem('placeonix_user');
-    return userStr ? JSON.parse(userStr) : null;
+    try {
+      return userStr ? JSON.parse(userStr) : null;
+    } catch (e) {
+      return null;
+    }
   },
 
   saveSession(token, user) {
     localStorage.setItem('placeonix_token', token);
     localStorage.setItem('placeonix_user', JSON.stringify(user));
+    localStorage.setItem('placeonix_last_active', Date.now().toString());
   },
 
   clearSession() {
     localStorage.removeItem('placeonix_token');
     localStorage.removeItem('placeonix_user');
+    localStorage.removeItem('placeonix_last_active');
+  },
+
+  recordActivity() {
+    const now = Date.now();
+    if (now - this._lastRecordTime > 5000) {
+      this._lastRecordTime = now;
+      if (this.isAuthenticated()) {
+        localStorage.setItem('placeonix_last_active', now.toString());
+      }
+    }
+  },
+
+  isInactive() {
+    const lastActiveStr = localStorage.getItem('placeonix_last_active');
+    if (!lastActiveStr) return false;
+    const lastActive = parseInt(lastActiveStr, 10);
+    if (isNaN(lastActive) || lastActive <= 0) return false;
+    return (Date.now() - lastActive) > INACTIVITY_TIMEOUT_MS;
   },
 
   isAuthenticated() {
-    return Boolean(this.getToken() && this.getUser());
+    const token = this.getToken();
+    const user = this.getUser();
+    return Boolean(token && user && token !== 'demo_token');
   },
 
-  // Check authentication & enable direct access without forced login redirection
+  // Check authentication & strictly protect dashboard routes
   checkAuth(expectedRole = null) {
-    let user = this.getUser();
-    let token = this.getToken();
+    const token = this.getToken();
+    const user = this.getUser();
 
-    if (!user) {
-      // Fallback user session so pages and dashboards can be viewed and tested directly
-      const defaultRole = expectedRole || 'student';
-      const demoUsers = {
-        student: { id: 'demo-student', name: 'Rahul Sharma', email: 'rahul.sharma@placeonix.edu', role: 'student', isEmailVerified: true },
-        recruiter: { id: 'demo-recruiter', name: 'Sarah Jenkins', email: 'recruiter.google@placeonix.com', role: 'recruiter', isEmailVerified: true },
-        admin: { id: 'demo-admin', name: 'Dr. Placement Officer', email: 'admin@placeonix.edu', role: 'admin', isEmailVerified: true },
-      };
-      user = demoUsers[defaultRole] || demoUsers.student;
-      this.saveSession(token || 'demo_token', user);
+    // 1. If not logged in or has invalid demo token, redirect to login
+    if (!token || !user || token === 'demo_token') {
+      this.clearSession();
+      sessionStorage.setItem('placeonix_notice', 'Please sign in to access your dashboard.');
+      window.location.replace('login.html');
+      return false;
     }
 
-    // Validate active session in background if a valid token exists without redirecting
-    if (token && token !== 'demo_token') {
-      this.validateSession().catch(() => {});
+    // 2. Check for session inactivity timeout
+    if (this.isInactive()) {
+      this.clearSession();
+      sessionStorage.setItem('placeonix_notice', 'Your session expired due to inactivity. Please sign in again.');
+      window.location.replace('login.html');
+      return false;
     }
+
+    // 3. Verify user role match
+    if (expectedRole && user.role !== expectedRole) {
+      if (user.role === 'student') window.location.replace('student-dashboard.html');
+      else if (user.role === 'recruiter') window.location.replace('recruiter-dashboard.html');
+      else if (user.role === 'admin') window.location.replace('admin-dashboard.html');
+      else window.location.replace('login.html');
+      return false;
+    }
+
+    // 4. Update activity timestamp & activate inactivity tracking
+    this.recordActivity();
+    this.initInactivityTracker();
+
+    // 5. Validate active session in background
+    this.validateSession().catch(() => {});
 
     return true;
+  },
+
+  initInactivityTracker() {
+    if (this._inactivityTimer) return;
+
+    const activityEvents = ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll'];
+    const onUserActivity = () => this.recordActivity();
+
+    activityEvents.forEach((evt) => {
+      window.addEventListener(evt, onUserActivity, { passive: true });
+    });
+
+    // Check every 15 seconds for inactivity expiration
+    this._inactivityTimer = setInterval(() => {
+      if (!this.isAuthenticated()) {
+        clearInterval(this._inactivityTimer);
+        this._inactivityTimer = null;
+        return;
+      }
+      if (this.isInactive()) {
+        clearInterval(this._inactivityTimer);
+        this._inactivityTimer = null;
+        this.logout({
+          notice: 'Your session expired due to inactivity. Please sign in again.',
+          redirect: 'login.html',
+        });
+      }
+    }, 15000);
   },
 
   async validateSession() {
@@ -57,7 +131,6 @@ const Auth = {
       }
     } catch (err) {
       console.warn('Session verification notice:', err);
-      // Forced redirection removed
     }
   },
 
@@ -83,7 +156,7 @@ const Auth = {
           } else {
             window.location.href = 'index.html';
           }
-        }, 600);
+        }, 500);
       }
       return res;
     } catch (err) {
@@ -168,7 +241,7 @@ const Auth = {
           } else {
             window.location.href = 'index.html';
           }
-        }, 700);
+        }, 500);
       }
       return res;
     } catch (err) {
@@ -177,12 +250,18 @@ const Auth = {
     }
   },
 
-  logout() {
+  logout(options = {}) {
     this.clearSession();
-    showToast('Logged out successfully', 'info');
+    if (this._inactivityTimer) {
+      clearInterval(this._inactivityTimer);
+      this._inactivityTimer = null;
+    }
+    const notice = options.notice || 'You have been signed out successfully.';
+    sessionStorage.setItem('placeonix_notice', notice);
+    showToast(notice, 'info');
     setTimeout(() => {
-      window.location.href = 'index.html';
-    }, 400);
+      window.location.href = options.redirect || 'login.html';
+    }, 300);
   },
 
   updateHeaderUI() {

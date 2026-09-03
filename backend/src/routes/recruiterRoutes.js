@@ -9,6 +9,7 @@ const {
   updateApplicationStatus,
   toggleJobStatus,
   getDashboardSummary,
+  getCandidates,
 } = require('../controllers/recruiterController');
 const { protect, authorize } = require('../middleware/auth');
 
@@ -24,5 +25,6 @@ router.get('/jobs/:jobId/applicants', getJobApplicants);
 router.put('/jobs/:jobId/status', toggleJobStatus);
 router.put('/applications/:applicationId/status', updateApplicationStatus);
 router.get('/dashboard-summary', getDashboardSummary);
+router.get('/candidates', getCandidates);
 
 module.exports = router;

@@ -791,7 +791,7 @@
     <!-- Right Action Pill Buttons -->
     <div class="lx-nav-actions">
       <a href="signup.html" class="lx-btn-join-nav" style="display:inline-flex;align-items:center;text-decoration:none;">Join now</a>
-      <a href="login.html" class="lx-btn-signin-nav" style="display:inline-flex;align-items:center;text-decoration:none;">Sign in</a>
+      <a href="login.html" class="lx-btn-signin-nav" style="display:inline-flex;align-items:center;text-decoration:none;">Log in</a>
       <button class="lx-hamburger" id="hamburger-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
         <span></span><span></span><span></span>
       </button>
@@ -950,9 +950,9 @@
         <div>
           <div class="lx-card-icon" style="background:#f5f3ff; color:#7c3aed;">🏛️</div>
           <h3 class="lx-card-title">Placement Cell</h3>
-          <p class="lx-card-desc">Campus placement coordination and institutional administration module is currently under implementation.</p>
+          <p class="lx-card-desc">Institutional placement drive management and coordination portal is currently under construction.</p>
         </div>
-        <button class="lx-card-btn" onclick="event.stopPropagation(); showPlacementComingSoon()">Coming soon →</button>
+        <button class="lx-card-btn" onclick="event.stopPropagation(); showPlacementComingSoon()">Under Construction (Coming soon) →</button>
       </div>
 
     </div>
@@ -1179,19 +1179,22 @@
     let mobileMenuOpen = false;
 
     function showPlacementComingSoon() {
-      showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
+      showToast('Placement Cell is under construction — coming soon!', 'info');
     }
 
     function setHeroRole(role) {
+      if (role === 'admin' || role === 'placement') {
+        showPlacementComingSoon();
+        return;
+      }
       currentAuthRole = role;
-      ['student', 'recruiter', 'admin'].forEach(r => {
+      ['student', 'recruiter'].forEach(r => {
         const chip = document.getElementById(`chip-${r}`);
         if (chip) chip.classList.toggle('active', r === role);
       });
       const gText = document.getElementById('hero-google-text');
       if (gText) {
         if (role === 'recruiter') gText.textContent = 'Continue with Google (Recruiter)';
-        else if (role === 'admin') gText.textContent = 'Continue with Google (Placement Officer)';
         else gText.textContent = 'Continue with Google';
       }
     }
@@ -1209,7 +1212,7 @@
     }
 
     function openAuthModal(mode = 'register', role = 'student') {
-      if (role === 'admin') {
+      if (role === 'admin' || role === 'placement') {
         showPlacementComingSoon();
         return;
       }
@@ -1225,17 +1228,19 @@
     }
 
     function selectModalRole(role) {
-      if (role === 'admin') {
+      if (role === 'admin' || role === 'placement') {
         showPlacementComingSoon();
         return;
       }
       currentAuthRole = role;
       setHeroRole(role);
       document.getElementById('modal-auth-role').value = role;
-      ['student', 'recruiter', 'admin'].forEach(r => {
+      ['student', 'recruiter'].forEach(r => {
         const btn = document.getElementById(`modal-role-${r}`);
         if (btn) btn.classList.toggle('active', r === role);
       });
+      const admBtn = document.getElementById('modal-role-admin');
+      if (admBtn) admBtn.classList.remove('active');
       updateModalRoleFields();
     }
 
@@ -1404,13 +1409,9 @@
     });
 
     window.addEventListener('DOMContentLoaded', () => {
-      if (typeof Auth !== 'undefined' && Auth.isAuthenticated()) {
-        const user = Auth.getUser();
-        if (user) {
-          if (user.role === 'student') window.location.href = 'student-dashboard.html';
-          else if (user.role === 'recruiter') window.location.href = 'recruiter-dashboard.html';
-          else if (user.role === 'admin') window.location.href = 'admin-dashboard.html';
-        }
+      // Check if session has timed out on landing page
+      if (typeof Auth !== 'undefined' && Auth.isAuthenticated() && Auth.isInactive()) {
+        Auth.clearSession();
       }
     });
   </script>

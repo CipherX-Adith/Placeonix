@@ -4,12 +4,12 @@
  */
 
 /* ── AUTH GUARD ─────────────────────────────────────────────── */
-if (window.Auth) {
-  Auth.checkAuth('student');
+if (window.Auth && !Auth.checkAuth('student')) {
+  // Redirection handled by checkAuth
 }
 
-const user = JSON.parse(localStorage.getItem('placeonix_user') || 'null');
-const token = localStorage.getItem('placeonix_token');
+let user = Auth ? Auth.getUser() : JSON.parse(localStorage.getItem('placeonix_user') || 'null');
+let token = Auth ? Auth.getToken() : localStorage.getItem('placeonix_token');
 
 /* ── STATE ──────────────────────────────────────────────────── */
 let allJobs = [];
@@ -83,6 +83,7 @@ function formatDate(dateStr) {
 
 function toast(msg, type = 'success') {
   const container = $('toast-container');
+  if (!container) return;
   const el = document.createElement('div');
   el.className = `toast toast-${type}`;
   el.innerHTML = `<span class="toast-icon"></span><span>${msg}</span>`;
@@ -110,8 +111,10 @@ function navigateTo(page) {
 
   activePage = page;
 
-  if (page === 'discover' && allJobs.length === 0) loadDiscover();
+  if (page === 'home') loadHomeDashboard();
+  if (page === 'discover') loadDiscover();
   if (page === 'applications') loadApplications();
+  if (page === 'preparation') loadPreparation();
   if (page === 'profile') loadProfile();
 
   window.scrollTo(0, 0);
@@ -119,6 +122,10 @@ function navigateTo(page) {
 
 /* ── INIT ───────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  if (window.Auth && !Auth.checkAuth('student')) return;
+  user = Auth.getUser();
+  token = Auth.getToken();
+
   setupNav();
   loadHomeDashboard();
   initNotifications();
@@ -135,24 +142,38 @@ function setupNav() {
     });
   });
 
-  $('logout-btn').addEventListener('click', (e) => {
+  $('logout-btn')?.addEventListener('click', (e) => {
     e.preventDefault();
-    localStorage.removeItem('placeonix_user');
-    localStorage.removeItem('placeonix_token');
-    window.location.href = 'index.html';
+    if (window.Auth) {
+      Auth.logout();
+    } else {
+      localStorage.clear();
+      window.location.href = 'login.html';
+    }
+  });
+
+  $('profile-card-logout-btn')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (window.Auth) {
+      Auth.logout();
+    } else {
+      localStorage.clear();
+      window.location.href = 'login.html';
+    }
   });
 }
 
 /* ── HOME DASHBOARD ─────────────────────────────────────────── */
 async function loadHomeDashboard() {
+  const currentUser = (window.Auth && Auth.getUser()) || user || {};
   // Greeting
-  const name = user.name ? user.name.split(' ')[0] : 'there';
-  $('greeting-text').textContent = `${greeting()}, ${name}! 👋`;
-  $('greeting-sub').textContent = `Here's your placement snapshot for ${new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' })}.`;
+  const name = currentUser.name ? currentUser.name.split(' ')[0] : 'there';
+  if ($('greeting-text')) $('greeting-text').textContent = `${greeting()}, ${name}! 👋`;
+  if ($('greeting-sub')) $('greeting-sub').textContent = `Here's your placement snapshot for ${new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' })}.`;
 
   // Sidebar user
-  $('sidebar-avatar').textContent = (user.name || 'S')[0].toUpperCase();
-  $('sidebar-name').textContent = user.name || 'Student';
+  if ($('sidebar-avatar')) $('sidebar-avatar').textContent = (currentUser.name || 'S')[0].toUpperCase();
+  if ($('sidebar-name')) $('sidebar-name').textContent = currentUser.name || 'Student';
 
   const [dashResult, jobsResult, drivesResult, appsResult] = await Promise.allSettled([
     API.get('/student/dashboard-summary'),
@@ -847,11 +868,15 @@ function renderAppJourneySummary(apps) {
   stepEls.forEach((el, i) => {
     el.classList.remove('done', 'active');
     if (i < furthest) el.classList.add('done');
-    else if (i === furthest) el.classList.add('active');
+    else if (i === furthest && counts[steps[i]] > 0) el.classList.add('active');
   });
   circles.forEach((id, i) => {
     const el = $(id);
-    if (el) el.textContent = i < furthest ? '✓' : counts[steps[i]] || '○';
+    if (el) {
+      if (i < furthest) el.textContent = '✓';
+      else if (counts[steps[i]] > 0) el.textContent = counts[steps[i]];
+      else el.textContent = '○';
+    }
   });
 }
 
@@ -885,6 +910,14 @@ function renderApplicationsList(apps, filterStatus) {
     const isRejected = app.status === 'rejected';
     const isWithdrawn = app.status === 'withdrawn';
 
+    const rawCtc = job.packageCtc || '—';
+    let displayCtc = rawCtc;
+    if (!rawCtc.toString().toLowerCase().includes('lpa') && !rawCtc.toString().includes('₹') && !rawCtc.toString().toLowerCase().includes('/mo')) {
+      displayCtc = `₹${rawCtc} LPA`;
+    } else if (!rawCtc.toString().startsWith('₹')) {
+      displayCtc = `₹${rawCtc}`;
+    }
+
     return `
       <div class="card p-5" style="margin-bottom:var(--space-4);">
         <!-- Header -->
@@ -893,24 +926,24 @@ function renderApplicationsList(apps, filterStatus) {
           <div style="flex:1;min-width:0;">
             <div style="font-size:var(--text-base);font-weight:700;">${job.title || '—'}</div>
             <div style="font-size:var(--text-sm);color:var(--gray-500);">${company.name || '—'} · ${company.location || job.location || '—'}</div>
-            <div style="font-size:var(--text-sm);font-weight:600;margin-top:2px;">₹${job.packageCtc || '—'} LPA</div>
+            <div style="font-size:var(--text-sm);font-weight:600;margin-top:2px;">${displayCtc}</div>
           </div>
           <span class="status-badge ${statusClass(app.status)}">${statusLabel(app.status)}</span>
         </div>
 
         <!-- Timeline -->
         ${!isRejected && !isWithdrawn ? `
-        <div style="display:flex;align-items:center;gap:0;overflow-x:auto;padding-bottom:4px;margin-bottom:var(--space-4);">
+        <div class="app-timeline-tracker">
           ${stages.map((stage, i) => {
-            const isDone   = i < currentIdx || (i === currentIdx && !isRejected);
+            const isDone   = i < currentIdx;
             const isActive = i === currentIdx;
             const hasDate  = stage.date;
+            const stepClass = isDone ? 'done' : isActive ? 'active' : '';
             return `
-              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:60px;position:relative;">
-                ${i > 0 ? `<div style="position:absolute;left:-50%;top:11px;width:100%;height:2px;background:${i <= currentIdx ? 'var(--primary)' : 'var(--gray-200)'};z-index:0;"></div>` : ''}
-                <div style="width:22px;height:22px;border-radius:50%;border:2px solid ${isDone ? 'var(--primary)' : 'var(--gray-300)'};background:${isDone ? 'var(--primary)' : 'var(--gray-0)'};display:flex;align-items:center;justify-content:center;position:relative;z-index:1;font-size:10px;font-weight:700;color:${isDone ? 'white' : 'var(--gray-400)'};">${isDone && !isActive ? '✓' : isActive ? '●' : '○'}</div>
-                <div style="font-size:10px;font-weight:${isActive ? '700' : '500'};color:${isActive ? 'var(--gray-900)' : 'var(--gray-400)'};text-align:center;white-space:nowrap;">${stage.label}</div>
-                ${hasDate ? `<div style="font-size:9px;color:var(--gray-400);text-align:center;">${formatDate(hasDate)}</div>` : ''}
+              <div class="app-timeline-step ${stepClass}">
+                <div class="app-timeline-circle">${isDone ? '✓' : isActive ? '●' : '○'}</div>
+                <div class="app-timeline-label">${stage.label}</div>
+                ${hasDate ? `<div class="app-timeline-date">${formatDate(hasDate)}</div>` : ''}
               </div>`;
           }).join('')}
         </div>` : `
@@ -960,6 +993,78 @@ async function withdrawApp(appId, btn) {
     toast(e.message, 'danger');
     btn.disabled = false;
     btn.textContent = 'Withdraw';
+  }
+}
+
+/* ── PREPARATION HUB & SKILL GAP ANALYZER ──────────────────── */
+async function loadPreparation() {
+  if (allJobs.length === 0) {
+    try {
+      const res = await API.get('/student/jobs');
+      if (res.success) allJobs = res.jobs || [];
+    } catch (e) {}
+  }
+
+  // Get student profile
+  let mySkills = [];
+  if (cachedProfileData && cachedProfileData.profile) {
+    mySkills = cachedProfileData.profile.skills || [];
+  } else {
+    try {
+      const pRes = await API.get('/student/profile');
+      if (pRes.success && pRes.profile) {
+        cachedProfileData = { profile: pRes.profile, user: pRes.profile.user };
+        mySkills = pRes.profile.skills || [];
+      }
+    } catch (e) {}
+  }
+
+  const mySkillsLower = (mySkills || []).map((s) => s.toLowerCase().trim());
+
+  // Aggregate in-demand skills from all jobs
+  const skillFreq = {};
+  allJobs.forEach((j) => {
+    (j.skillsRequired || []).forEach((s) => {
+      const norm = s.trim();
+      skillFreq[norm] = (skillFreq[norm] || 0) + 1;
+    });
+  });
+
+  const sortedSkills = Object.entries(skillFreq).sort((a, b) => b[1] - a[1]);
+  const matched = sortedSkills.filter(([s]) =>
+    mySkillsLower.some((ms) => ms.includes(s.toLowerCase()) || s.toLowerCase().includes(ms))
+  );
+  const missing = sortedSkills.filter(([s]) =>
+    !mySkillsLower.some((ms) => ms.includes(s.toLowerCase()) || s.toLowerCase().includes(ms))
+  );
+
+  const prepSkillsContainer = $('prep-skill-gap-container');
+  if (prepSkillsContainer) {
+    const readinessScore = sortedSkills.length > 0 ? Math.min(100, Math.round((matched.length / sortedSkills.length) * 100)) : 0;
+
+    prepSkillsContainer.innerHTML = `
+      <div style="margin-bottom:var(--space-4);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <span style="font-size:var(--text-sm);font-weight:700;color:var(--gray-900);">Campus In-Demand Skill Match</span>
+          <span style="font-size:var(--text-sm);font-weight:800;color:var(--primary);">${readinessScore}% Match</span>
+        </div>
+        <div class="progress-track" style="height:8px;background:var(--gray-200);border-radius:999px;">
+          <div class="progress-fill" style="width:${readinessScore}%;background:linear-gradient(90deg, #2563eb, #10b981);"></div>
+        </div>
+      </div>
+      <div style="margin-bottom:var(--space-4);">
+        <div style="font-size:var(--text-xs);font-weight:700;color:var(--success);margin-bottom:6px;">✓ IN-DEMAND SKILLS YOU HAVE (${matched.length})</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          ${matched.length ? matched.slice(0, 10).map(([s, count]) => `<span class="skill-chip" style="background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;font-weight:600;">✓ ${s} (${count} jobs)</span>`).join('') : '<span style="font-size:var(--text-xs);color:var(--gray-500);">Add skills to your profile to match recruiter requirements.</span>'}
+        </div>
+      </div>
+      <div>
+        <div style="font-size:var(--text-xs);font-weight:700;color:#b45309;margin-bottom:6px;">⚡ TOP RECOMMENDED SKILLS TO LEARN (${missing.length})</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          ${missing.length ? missing.slice(0, 10).map(([s, count]) => `<span class="skill-chip" style="background:#fffbeb;color:#b45309;border:1px solid #fde68a;font-weight:600;">+ ${s} (${count} jobs)</span>`).join('') : '<span style="font-size:var(--text-xs);color:var(--success);">Great job! You have all the primary campus skills.</span>'}
+        </div>
+      </div>
+    `;
   }
 }
 

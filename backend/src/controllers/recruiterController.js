@@ -1,3 +1,5 @@
+const User = require('../models/User');
+const StudentProfile = require('../models/StudentProfile');
 const RecruiterProfile = require('../models/RecruiterProfile');
 const Company = require('../models/Company');
 const Job = require('../models/Job');
@@ -424,6 +426,53 @@ exports.getDashboardSummary = async (req, res, next) => {
         isCompanyVerified: profile?.company?.verifiedStatus === 'verified',
       },
       profile,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// @desc    Get candidates / student talent directory for recruiters
+// @route   GET /api/recruiter/candidates
+// @access  Private (Recruiter)
+exports.getCandidates = async (req, res, next) => {
+  try {
+    const { branch, minCgpa, skill } = req.query;
+
+    let profileFilter = {};
+    if (branch) profileFilter.branch = branch;
+    if (minCgpa) profileFilter.cgpa = { $gte: Number(minCgpa) };
+    if (skill) profileFilter.skills = { $regex: new RegExp(skill, 'i') };
+
+    const studentProfiles = await StudentProfile.find(profileFilter)
+      .populate('user', 'name email role isActive')
+      .sort({ cgpa: -1 });
+
+    const candidates = studentProfiles
+      .filter((p) => p.user && p.user.isActive)
+      .map((p) => ({
+        _id: p.user._id,
+        id: p.user._id,
+        name: p.user.name,
+        email: p.user.email,
+        role: p.user.role,
+        studentProfile: {
+          _id: p._id,
+          rollNo: p.rollNo || '',
+          branch: p.branch || 'Computer Science and Engineering',
+          college: p.college || '',
+          passingYear: p.passingYear || 2026,
+          cgpa: p.cgpa || 0,
+          skills: p.skills || [],
+          backlogs: p.backlogs || 0,
+          resumeUrl: p.resumeUrl || '',
+          bio: p.bio || '',
+        },
+      }));
+
+    res.status(200).json({
+      success: true,
+      candidates,
     });
   } catch (error) {
     next(error);

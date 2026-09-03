@@ -165,7 +165,11 @@ const Recruiter = {
 
     // Candidate search filters
     ['candidate-search-skills', 'candidate-search-branch', 'candidate-search-min-cgpa'].forEach((id) => {
-      document.getElementById(id)?.addEventListener('input', () => this.filterCandidates());
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', () => this.filterCandidates());
+        el.addEventListener('change', () => this.filterCandidates());
+      }
     });
   },
 
@@ -604,15 +608,20 @@ const Recruiter = {
   allCandidates: [],
   async loadCandidates() {
     const list = document.getElementById('candidates-directory-list');
+    if (!list) return;
     list.innerHTML = '<div class="loading-state" style="grid-column:1/-1;"><div class="spinner"></div></div>';
     try {
-      const res = await apiFetch('/admin/users?role=student');
-      if (res.success && res.users) {
-        this.allCandidates = res.users;
+      const res = await apiFetch('/recruiter/candidates');
+      if (res.success && Array.isArray(res.candidates)) {
+        this.allCandidates = res.candidates;
+        this.filterCandidates();
+      } else {
+        this.allCandidates = [];
         this.filterCandidates();
       }
     } catch (e) {
-      list.innerHTML = `<div style="grid-column:1/-1;color:var(--gray-400);text-align:center;">Could not load student candidates.</div>`;
+      console.error('Error fetching candidates:', e);
+      list.innerHTML = `<div style="grid-column:1/-1;color:var(--gray-400);text-align:center;padding:var(--space-8);">Could not load student candidates.</div>`;
     }
   },
 

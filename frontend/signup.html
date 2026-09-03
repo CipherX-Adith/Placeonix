@@ -1169,8 +1169,8 @@
     };
 
     function switchSignupRole(role) {
-      if (role === 'admin') {
-        showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
+      if (role === 'admin' || role === 'placement') {
+        showToast('Placement Cell registration is under construction — coming soon!', 'info');
         return;
       }
       currentSignupRole = role;
@@ -1178,10 +1178,12 @@
 
       document.body.className = conf.bodyClass;
 
-      ['student', 'recruiter', 'admin'].forEach(r => {
+      ['student', 'recruiter'].forEach(r => {
         const b = document.getElementById(`btn-role-${r}`);
         if (b) b.classList.toggle('active', r === role);
       });
+      const admBtn = document.getElementById('btn-role-admin');
+      if (admBtn) admBtn.classList.remove('active');
 
       document.getElementById('signup-heading').textContent = conf.portalTitle;
       document.getElementById('signup-subheading').textContent = conf.portalSub;
@@ -1287,8 +1289,8 @@
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const role = params.get('role');
-      if (role === 'admin') {
-        showToast('Placement Cell is coming soon — this feature is under implementation.', 'info');
+      if (role === 'admin' || role === 'placement') {
+        showToast('Placement Cell registration is under construction — coming soon!', 'info');
         switchSignupRole('student');
       } else if (role && ['student', 'recruiter'].includes(role)) {
         switchSignupRole(role);

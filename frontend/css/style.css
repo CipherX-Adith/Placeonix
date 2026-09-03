@@ -151,11 +151,13 @@ img { max-width: 100%; display: block; }
 
 .sidebar-logo {
   display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: 6px var(--space-5);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px var(--space-5);
   border-bottom: 1px solid var(--gray-100);
-  height: 60px;
+  min-height: 72px;
 }
 
 .logo-mark {
@@ -2968,4 +2970,202 @@ textarea.form-control { min-height: 90px; resize: vertical; }
 .px-trust-sub {
   font-size: 11.5px;
   color: #64748b;
+}
+
+/* ── APPLICATION JOURNEY & TIMELINE TRACKERS ───────────────── */
+
+/* 1. Top Summary Journey Tracker Bar */
+.journey-mini {
+  background: var(--gray-0);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px 20px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-6);
+  position: relative;
+}
+
+.journey-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.journey-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.journey-step:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: -50%;
+  width: 100%;
+  height: 3px;
+  background: var(--gray-200);
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.journey-step.done:not(:first-child)::before,
+.journey-step.active:not(:first-child)::before {
+  background: var(--primary);
+}
+
+.journey-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gray-0);
+  border: 2px solid var(--gray-300);
+  color: var(--gray-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 0 3px var(--gray-0);
+}
+
+.journey-step.done .journey-circle {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.journey-step.active .journey-circle {
+  background: var(--gray-0);
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.18);
+  font-weight: 800;
+}
+
+.journey-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 2px;
+  white-space: nowrap;
+}
+
+.journey-step.active .journey-label {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.journey-count {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--gray-500);
+}
+
+.journey-step.done .journey-count,
+.journey-step.active .journey-count {
+  color: var(--gray-900);
+}
+
+/* 2. Per-Application Card Timeline Stepper */
+.app-timeline-tracker {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  padding: 14px 12px 10px;
+  margin-bottom: var(--space-4);
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  border: 1px solid #e2e8f0;
+}
+
+.app-timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.app-timeline-step:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: #cbd5e1;
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.app-timeline-step.done:not(:first-child)::before,
+.app-timeline-step.active:not(:first-child)::before {
+  background: var(--primary);
+}
+
+.app-timeline-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 6px;
+  box-shadow: 0 0 0 3px #f8fafc;
+  transition: all 0.2s ease;
+}
+
+.app-timeline-step.done .app-timeline-circle {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.app-timeline-step.active .app-timeline-circle {
+  background: #ffffff;
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+.app-timeline-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.app-timeline-step.active .app-timeline-label {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.app-timeline-step.done .app-timeline-label {
+  color: #334155;
+  font-weight: 600;
+}
+
+.app-timeline-date {
+  font-size: 9.5px;
+  color: #64748b;
+  margin-top: 3px;
+  white-space: nowrap;
 }
